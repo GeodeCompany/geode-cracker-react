@@ -29,3 +29,48 @@
 body {
   background-color: var(--background-color);
 }
+
+.button{
+  position: relative;
+
+  color: var(--naturalis-green-color);
+  font-size: 1.8rem;
+  text-align: center;
+
+  border: none;
+  border-radius: 0.4rem;
+  background-color: var(--white-color);
+}
+
+.button:hover{
+  cursor: pointer;
+}
+
+.button > img{
+  position: absolute;
+  right: 1.4rem;
+}
+
+.button:disabled{
+  background-color: transparent;
+}
+
+.button--green{
+  color: var(--white-color);
+  background-color: var(--naturalis-green-color);
+}
+
+.button--red{
+  color: var(--white-color);
+  background-color: var(--naturalis-red-color);
+}
+
+.button--green:disabled{
+  color: var(--inactive-green-color);
+  border: solid .2rem var(--inactive-green-color);
+}
+
+.button--red:disabled{
+  color: var(--inactive-red-color);
+  border: solid .2rem var(--inactive-red-color);
+}
