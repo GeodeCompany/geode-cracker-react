@@ -8,7 +8,7 @@ class BannerBottom extends React.Component{
         return(
           <section class="banner banner--bottom">
             <figure class="banner__figure">
-              <img  class="banner__figure__image" src={BannerImg} alt="Rocky banner on the bottom of the page" />
+              <img class="banner__figure__image" src={BannerImg} alt="Rocky banner on the bottom of the page" />
             </figure>
           </section>
         )
