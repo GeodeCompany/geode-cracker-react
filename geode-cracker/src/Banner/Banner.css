@@ -1,0 +1,14 @@
+.bannerTopImage, .bannerBottomImage{
+  position: sticky;
+  z-index: 2;
+  width: 100vw;
+  max-height: 20rem;
+}
+
+.bannerTopImage{
+  top: 0;
+}
+
+.bannerBottomImage{
+  bottom: 0;
+}
