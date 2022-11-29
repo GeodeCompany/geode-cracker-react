@@ -55,6 +55,18 @@ body {
   background-color: transparent;
 }
 
+.button--inactive{
+  position: relative;
+
+  color: var(--inactive-green-color);
+  font-size: 1.8rem;
+  text-align: center;
+
+  border: solid .2rem var(--inactive-green-color);
+  border-radius: 0.4rem;
+  background-color: transparent;
+}
+
 .button--green{
   color: var(--white-color);
   background-color: var(--naturalis-green-color);
@@ -65,12 +77,14 @@ body {
   background-color: var(--naturalis-red-color);
 }
 
-.button--green:disabled{
+.button--green:disabled, .button--green--inactive{
+  background-color: transparent;
   color: var(--inactive-green-color);
   border: solid .2rem var(--inactive-green-color);
 }
 
-.button--red:disabled{
+.button--red:disabled, .button--red--inactive{
+  background-color: transparent;
   color: var(--inactive-red-color);
   border: solid .2rem var(--inactive-red-color);
 }
