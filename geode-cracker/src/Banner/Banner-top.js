@@ -7,7 +7,11 @@ import BannerImg from "./Images/BannerTop.png";
 class BannerTop extends React.Component{
     render(){
         return(
-            <img src={BannerImg} alt="Rocky banner on the top of the page" class="bannerTopImage"/>
+          <section class="banner banner--top">
+            <figure class="banner__figure">
+              <img  class="banner__figure__image" src={BannerImg} alt="Rocky banner on the top of the page" />
+            </figure>
+          </section>
         )
     }
 }

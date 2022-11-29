@@ -20,7 +20,6 @@ function App() {
           <Route path="*" element={<h1>Fallback 404</h1>} />
         </Route>
       </Routes>
-      <BannerBottom />
     </Router>
   );
 }
