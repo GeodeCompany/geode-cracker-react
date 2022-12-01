@@ -1,0 +1,86 @@
+.mascot{
+  min-width: 30rem;
+  max-width: 38rem;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.mascot__figure{
+  margin-bottom: 3rem;
+}
+
+.mascot__figure__image{
+  width: 100%;
+  display: block;
+  margin: 0 auto;
+}
+
+.mascot__dialogue{
+  position: relative;
+  background-color: var(--naturalis-green-color);
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.mascot__dialogue__arrowContainer{
+  position: relative;
+  top: -2.5rem;
+}
+
+.mascot__dialogue__arrowContainer__arrow--up{
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 0;
+  border-left: 1.5rem solid transparent;
+  border-right: 1.5rem solid transparent;
+  border-bottom: 1.5rem solid var(--naturalis-green-color);
+}
+
+.mascot__dialogue__text{
+  font-size: 2rem;
+  color: var(--white-color);
+}
+
+.mascot__dialogue__text--choice{
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.mascot__dialogue__text--next{
+  width: 80%;
+  margin-bottom: 0;
+}
+
+.mascot__dialogue__button--next{
+  margin: auto;
+  position: absolute;
+  top: 0; bottom: 0; right: 2rem;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 5rem;
+  font-size: 3rem;
+}
+
+.mascot__dialogue__button__choice{
+  width: 45%;
+  padding: .5rem;
+}
+
+.mascot__dialogue__button__choice--left{
+  float: left;
+}
+
+.mascot__dialogue__button__choice--left{
+  float: right;
+}
+
+.mascot__dialogue--false{
+  display: none;
+}
+
+.mascot__dialogue--true{
+  display: inline-block;
+}
