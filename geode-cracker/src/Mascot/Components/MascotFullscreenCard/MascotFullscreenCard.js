@@ -1,5 +1,5 @@
 import React from 'react';
-import "./MascotFullscreen.css"
+import "./MascotFullscreenCard.css"
 import MascotImg from "./Images/MascotFullscreen.png";
 
 class MascotFullscreenCard extends React.Component{
@@ -23,8 +23,8 @@ class MascotFullscreenCard extends React.Component{
 
               <p class={"mascot__dialogue__text mascot__dialogue__text--" + this.props.type} >{this.state.text}</p>
               <button class={"mascot__dialogue__button--next button mascot__dialogue__next--" + this.props.type}> {'>'} </button>
-              <button class={"mascot__dialogue__button__choice button  mascot__dialogue__button__choice--left mascot__dialogue__choice--" + this.props.type}> {this.state.left} </button>
-              <button class={"mascot__dialogue__button__choice button  mascot__dialogue__button__choice--right mascot__dialogue__choice--" + this.props.type}> {this.state.right} </button>
+              <button class={"mascot__dialogue__button__choice button  mascot__dialogue__button__choice--left mascot__dialogue__choice--" + this.props.type}> {this.state.left_button_text} </button>
+              <button class={"mascot__dialogue__button__choice button  mascot__dialogue__button__choice--right mascot__dialogue__choice--" + this.props.type}> {this.state.right_button_text} </button>
             </section>
           </section>
         )

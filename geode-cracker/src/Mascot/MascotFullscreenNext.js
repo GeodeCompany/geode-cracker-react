@@ -1,6 +1,6 @@
 import React from 'react';
 
-import MascotCard from "./MascotFullscreenCard"
+import MascotCard from "./Components/MascotFullscreenCard/MascotFullscreenCard";
 
 class MascotFullscreenNext extends React.Component{
     render(){
