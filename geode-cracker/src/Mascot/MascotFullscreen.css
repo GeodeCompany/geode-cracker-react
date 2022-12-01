@@ -79,10 +79,10 @@
   float: right;
 }
 
-.mascot__dialogue--false{
+.mascot__dialogue__next--choice, .mascot__dialogue__choice--next {
   display: none;
 }
 
-.mascot__dialogue--true{
+.mascot__dialogue__next--next, .mascot__dialogue__choice--choice{
   display: inline-block;
 }

@@ -5,7 +5,7 @@ import MascotCard from "./MascotFullscreenCard"
 class MascotFullscreenNext extends React.Component{
     render(){
         return(
-          <MascotCard nextButton="true" choiceButton="false" type="next"/>
+          <MascotCard type="next"/>
         )
     }
 }
