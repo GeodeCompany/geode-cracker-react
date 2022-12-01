@@ -2,8 +2,6 @@ import React from 'react';
 import './Settings.css';
 import Switch from '@mui/material/Switch';
 
-import RefreshImage from "./Images/settings_refresh.png";
-
 class Settings extends React.Component{
     state = {
         settings: "Instellingen",
@@ -11,7 +9,8 @@ class Settings extends React.Component{
         english: "--inactive",
         vibration: "Vibratie",
         sound: "Geluid",
-        reset: "Opnieuw proberen"
+        reset: "Opnieuw proberen",
+        icon_refresh_image_path: "/img/icon_refresh.png"
     }
 
     render(){
@@ -36,7 +35,7 @@ class Settings extends React.Component{
                 </article>
                 <button class="settingsSection__button button button--red">
                     {this.state.reset}
-                    <img class="settingsSection__button__image" src={RefreshImage}/>
+                    <img class="settingsSection__button__image" src={this.state.icon_refresh_image_path}/>
                 </button>
             </section>
         )

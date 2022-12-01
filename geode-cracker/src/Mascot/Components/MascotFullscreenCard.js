@@ -1,19 +1,20 @@
 import React from 'react';
 import "./MascotFullscreenCard.css"
-import MascotImage from "./Images/MascotFullscreen.png";
+
 
 class MascotFullscreenCard extends React.Component{
     state = {
         text: "Goed gedaan! We gaan de geode nu kraken",
         left_button_text: "Gevoel",
-        right_button_text: "Zicht"
+        right_button_text: "Zicht",
+        mascot_base_image_path: "/img/mascot_base.png"
     }
 
     render(){
         return(
           <section class="mascot">
             <figure class="mascot__figure">
-              <img class="mascot__figure__image" src={MascotImage} alt="A picture of the mascot" />
+              <img class="mascot__figure__image" src={this.state.mascot_base_image_path} alt="A picture of the mascot" />
             </figure>
 
             <section class="mascot__dialogue">

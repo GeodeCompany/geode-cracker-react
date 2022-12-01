@@ -16,7 +16,7 @@
 * {
   font-size: 62.5%;
   font-family: 'Akkurat';
-  src: local('Akkurat'), url(./fonts/Akkurat.ttf), format('truetype');
+  /*src: local('Akkurat'), url(fonts/Akkurat.ttf), format('truetype');*/
   color:var(--white-color);
 }
 
