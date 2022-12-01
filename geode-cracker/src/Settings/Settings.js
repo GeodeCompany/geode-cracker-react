@@ -2,7 +2,7 @@ import React from 'react';
 import './Settings.css';
 import Switch from '@mui/material/Switch';
 
-import IconRefresh from "../Images/settings_refresh.png";
+import RefreshImage from "./Images/settings_refresh.png";
 
 class Settings extends React.Component{
     state = {
@@ -36,7 +36,7 @@ class Settings extends React.Component{
                 </article>
                 <button class="settingsSection__button button button--red">
                     {this.state.reset}
-                    <img class="settingsSection__button__image" src={IconRefresh}/>
+                    <img class="settingsSection__button__image" src={RefreshImage}/>
                 </button>
             </section>
         )

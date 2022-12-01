@@ -1,6 +1,6 @@
 import React from 'react';
 import "./MascotFullscreenCard.css"
-import MascotImg from "./Images/MascotFullscreen.png";
+import MascotImage from "./Images/MascotFullscreen.png";
 
 class MascotFullscreenCard extends React.Component{
     state = {
@@ -13,7 +13,7 @@ class MascotFullscreenCard extends React.Component{
         return(
           <section class="mascot">
             <figure class="mascot__figure">
-              <img class="mascot__figure__image" src={MascotImg} alt="A picture of the mascot" />
+              <img class="mascot__figure__image" src={MascotImage} alt="A picture of the mascot" />
             </figure>
 
             <section class="mascot__dialogue">
