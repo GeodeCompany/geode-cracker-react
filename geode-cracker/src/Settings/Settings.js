@@ -2,7 +2,7 @@ import React from 'react';
 import './Settings.css';
 import Switch from '@mui/material/Switch';
 
-import IconRefresh from "./Images/settings_refresh.png";
+import IconRefresh from "../Images/settings_refresh.png";
 
 class Settings extends React.Component{
     state = {

@@ -1,7 +1,7 @@
 import React from 'react';
 import './Banner.css';
 
-import BannerImg from "./Images/BannerTop.png";
+import BannerImg from "../Images/BannerTop.png";
 
 
 class BannerTop extends React.Component{
