@@ -5,7 +5,7 @@ import BannerTop from "./Banner/Banner-top";
 import BannerBottom from "./Banner/Banner-bottom";
 import Syntax from "./Syntax/Syntax";
 import Settings from "./Settings/Settings";
-import Collection from "./Collection/Collection-page";
+import Collection from "./Collection/Collection";
 import MascotChoice from "./Mascot/MascotFullscreenChoice"
 import MascotNext from "./Mascot/MascotFullscreenNext"
 

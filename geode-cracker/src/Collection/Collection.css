@@ -1,12 +1,18 @@
 
 .collection{
-    margin-left:3rem;
-    margin-right: 3rem;
+    margin: 0 2rem;
+    max-width: 100rem;
 }
 
-.collection__information__figure__img{
+.collection__information__figure{
     max-width: 100%;
     height: auto;
+    margin-bottom: 3rem;
+}
+
+.collection__information__figure__image{
+    max-width: 100%;
+    height: 100%;
     object-fit: contain;
     border-radius: 1rem;
 }
@@ -29,8 +35,7 @@
 }
 
 .collection__information__paragraph{
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin: 2rem 0;
     font-size: 1.6rem;
 }
 
@@ -47,14 +52,18 @@
 
 }
 
-.collection__where__map__img{
+.collection__where__figure{
     max-width: 100%;
     height: auto;
+}
+
+.collection__where__figure__image{
+    width: 100%;
+    height: 100%;
     object-fit: contain;
 }
 
 .collection__where__location{
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin: 2rem 0;
     font-size: 1.6rem;
 }
