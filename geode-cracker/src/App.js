@@ -3,8 +3,9 @@ import './App.css';
 
 import BannerTop from "./Banner/Banner-top";
 import BannerBottom from "./Banner/Banner-bottom";
-import Syntax from "./Syntax/Syntax"
+import Syntax from "./Syntax/Syntax";
 import Settings from "./Settings/Settings";
+import Collection from "./Collection/Collection";
 import MascotChoice from "./Mascot/MascotFullscreenChoice"
 import MascotNext from "./Mascot/MascotFullscreenNext"
 
@@ -22,6 +23,7 @@ function App() {
           <Route path="mascot/choice" element={[<MascotChoice />]} />
           <Route path="mascot/next" element={[<MascotNext />]} />
           <Route path="*" element={<h1>Fallback 404</h1>} />
+          <Route path="collection" element={[<Collection />]} />
         </Route>
       </Routes>
     </Router>
