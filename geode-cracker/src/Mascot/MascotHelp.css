@@ -1,9 +1,9 @@
 .help{
-    padding: 0 2rem;
+    position: absolute;
     width: 100%;
     height: 9rem;
-    position: absolute;
     bottom: 10rem;
+    padding: 0 2rem;
 }
 
 .help__figure{
@@ -17,24 +17,25 @@
     height: 100%;
 }
 
-.help__container{
-    background-color: var(--naturalis-green-color);
-    margin: 1rem 0;
-    padding: 0.8rem;
+.help__dialogue{
     height: 7rem;
     width: 65%;
+    margin: 1rem 0;
+    padding: 0.8rem;
     float: left;
+
     border-radius: 1rem;
+    background-color: var(--naturalis-green-color);
 }
 
-.help__container__text{
+.help__dialogue__text{
     font-size: 1.4rem;
 }
 
-.help__container__arrow{
+.help__dialogue__arrow{
     position: absolute;
-    margin-left: -1.5rem;
-    margin-top: -1.8rem;
+    margin: -1.8rem 0 0 -1.5rem;
+
     border-top: 1rem solid transparent;
     border-bottom: 1rem solid transparent;
     border-right: 1rem solid var(--naturalis-green-color);
