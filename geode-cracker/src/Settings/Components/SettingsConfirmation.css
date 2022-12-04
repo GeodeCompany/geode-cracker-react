@@ -1,0 +1,47 @@
+.settingsSection__confirmationSection{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+
+    width: 100vw;
+    height: 100vh;
+
+    background-color: RGBA(0, 0, 0, 30%);
+}
+
+.settingsSection__confirmationSection__modal{
+    position: relative;
+    top: 50vh;
+    transform: translate(0, -50%);
+
+    min-width: 30rem;
+    max-width: 38rem;
+
+    margin: 0 auto;
+    padding: 1rem;
+
+    border-radius: 1rem;
+    background-color: var(--banner-background-light-color);
+}
+
+.settingsSection__confirmationSection__modal__title{
+    margin-bottom: 3rem;
+    padding: 1rem;
+
+    text-align: center;
+    font-size: 2.4rem;
+    font-weight: bold;
+}
+
+.settingsSection__confirmationSection__modal__choice{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+}
+
+.settingsSection__confirmationSection__modal__choice__button{
+    width: 15rem;
+    height: 4.5rem;
+    font-size: 2rem;
+}

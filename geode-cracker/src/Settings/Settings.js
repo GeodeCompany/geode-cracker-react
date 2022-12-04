@@ -1,5 +1,6 @@
 import React from 'react';
 import './Settings.css';
+import SettingsConfirmation from './Components/SettingsConfirmation';
 import Switch from '@mui/material/Switch';
 
 class Settings extends React.Component{
@@ -16,6 +17,7 @@ class Settings extends React.Component{
     render(){
         return(
             <section class="settingsSection">
+                <SettingsConfirmation />
                 <h1 class="settingsSection__heading">{this.state.settings}</h1>
                 <article class="settingsSection__languages">
                     <button class={"settingsSection__languages__button button button--green" + this.state.dutch}>Nederlands</button>
