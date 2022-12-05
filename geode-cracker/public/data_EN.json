@@ -1,0 +1,176 @@
+{
+    "mascot" : {
+
+        "mascot_general" : {
+            "mascot_inactive_image_path" : "/img/mascot_inactive.png",
+            "mascot_active_image_path" : "/img/mascot_active.png",
+            "mascot_base_image_path" : "/img/mascot_base.png"
+        },
+
+        "mascot_start" : {
+            "text_1" : "Hello! I am Ari the Canary. I am looking for geodes.",
+            "text_2" : "You want to help? Let's begin!",
+
+            "button_next_text" : "text_2",
+            "button_next_link" : "/search_begin"
+        },
+
+        "mascot_search" : {
+
+            "search_begin" : {
+                "text" : "We are going to look for a geode, let's go!",
+
+                "button_next_link" : "/search_choice"
+            },
+
+            "search_choice" : {
+                "text" : "?",
+                "left_button_text" : "Feel",
+                "right_button_text" : "Sight",
+
+                "left_button_link" : "/feel",
+                "right_button_link" : "/sight"
+            },
+
+            "search_help_feel" : {
+                "text" : "?"
+            },
+
+            "search_help_sight" : {
+                "text" : "?"
+            },
+
+            "search_finish" : {
+                "text" : "?",
+
+                "button_next_link" : "/crack_begin"
+            }
+        },
+
+        "mascot_crack" : {
+
+            "crack_help_begin" : {
+                "text" : "Place the geode on the right spot."
+            },
+
+            "crack_help_lever" : {
+                "text" : "Pull the lever down."
+            },
+
+            "crack_finish" : {
+                "text" : "You cracked the geode! Let's clean it up.",
+                "button_next_link" : "/clean_begin"
+            }
+        },
+
+        "mascot_clean" : {
+            
+            "clean_help_begin" : {
+                "text" : "Brush the pieces of stone off."
+            },
+
+            "clean_help_water" : {
+                "text" : "Click on the bucket to clean the geode."
+            },
+
+            "clean_help_wipe" : {
+                "text" : "Wipe with the cloth the geode clean."
+            },
+
+            "clean_finish" : {
+                "text" : "It is time to admire the geode!",
+
+                "button_next_link" : "https://daniel.droffelaar.nl/3DModelViewer.html?geode=amethyst"
+            }
+        },
+
+        "finish_choice" : {
+            "text" : "Thank you for your help with cracking the geode!",
+            "left_button_text" : "Crack another geode!",
+            "right_button_text" : "Quit",
+
+            "left_button_link" : "/home",
+            "right_button_link" : "/shutdown"
+        }
+    },
+
+    "settings" : {
+        "settings" : "Settings",
+        "dutch" : "--inactive",
+        "english" : "",
+        "vibration" : "Vibration",
+        "sound" : "Sound",
+        "reset" : "Start over",
+
+        "icon_refresh_image_path" : "/img/icon_refresh.png"
+    },
+
+    "search" : {
+        "title" : "Find the geode"
+    },
+
+    "crack" : {
+        "title_place" : "Place the geode",
+        "title_crack" : "Crack the geode",
+        "title_finish" : "Success!"
+    },
+
+    "clean" : {
+        "title_brush" : "Brush the stones off",
+        "title_water" : "Flush the stones away",
+        "title_wipe" : "Polish the geode",
+        "title_finish" : "Completely clean!",
+        "title_done" : "Success"
+    },
+
+    "collection" : {
+        "general" : {
+            "title_name_dutch" : "Dutch name",
+            "title_name_english" : "English name",
+            "title_where" : "Where"
+        },
+
+        "amethyst" : {
+            "title" : "Amethyst",
+            "geode_dutch" : "Amethist",
+            "geode_english" : "Amethyst",
+            "information" : "Quartz is one of the most common minerals in the Earth's crust. It is often trapped as small colourless or white grains in rocks or occurs in gravel and sand. Sometimes quartz grows into larger transparent crystals in hollow spaces. If these crystals are coloured purple, they are called amethysts. From amethyst crystals, people cut stones that are used in jewellery. Because amethyst is found quite frequently, it is not as expensive as, say, diamonds or rubies.",
+            "location" : "Brazil, Uruguay, Mexico, Namibia, Zambia, North America, Europe, Australia and Japan",
+
+            "geode_image_image_path" : "/img/geode_image_amethyst.png",
+            "geode_map_image_path" : "/img/geode_map_amethyst.png"
+        },
+        "quartz" : {
+            "title" : "Quartz",
+            "geode_dutch" : "Kwarts",
+            "geode_english" : "Quartz",
+            "information" : "Quartz is very common in the earth's crusts. It is often trapped as small colourless or white grains in rocks or occurs in gravel and sand. Sometimes quartz grows into larger crystals in hollow spaces. These crystals are often full of very small droplets of liquid, making them white (milky) or grey and translucent to opaque. Sometimes the outside is reddish-brown, a rust colour due to iron oxides. Quartz sands are widely used in making glass and producing refractory materials for metal foundries.",
+            "location" : "Globally",
+            
+            "geode_image_image_path" : "/img/geode_image_quartz.png",
+            "geode_map_image_path" : "/img/geode_map_quartz.png"
+        },
+
+        "citrine" : {
+            "title" : "Citrine",
+            "geode_dutch" : "Citrien",
+            "geode_english" : "Citrine",
+            "information" : "Citrine is a quartz crystal. Quartz is very common in the Earth's crust. It is often trapped as small colourless or white grains in rocks or occurs in gravel and sand. Sometimes quartz grows into larger, transparent crystals in hollow spaces. If these crystals are coloured yellow to orange, they are citrine. Citrine is much rarer than the purple variety amethyst. When amethyst is heated in an oven, however, the yellow to orange colour of citrine is created. Almost all citrine used in jewellery is therefore obtained by heating amethyst.",
+            "location" : "The main source is Brazil",
+            
+            "geode_image_image_path" : "/img/geode_image_citrine.png",
+            "geode_map_image_path" : "/img/geode_map_citrine.png"
+        },
+
+        "pyrite" : {
+            "title" : "Pyrite",
+            "geode_dutch" : "Pyriet",
+            "geode_english" : "Pyrite",
+            "information" : "Pyrite is also known as 'fool's gold': it was sometimes mistaken for gold by fortune seekers. Fortunately, pyrite is fairly easy to distinguish from real gold: pyrite is lighter but harder than gold and cannot be scratched with a pocket knife. Pyrite takes several forms, but the cubic form is the most common. The mineral is mainly mined to make sulphuric acid and iron sulphates (both important raw materials for industry).",
+            "location" : "Occurs worldwide, very common mineral. Known locations: Rio Tinto in SP Spain and Sulitelma in Norway.",
+            
+            "geode_image_image_path" : "/img/geode_image_pyrite.png",
+            "geode_map_image_path" : "/img/geode_map_pyrite.png"
+        }
+    }
+}
