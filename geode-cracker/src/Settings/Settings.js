@@ -1,5 +1,5 @@
 import React from 'react';
-import './Settings.css';
+import './Settings.scss';
 import SettingsConfirmation from './Components/SettingsConfirmation';
 import Switch from '@mui/material/Switch';
 
