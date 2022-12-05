@@ -1,5 +1,5 @@
 import React from 'react';
-import './Banner.css';
+import './Banner.scss';
 
 class BannerBottom extends React.Component{
 

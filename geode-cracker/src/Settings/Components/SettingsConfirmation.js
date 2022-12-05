@@ -1,5 +1,5 @@
 import React from 'react';
-import './SettingsConfirmation.css'
+import './SettingsConfirmation.scss'
 
 class SettingsConfirmation extends React.Component{
     state = {
