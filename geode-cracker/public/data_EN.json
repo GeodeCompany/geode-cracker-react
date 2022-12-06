@@ -1,101 +1,14 @@
 {
-    "mascot" : {
 
-        "mascot_general" : {
-            "mascot_inactive_image_path" : "/img/mascot_inactive.png",
-            "mascot_active_image_path" : "/img/mascot_active.png",
-            "mascot_base_image_path" : "/img/mascot_base.png"
-        },
-
-        "mascot_start" : {
-            "text_1" : "Hello! I am Ari the Canary. I am looking for geodes.",
-            "text_2" : "You want to help? Let's begin!",
-
-            "button_next_text" : "text_2",
-            "button_next_link" : "/search_begin"
-        },
-
-        "mascot_search" : {
-
-            "search_begin" : {
-                "text" : "We are going to look for a geode, let's go!",
-
-                "button_next_link" : "/search_choice"
-            },
-
-            "search_choice" : {
-                "text" : "?",
-                "left_button_text" : "Feel",
-                "right_button_text" : "Sight",
-
-                "left_button_link" : "/feel",
-                "right_button_link" : "/sight"
-            },
-
-            "search_help_feel" : {
-                "text" : "?"
-            },
-
-            "search_help_sight" : {
-                "text" : "?"
-            },
-
-            "search_finish" : {
-                "text" : "?",
-
-                "button_next_link" : "/crack_begin"
-            }
-        },
-
-        "mascot_crack" : {
-
-            "crack_help_begin" : {
-                "text" : "Place the geode on the right spot."
-            },
-
-            "crack_help_lever" : {
-                "text" : "Pull the lever down."
-            },
-
-            "crack_finish" : {
-                "text" : "You cracked the geode! Let's clean it up.",
-                "button_next_link" : "/clean_begin"
-            }
-        },
-
-        "mascot_clean" : {
-            
-            "clean_help_begin" : {
-                "text" : "Brush the pieces of stone off."
-            },
-
-            "clean_help_water" : {
-                "text" : "Click on the bucket to clean the geode."
-            },
-
-            "clean_help_wipe" : {
-                "text" : "Wipe with the cloth the geode clean."
-            },
-
-            "clean_finish" : {
-                "text" : "It is time to admire the geode!",
-
-                "button_next_link" : "https://daniel.droffelaar.nl/3DModelViewer.html?geode=amethyst"
-            }
-        },
-
-        "finish_choice" : {
-            "text" : "Thank you for your help with cracking the geode!",
-            "left_button_text" : "Crack another geode!",
-            "right_button_text" : "Quit",
-
-            "left_button_link" : "/home",
-            "right_button_link" : "/shutdown"
-        }
+    "mascot_image_paths" : {
+        "inactive" : "/img/mascot_inactive.png",
+        "active" : "/img/mascot_active.png",
+        "base" : "/img/mascot_base.png"
     },
 
     "settings" : {
-        "settings" : "Settings",
+
+        "title" : "Settings",
         "dutch" : "--inactive",
         "english" : "",
         "vibration" : "Vibration",
@@ -105,25 +18,112 @@
         "icon_refresh_image_path" : "/img/icon_refresh.png"
     },
 
+    "home" : {
+        "welcome" : {
+            "mascot" : "Hello! I am Ari the Canary. I am looking for geodes.",
+
+            "button_next_link" : "/start"
+        },
+
+        "start" : {
+            "mascot" : "You want to help? Let's begin!",
+
+            "button_next_link" : "/search_begin"
+        }
+    },
+
     "search" : {
-        "title" : "Find the geode"
+
+        "begin" : {
+            "mascot" : "We are going to look for a geode, let's go!",
+            "button_next_link" : "/search_choice"
+        },
+
+        "choice" : {
+            "mascot" : "?",
+            "left_button_text" : "Feel",
+            "right_button_text" : "Sight",
+
+            "left_button_link" : "/feel",
+            "right_button_link" : "/sight"
+        },
+
+        "feel" : {
+            "title" : "Find the geode",
+            "mascot" : "?"
+        },
+
+        "sight" : {
+            "title" : "Find the geode",
+            "mascot" : "?"
+        },
+
+        "finish" : {
+            "mascot" : "?",
+
+            "button_next_link" : "/crack_begin"
+        }
     },
 
     "crack" : {
-        "title_place" : "Place the geode",
-        "title_crack" : "Crack the geode",
-        "title_finish" : "Success!"
+
+        "place" : {
+            "title" : "Place the geode",
+            "mascot" : "Place the geode on the right spot."
+        },
+
+        "lever" : {
+            "title" : "Crack the geode",
+            "mascot" : "Pull the lever down."
+        },
+
+        "finish" : {
+            "title" : "Success!",
+            "mascot" : "You cracked the geode! Let's clean it up.",
+            "button_next_link" : "/clean_begin"
+        }
     },
 
     "clean" : {
-        "title_brush" : "Brush the stones off",
-        "title_water" : "Flush the stones away",
-        "title_wipe" : "Polish the geode",
-        "title_finish" : "Completely clean!",
-        "title_done" : "Success"
+            
+            "brush" : {
+                "title" : "Brush the stones off",
+                "mascot" : "Brush the pieces of stone off."
+            },
+
+            "water" : {
+                "title" : "Flush the stones away",
+                "mascot" : "Click on the bucket to clean the geode."
+            },
+
+            "wipe" : {
+                "title" : "Polish the geode",
+                "mascot" : "Wipe with the cloth the geode clean."
+            },
+
+            "clean" : {
+                "title" : "Completely clean!"
+            },
+
+            "finish" : {
+                "mascot" : "It is time to admire the geode!",
+
+                "button_next_link" : "https://daniel.droffelaar.nl/3DModelViewer.html?geode=amethyst"
+            }
+
+    },
+
+    "finish" : {
+        "text" : "Thank you for your help with cracking the geode!",
+        "left_button_text" : "Crack another geode!",
+        "right_button_text" : "Quit",
+
+        "left_button_link" : "/home",
+        "right_button_link" : "/shutdown"
     },
 
     "collection" : {
+
         "general" : {
             "title_name_dutch" : "Dutch name",
             "title_name_english" : "English name",

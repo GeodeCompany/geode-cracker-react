@@ -1,129 +1,129 @@
-{
+{   
+    "mascot" : {
 
-    "mascot_image_paths" : {
-        "inactive" : "/img/mascot_inactive.png",
-        "active" : "/img/mascot_active.png",
-        "base" : "/img/mascot_base.png"
+        "mascot_general" : {
+            "mascot_inactive_image_path" : "/img/mascot_inactive.png",
+            "mascot_active_image_path" : "/img/mascot_active.png",
+            "mascot_base_image_path" : "/img/mascot_base.png"
+        },
+
+        "mascot_start" : {
+            "text_1" : "Hallo! Ik ben Ari de Kanarie. Ik ben op zoek naar geoden.",
+            "text_2" : "Help je mee? Laten we beginnen!",
+
+            "button_next_text" : "text_2",
+            "button_next_link" : "/search_begin"
+        },
+
+        "mascot_search" : {
+
+            "search_begin" : {
+                "text" : "We gaan op zoek naar een geode, kom met me mee!",
+
+                "button_next_link" : "/search_choice"
+            },
+
+            "search_choice" : {
+                "text" : "Wil je de geode zoeken met gevoel of met zicht?",
+                "left_button_text" : "Gevoel",
+                "right_button_text" : "Zicht",
+
+                "left_button_link" : "/feel",
+                "right_button_link" : "/sight"
+            },
+
+            "search_help_feel" : {
+                "text" : "Kantel de telefoon om de geode te zoeken."
+            },
+
+            "search_help_sight" : {
+                "text" : "Veeg om de geode te zoeken."
+            },
+
+            "search_finish" : {
+                "text" : "Je hebt de geode gevonden! Laten we hem open kraken.",
+
+                "button_next_link" : "/crack_begin"
+            }
+        },
+
+        "mascot_crack" : {
+
+            "crack_help_begin" : {
+                "text" : "Plaats de geode op de goed plek."
+            },
+
+            "crack_help_lever" : {
+                "text" : "Pak de hendel en doe hem omlaag."
+            },
+
+            "crack_finish" : {
+                "text" : "Je hebt de geode gekraakt! Laten we het schoonmaken.",
+                "button_next_link" : "/clean_begin"
+            }
+        },
+
+        "mascot_clean" : {
+            
+            "clean_help_begin" : {
+                "text" : "Borstel de losse stukken steen eraf."
+            },
+
+            "clean_help_water" : {
+                "text" : "Klik op de emmer om de geode schoon te spoelen."
+            },
+
+            "clean_help_wipe" : {
+                "text" : "Veeg met het doekje over de geode heen."
+            },
+
+            "clean_finish" : {
+                "text" : "Het is tijd om te geode te gaan bewonderen!",
+
+                "button_next_link" : "https://daniel.droffelaar.nl/3DModelViewer.html?geode=amethyst"
+            }
+        },
+
+        "finish_choice" : {
+            "text" : "Dankjewel voor de hulp bij het breken van de geode!",
+            "left_button_text" : "Andere geode kraken!",
+            "right_button_text" : "Afsluiten",
+
+            "left_button_link" : "/home",
+            "right_button_link" : "/shutdown"
+        }
     },
 
     "settings" : {
-
-        "title" : "Instellingen",
-        "dutch" : "--inactive",
-        "english" : "",
+        "settings" : "Instellingen",
+        "dutch" : "",
+        "english" : "--inactive",
         "vibration" : "Vibratie",
         "sound" : "Geluid",
-        "reset" : "Opnieuw beginnen",
+        "reset" : "Opnieuw proberen",
 
         "icon_refresh_image_path" : "/img/icon_refresh.png"
     },
 
-    "home" : {
-        "welcome" : {
-            "mascot" : "Hallo! Ik ben Ari de Kanarie. Ik ben op zoek naar geoden.",
-
-            "button_next_link" : "/start"
-        },
-
-        "start" : {
-            "mascot" : "Help je mee? Laten we beginnen!",
-
-            "button_next_link" : "/search_begin"
-        }
-    },
-
     "search" : {
-
-        "begin" : {
-            "mascot" : "We gaan op zoek naar een geode, kom met me mee!",
-            "button_next_link" : "/search_choice"
-        },
-
-        "choice" : {
-            "mascot" : "?",
-            "left_button_text" : "Feel",
-            "right_button_text" : "Sight",
-
-            "left_button_link" : "/feel",
-            "right_button_link" : "/sight"
-        },
-
-        "feel" : {
-            "title" : "Vind de geode",
-            "mascot" : "Kantel de telefoon om de geode te zoeken."
-        },
-
-        "sight" : {
-            "title" : "Vind de geode",
-            "mascot" : "Veeg om de geode te zoeken."
-        },
-
-        "finish" : {
-            "mascot" : "Je hebt de geode gevonden! Laten we hem open kraken.",
-
-            "button_next_link" : "/crack_begin"
-        }
+        "title" : "Vind de geode"
     },
 
     "crack" : {
-
-        "place" : {
-            "title" : "Plaats de geode",
-            "mascot" : "Plaats de geode op de goed plek."
-        },
-
-        "lever" : {
-            "title" : "Kraak de geode",
-            "mascot" : "Pak de hendel en doe hem omlaag."
-        },
-
-        "finish" : {
-            "title" : "Gelukt!",
-            "mascot" : "Je hebt de geode gekraakt! Laten we het schoonmaken.",
-            "button_next_link" : "/clean_begin"
-        }
+        "title_place" : "Plaats de geode",
+        "title_break" : "Kraak de geode",
+        "title_finish" : "Gelukt!"
     },
 
     "clean" : {
-            
-            "brush" : {
-                "title" : "Borstel de stukken los",
-                "mascot" : "Borstel de losse stukken steen eraf."
-            },
-
-            "water" : {
-                "title" : "Spoel de stukken weg",
-                "mascot" : "Klik op de emmer om de geode schoon te spoelen."
-            },
-
-            "wipe" : {
-                "title" : "Poets de geode",
-                "mascot" : "Veeg met het doekje over de geode heen."
-            },
-
-            "clean" : {
-                "title" : "Helemaal schoon!"
-            },
-
-            "finish" : {
-                "mascot" : "Het is tijd om te geode te gaan bewonderen!",
-
-                "button_next_link" : "https://daniel.droffelaar.nl/3DModelViewer.html?geode=amethyst"
-            }
-
-    },
-
-    "finish" : {
-        "text" : "Dankjewel voor de hulp bij het breken van de geode!",
-        "left_button_text" : "Andere geode kraken!",
-        "right_button_text" : "Afsluiten",
-
-        "left_button_link" : "/home",
-        "right_button_link" : "/shutdown"
+        "title_brush" : "Borstel de stukken los",
+        "title_water" : "Spoel de stukken weg",
+        "title_wipe" : "Poets de geode",
+        "title_finish" : "Helemaal schoon!",
+        "title_done" : "Gelukt"
     },
 
     "collection" : {
-
         "general" : {
             "title_name_dutch" : "Nederlandse naam",
             "title_name_english" : "Engelse naam",
@@ -174,4 +174,3 @@
         }
     }
 }
-

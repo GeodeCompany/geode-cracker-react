@@ -5,7 +5,7 @@ import Switch from '@mui/material/Switch';
 
 class Settings extends React.Component{
     state = {
-        settings: "Instellingen",
+        title: "Instellingen",
         dutch: "",
         english: "--inactive",
         vibration: "Vibratie",
@@ -18,7 +18,7 @@ class Settings extends React.Component{
         return(
             <section class="settingsSection">
                 <SettingsConfirmation />
-                <h1 class="settingsSection__heading">{this.state.settings}</h1>
+                <h1 class="settingsSection__heading">{this.state.title}</h1>
                 <article class="settingsSection__languages">
                     <button class={"settingsSection__languages__button button button--green" + this.state.dutch}>Nederlands</button>
                     <button class={"settingsSection__languages__button button button--green" + this.state.english}>English</button>
