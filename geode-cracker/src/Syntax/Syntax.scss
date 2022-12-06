@@ -1,0 +1,12 @@
+.syntaxSection{
+    margin: 1rem;
+
+    &__article{
+        margin-bottom: 3rem;
+
+        &__title{
+            color: var(--naturalis-red-color);
+            font-size: 5rem;
+        }
+    }
+}

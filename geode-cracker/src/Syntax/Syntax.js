@@ -1,5 +1,5 @@
 import React from 'react';
-import './Syntax.css';
+import './Syntax.scss';
 
 import ColorCard from "./Components/ColorCard";
 
@@ -7,8 +7,8 @@ class Syntax extends React.Component{
     render(){
         return(
             <section class="syntaxSection">
-                <article class="syntaxContainer__article">
-                    <h1 class="syntaxContainer__article__title"> | Colors </h1>
+                <article class="syntaxSection__article">
+                    <h1 class="syntaxSection__article__title"> | Colors </h1>
                     <ColorCard color={"#202020"} syntax={"--background-color"}/>
                     <ColorCard color={"#2F3033"} syntax={"--banner-background-dark-color"}/>
                     <ColorCard color={"#3C3E42"} syntax={"--banner-background-light-color"}/>

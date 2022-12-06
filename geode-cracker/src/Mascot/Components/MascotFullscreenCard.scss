@@ -1,0 +1,88 @@
+.mascot{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  min-width: 30rem;
+  max-width: 38rem;
+
+  &__figure{
+    margin-bottom: 3rem;
+
+    &__image{
+      display: block;
+
+      width: 100%;
+      margin: 0 auto;
+    }
+  }
+
+  &__dialogue{
+    position: relative;
+
+    padding: 1rem;
+
+    border-radius: 1rem;
+    background-color: var(--naturalis-green-color);
+
+    &__text{
+      color: var(--white-color);
+      font-size: 2rem;
+
+      &--choice{
+        width: 100%;
+        margin-bottom: 2rem;
+      }
+
+      &--next{
+        width: 80%;
+        margin-bottom: 0;
+      }
+    }
+
+    &__arrowContainer{
+      position: relative;
+      top: -2.5rem;
+
+      &__arrow-up{
+        position: absolute;
+        left: 0;
+        right: 0;
+
+        width: 0;
+        margin-left: auto;
+        margin-right: auto;
+
+        border-left: 1.5rem solid transparent;
+        border-right: 1.5rem solid transparent;
+        border-bottom: 1.5rem solid var(--naturalis-green-color);
+      }
+    }
+
+    &__button{
+      &--next{
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 2rem;
+
+        width: 4rem;
+        height: 4rem;
+        margin: auto;
+
+        font-size: 3rem;
+        border-radius: 5rem;
+      }
+
+      &--choice{
+        width: 45%;
+        padding: .5rem;
+
+        &--right{
+          float: right
+        }
+      }
+    }
+  }
+}

@@ -1,5 +1,5 @@
 import React from 'react';
-import './MascotHelp.css';
+import './MascotHelp.scss';
 
 class MascotHelp extends React.Component{
 

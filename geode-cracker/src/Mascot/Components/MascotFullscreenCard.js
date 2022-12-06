@@ -1,5 +1,5 @@
-import React from 'react';
-import "./MascotFullscreenCard.css"
+import React, { Fragment } from 'react';
+import "./MascotFullscreenCard.scss"
 
 
 class MascotFullscreenCard extends React.Component{
@@ -11,6 +11,19 @@ class MascotFullscreenCard extends React.Component{
     }
 
     render(){
+      if(this.props.type == "next"){
+        this.state.button = 
+        <button class="mascot__dialogue__button--next button"> {'>'} </button>
+        ;
+      };
+      if(this.props.type == "choice"){
+        this.state.button = 
+        <Fragment>
+          <button class="mascot__dialogue__button--choice mascot__dialogue__button--choice--left button"> {this.state.left_button_text} </button>
+          <button class="mascot__dialogue__button--choice mascot__dialogue__button--choice--right button"> {this.state.right_button_text} </button>
+        </Fragment>
+        ;
+      };
         return(
           <section class="mascot">
             <figure class="mascot__figure">
@@ -23,9 +36,7 @@ class MascotFullscreenCard extends React.Component{
               </section>
 
               <p class={"mascot__dialogue__text mascot__dialogue__text--" + this.props.type} >{this.state.text}</p>
-              <button class={"mascot__dialogue__button--next button mascot__dialogue__next--" + this.props.type}> {'>'} </button>
-              <button class={"mascot__dialogue__button__choice button  mascot__dialogue__button__choice--left mascot__dialogue__choice--" + this.props.type}> {this.state.left_button_text} </button>
-              <button class={"mascot__dialogue__button__choice button  mascot__dialogue__button__choice--right mascot__dialogue__choice--" + this.props.type}> {this.state.right_button_text} </button>
+              {this.state.button}
             </section>
           </section>
         )

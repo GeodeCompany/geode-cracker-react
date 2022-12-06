@@ -1,5 +1,5 @@
 import logo from './logo.svg';
-import './App.css';
+import './App.scss';
 
 import BannerTop from "./Banner/Banner-top";
 import BannerBottom from "./Banner/Banner-bottom";
