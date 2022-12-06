@@ -27,8 +27,8 @@
     background-color: var(--naturalis-green-color);
 
     &__text{
-      font-size: 2rem;
       color: var(--white-color);
+      font-size: 2rem;
 
       &--choice{
         width: 100%;
@@ -62,13 +62,17 @@
 
     &__button{
       &--next{
-        margin: auto;
         position: absolute;
-        top: 0; bottom: 0; right: 2rem;
+        top: 0;
+        bottom: 0;
+        right: 2rem;
+
         width: 4rem;
         height: 4rem;
-        border-radius: 5rem;
+        margin: auto;
+
         font-size: 3rem;
+        border-radius: 5rem;
       }
 
       &--choice{

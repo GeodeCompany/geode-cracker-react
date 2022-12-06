@@ -1,7 +1,7 @@
 
 .collection{
-    margin: 0 2rem;
     max-width: 100rem;
+    margin: 0 2rem;
 
     &__information{
         &__figure{
@@ -21,9 +21,9 @@
         &__title{
             margin-bottom: 1rem;
 
+            color:var(--naturalis-green-color);
             font-size: 5rem;
             font-weight: bold;
-            color:var(--naturalis-green-color);
         }
 
         &__naming{
@@ -33,11 +33,13 @@
 
         &__name{
             margin-bottom: 1rem;
+
             font-size: 1.6rem;
         }
 
         &__paragraph{
             margin: 2rem 0;
+
             font-size: 1.6rem;
         }
     }
@@ -46,9 +48,9 @@
         &__title{
             margin-bottom: 1rem;
             
+            color: var(--naturalis-green-color);
             font-size: 2.8rem;
             font-weight: bold;
-            color: var(--naturalis-green-color);
         }
 
         &__map{
@@ -72,6 +74,7 @@
         
         &__location{
             margin: 2rem 0;
+            
             font-size: 1.6rem;
         }
     }

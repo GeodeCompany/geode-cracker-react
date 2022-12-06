@@ -23,8 +23,10 @@
 *, *::before, *::after {
   margin: 0;
   padding: 0;
+
   font-weight: 100;
   text-decoration: none;
+
   list-style: none;
   box-sizing: border-box;
 }
@@ -40,9 +42,9 @@ h1, h2, h3{
 .button{
   position: relative;
 
+  text-align: center;
   color: var(--naturalis-green-color);
   font-size: 1.8rem;
-  text-align: center;
 
   border: none;
   border-radius: 0.4rem;
@@ -65,9 +67,9 @@ h1, h2, h3{
 .button--inactive{
   position: relative;
 
+  text-align: center;
   color: var(--inactive-green-color);
   font-size: 1.8rem;
-  text-align: center;
 
   border: solid .2rem var(--inactive-green-color);
   border-radius: 0.4rem;
@@ -85,13 +87,13 @@ h1, h2, h3{
 }
 
 .button--green:disabled, .button--green--inactive{
-  background-color: transparent;
   color: var(--inactive-green-color);
   border: solid .2rem var(--inactive-green-color);
+  background-color: transparent;
 }
 
 .button--red:disabled, .button--red--inactive{
-  background-color: transparent;
   color: var(--inactive-red-color);
   border: solid .2rem var(--inactive-red-color);
+  background-color: transparent;
 }
