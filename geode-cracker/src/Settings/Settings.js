@@ -1,44 +1,46 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import './Settings.scss';
+import SettingsMenu from './Components/SettingsMenu';
 import SettingsConfirmation from './Components/SettingsConfirmation';
-import Switch from '@mui/material/Switch';
 
 class Settings extends React.Component{
     state = {
-        title: "Instellingen",
-        dutch: "",
-        english: "--inactive",
-        vibration: "Vibratie",
-        sound: "Geluid",
-        reset: "Opnieuw proberen",
-        icon_refresh_image_path: "/img/icon_refresh.png"
+        icon_cogwheel_image_path: "/img/icon_cogwheel.png",
+        settings_modal_state: false,
+        confirmation_modal_state: false
+    };
+
+    toggleComponent(name){
+        switch (name) {
+            case "settings_modal":
+                this.setState({settings_modal_state: !this.state.settings_modal_state});
+                break;
+            case "confirmation_modal":
+                this.setState({confirmation_modal_state: !this.state.confirmation_modal_state});
+                break;
+            default:
+                break;
+        }
+    }
+
+    settingsRestart(){
+        console.log("Change Route to restart");
     }
 
     render(){
         return(
-            <section class="settingsSection">
-                <SettingsConfirmation />
-                <h1 class="settingsSection__heading">{this.state.title}</h1>
-                <article class="settingsSection__languages">
-                    <button class={"settingsSection__languages__button button button--green" + this.state.dutch}>Nederlands</button>
-                    <button class={"settingsSection__languages__button button button--green" + this.state.english}>English</button>
-                </article>
-                <article class="settingsSection__toggles">
-                    <section class="settingsSection__toggles__toggleOption">
-                        <h2 class="settingsSection__toggles__toggleOption__text">{this.state.vibration}</h2>
-                        <Switch defaultChecked />
-                    </section>
-                    <hr class="settingsSection__toggles__hr" />
-                    <section class="settingsSection__toggles__toggleOption">
-                        <h2 class="settingsSection__toggles__toggleOption__text">{this.state.sound}</h2>
-                        <Switch defaultChecked />
-                    </section>
-                    
-                </article>
-                <button class="settingsSection__button button button--red">
-                    {this.state.reset}
-                    <img class="settingsSection__button__image" src={this.state.icon_refresh_image_path}/>
+            <section class="settings">
+                <button class="settings__button button--image" onClick={() => this.toggleComponent("settings_modal")}>
+                    <figure>
+                        <img class="settings__button__image" src={this.state.icon_cogwheel_image_path}></img>
+                    </figure>
                 </button>
+                {(this.state.confirmation_modal_state || this.state.settings_modal_state) && <div class="settings__modal">
+                {this.state.confirmation_modal_state && <SettingsConfirmation settingsRestart={this.settingsRestart.bind(this)} toggleComponent={this.toggleComponent.bind(this)} />}
+                {this.state.settings_modal_state && <SettingsMenu toggleComponent={this.toggleComponent.bind(this)}/>}   
+                </div>}
+
             </section>
         )
     }

@@ -16,8 +16,9 @@ function App() {
   return (
     <Router>
       <BannerTop />
+      <Settings />
       <Routes>
-        <Route path="/" >
+        <Route path="/">
           <Route index element={<h1>Home Pagina</h1>} />
           <Route path="syntax" element={[<Syntax />]} />
           <Route path="settings" element={[<Settings />]} />
