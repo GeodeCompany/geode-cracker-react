@@ -23,7 +23,7 @@ class Polish extends React.Component{
         return(
         <article class="polish">
             <button class="polish__button">
-                    <img class="polish__button__img" src={this.state.bucket_normal_image_path}></img>
+                <img class="polish__button__img" src={this.state.bucket_normal_image_path}></img>
             </button>
 
             <h1 class="polish__text">{this.state.action_text}</h1>
