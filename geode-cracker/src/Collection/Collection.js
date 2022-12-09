@@ -1,23 +1,59 @@
 import React from 'react';
 import './Collection.scss';
 
+import data_NL from '../data_NL.json';
+import data_EN from '../data_EN.json';
+
 class Collection extends React.Component{
 
     state = {
-        title: "Amethist",
-        title_name_dutch: "Nederlandse naam",
-        geode_dutch: "Amethist",
-        title_name_english: "Engelse naam",
-        geode_english:"Amethyst",
-        information: "Kwarts is één van de meest voorkomende mineralen in de aardkorst. Vaak zit het als kleine kleurloze of witte korrels opgesloten in gesteenten of komt het voor in grind en zand. Soms groeit kwarts in holle ruimten uit tot grotere doorzichtige kristallen. Als deze kristallen paars gekleurd zijn, worden ze amethist genoemd. Uit amethist-kristallen slijpt men stenen die in sieraden worden gebruikt. Omdat amethist vrij veel wordt gevonden, is het niet zo duur als bijvoorbeeld diamant of robijn.",
-        title_where:"Waar",
-        location: "Brazilië, Uruguay, Mexico, Namibië, Zambia, Noord-Amerika, Europa, Australië en Japan",
+        title: data_NL.collection.amethyst.title,
+        title_name_dutch: data_NL.collection.general.title_name_dutch,
+        geode_dutch: data_NL.collection.amethyst.geode_dutch,
+        title_name_english: data_NL.collection.general.title_name_english,
+        geode_english: data_NL.collection.amethyst.geode_english,
+        information: data_NL.collection.amethyst.information,
+        title_where: data_NL.collection.general.title_where,
+        location: data_NL.collection.amethyst.location,
         
         geode_image_image_path: "/img/geode_image_amethyst.png",
         geode_map_image_path: "/img/geode_map_amethyst.png"
     }
 
+    updateData (language, geode) {
+        var data;
+
+        switch (language) {
+            case "NL":
+                data = data_NL.collection;
+                break;
+
+            case "EN":
+                data = data_EN.collection;
+                break;
+        };
+
+        this.state.title_name_dutch = data.general.title_name_dutch;
+        this.state.title_name_english = data.general.title_name_english;
+        this.state.title_where = data.general.title_where;
+
+        for (let rock in data) {
+            if (rock == geode) {
+                this.state.title = data[rock].title;
+                this.state.geode_dutch = data[rock].geode_dutch;
+                this.state.geode_english = data[rock].geode_english;
+                this.state.information = data[rock].information;
+                this.state.location = data[rock].location;
+            }
+        }
+    }
+    
+
+
     render(){
+
+        this.updateData ("NL", "amethyst");
+        
         return(
           <article class="collection">
             <section class="collection__information">
