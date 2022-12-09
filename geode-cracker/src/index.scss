@@ -97,3 +97,12 @@ h1, h2, h3{
   border: solid .2rem var(--inactive-red-color);
   background-color: transparent;
 }
+
+.button--image{
+  border: none;
+  background: transparent;
+}
+
+.button--image:hover{
+  cursor: pointer;
+}
