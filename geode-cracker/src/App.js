@@ -10,6 +10,8 @@ import MascotChoice from "./Mascot/MascotFullscreenChoice";
 import MascotNext from "./Mascot/MascotFullscreenNext";
 import MascotHelp from "./Mascot/MascotHelp";
 
+import Polish from "./Polish/Polish"
+
 import { Routes, Route, BrowserRouter as Router} from 'react-router-dom';
 
 function App() {
@@ -25,6 +27,9 @@ function App() {
           <Route path="mascot/help" element={[<MascotHelp />]} />
           <Route path="mascot/next" element={[<MascotNext />]} />
           <Route path="collection" element={[<Collection />]} />
+
+          <Route path="polish" element={[<Polish />]} />
+
           <Route path="*" element={<h1>Fallback 404</h1>} />
         </Route>
       </Routes>
