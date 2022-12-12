@@ -13,6 +13,7 @@ class Polish extends React.Component{
 
         interactionState: "brush",
         rocksClicked: [false, false, false, false],
+        moveCount: 0,
 
         geode_image_path: "/img/geode.png",
         bucket_normal_image_path: "/img/bucket_normal.png",
@@ -72,9 +73,29 @@ class Polish extends React.Component{
     bucketClick(){
       console.log("CLICKED DA BUCKET");
 
-
       this.state.interactionState = "polish"
       this.updateVisuals();
+    }
+
+    polishGeode(){
+      if(this.state.interactionState == "polish"){
+        this.state.moveCount++;
+        if(this.state.moveCount >= 1000){
+          this.state.interactionState = "none";
+          console.log("YOU DONE");
+        } else {
+          if(this.state.moveCount >= 300){
+            if(document.getElementById("shimmer1_img").style.visibility != "visible"){
+              document.getElementById("shimmer1_img").style.visibility = "visible";
+            }
+            if(this.state.moveCount >= 600){
+              if(document.getElementById("shimmer2_img").style.visibility != "visible"){
+                document.getElementById("shimmer2_img").style.visibility = "visible";
+              }
+            }
+          }
+        }
+      }
     }
 
     render(){
@@ -87,7 +108,7 @@ class Polish extends React.Component{
             <h1 class="polish__text" id="action_text">{this.state.brush_text}</h1>
 
             <section class="polish__section">
-                <figure class="polish__section__figure">
+                <figure class="polish__section__figure" onTouchMove={() => this.polishGeode()}>
                     <img class="polish__section__figure__geode" src={this.state.geode_image_path}></img>
 
                     <img class="polish__section__figure__rock polish__section__figure__rock--1" id="rock1_img" src={this.state.rock1_image_path} style={{top: this.state.start_positions[0][0] + 'rem', left: this.state.start_positions[0][1] + 'rem'}} onClick={() => this.rockClick(1)}></img>
@@ -95,8 +116,8 @@ class Polish extends React.Component{
                     <img class="polish__section__figure__rock polish__section__figure__rock--3" id="rock3_img" src={this.state.rock3_image_path} style={{top: this.state.start_positions[2][0] + 'rem', left: this.state.start_positions[2][1] + 'rem'}} onClick={() => this.rockClick(3)}></img>
                     <img class="polish__section__figure__rock polish__section__figure__rock--4" id="rock4_img" src={this.state.rock4_image_path} style={{top: this.state.start_positions[3][0] + 'rem', left: this.state.start_positions[3][1] + 'rem'}} onClick={() => this.rockClick(4)}></img>
 
-                    <img class="polish__section__figure__glimmer polish__section__figure__glimmer--1" id="shimmer1" src={this.state.glimmer1_image_path}></img>
-                    <img class="polish__section__figure__glimmer polish__section__figure__glimmer--2" id="shimmer2" src={this.state.glimmer2_image_path}></img>
+                    <img class="polish__section__figure__glimmer polish__section__figure__glimmer--1" id="shimmer1_img" src={this.state.glimmer1_image_path}></img>
+                    <img class="polish__section__figure__glimmer polish__section__figure__glimmer--2" id="shimmer2_img" src={this.state.glimmer2_image_path}></img>
                 </figure>
             </section>
 

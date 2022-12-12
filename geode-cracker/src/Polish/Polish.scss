@@ -21,8 +21,6 @@
   }
 
   &__text{
-    margin-top: 3rem;
-
     text-align: center;
     font-size: 3.6rem;
   }
@@ -48,7 +46,7 @@
       &__rock{
         position: absolute;
       }
-      
+
       &__glimmer{
         position: absolute;
 
@@ -72,7 +70,7 @@
   &__moveable{
     position: absolute;
 
-    bottom:5rem;
+    bottom: 0rem;
     right: 0;
 
     &--cloth{
