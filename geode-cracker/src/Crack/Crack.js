@@ -4,7 +4,6 @@ import './Crack.scss';
 import CrackPlace from './Components/CrackPlace';
 import CrackLever from './Components/CrackLever';
 import CrackFinish from './Components/CrackFinish';
-import MascotFullscreenNext from '../Mascot/MascotFullscreenNext';
 
 class Crack extends React.Component{
     state = {
