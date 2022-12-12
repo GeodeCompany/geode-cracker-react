@@ -49,23 +49,6 @@ class Crack extends React.Component{
     render(){
         return(
             <section class="crack">
-                {/* <div>
-                    <button class="crack__button button button--red" onClick={() => this.changeContent("crack_place")}>
-                        <figure>
-                            <h1>Crack place</h1>
-                        </figure>
-                    </button>
-                    <button class="crack__button button button--red" onClick={() => this.changeContent("crack_lever")}>
-                        <figure>
-                            <h1>Crack lever</h1>
-                        </figure>
-                    </button>
-                    <button class="crack__button button button--red" onClick={() => this.changeContent("crack_finish")}>
-                        <figure>
-                            <h1>Crack finish</h1>
-                        </figure>
-                    </button>
-                </div> */}
                 <h1 class="crack__action">{this.state.crack_action_text}</h1>
                 {(this.state.crack_place_state && <CrackPlace changeContent={this.changeContent.bind(this)} changeActionText={this.changeActionText.bind(this)}/>)  
                 ||
@@ -73,7 +56,6 @@ class Crack extends React.Component{
                 ||
                 (this.state.crack_finish_state && <CrackFinish changeContent={this.changeContent.bind(this)} changeActionText={this.changeActionText.bind(this)}/>)
                 }
-
             </section>
         )
     }
