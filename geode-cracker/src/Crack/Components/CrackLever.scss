@@ -1,0 +1,30 @@
+.crackLever{
+    &__figure{
+        position: relative;
+        width: 100%;
+        height: 100%;
+
+        &__image{
+            width: 100%;
+            height: 100%;
+        }
+
+        &__button--up{
+            position: absolute;
+            top: 3%;
+            left: 60%;
+
+            width: 22%;
+            height: 20%;
+        }
+
+        &__button--down{
+            position: absolute;
+            top: 18%;
+            left: 60%;
+
+            width: 22%;
+            height: 20%;
+        }
+    }
+}
