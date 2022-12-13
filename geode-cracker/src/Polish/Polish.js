@@ -11,9 +11,11 @@ class Polish extends React.Component{
         start_positions: [[1.5, 22],[2.5, 4.5],[26, 24],[26, 0]],
         end_positions: [[27, 15],[28, 7],[23, 20],[21, 11]],
 
-        interactionState: "brush",
-        rocksClicked: [false, false, false, false],
-        moveCount: 0,
+        interaction_state: "brush",
+        rocks_clicked: [false, false, false, false],
+        move_count: 0,
+
+        can_make_polish_sound: true,
 
         geode_image_path: "/img/geode.png",
         bucket_normal_image_path: "/img/bucket_normal.png",
@@ -25,11 +27,15 @@ class Polish extends React.Component{
         rock3_image_path: "/img/rock3.png",
         rock4_image_path: "/img/rock4.png",
         glimmer1_image_path: "/img/glimmers1.png",
-        glimmer2_image_path: "/img/glimmers2.png"
+        glimmer2_image_path: "/img/glimmers2.png",
+
+        rock_sound: new Audio("http://codeskulptor-demos.commondatastorage.googleapis.com/pang/pop.mp3"),
+        wash_sound: new Audio("http://codeskulptor-demos.commondatastorage.googleapis.com/descent/gotitem.mp3"),
+        polish_sound: new Audio("http://codeskulptor-demos.commondatastorage.googleapis.com/descent/Zombie.mp3")
     }
 
     updateVisuals(){
-      switch (this.state.interactionState) {
+      switch (this.state.interaction_state) {
         case "wash":
           document.getElementById("action_text").innerHTML = this.state.wash_text;
           document.getElementById("brush_img").style.visibility = "hidden";
@@ -47,9 +53,10 @@ class Polish extends React.Component{
     }
 
     rockClick(rock_number){
-      if(this.state.rocksClicked[rock_number - 1] == false){
-        this.state.rocksClicked[rock_number - 1] = true;
+      if(this.state.rocks_clicked[rock_number - 1] == false){
+        this.state.rocks_clicked[rock_number - 1] = true;
         this.moveRock(rock_number);
+        this.state.rock_sound.play();
         this.checkBrushDone();
       }
     }
@@ -62,33 +69,47 @@ class Polish extends React.Component{
     }
 
     checkBrushDone(){
-      const getRocksClicked = this.state.rocksClicked.filter(Boolean).length;
+      const getRocksClicked = this.state.rocks_clicked.filter(Boolean).length;
       if(getRocksClicked >= 4){
-        this.state.interactionState = "wash";
-        console.log(this.state.interactionState)
+        this.state.interaction_state = "wash";
         this.updateVisuals();
       }
     }
 
     bucketClick(){
       console.log("CLICKED DA BUCKET");
-
-      this.state.interactionState = "polish"
+      this.state.wash_sound.play();
+      this.state.interaction_state = "polish"
       this.updateVisuals();
     }
 
+    test(){
+      console.log("test");
+    }
+
     polishGeode(){
-      if(this.state.interactionState == "polish"){
-        this.state.moveCount++;
-        if(this.state.moveCount >= 1000){
-          this.state.interactionState = "none";
+      if(this.state.interaction_state == "polish"){
+        this.state.move_count++;
+
+
+        if(this.state.can_make_polish_sound){
+          this.setState({can_make_polish_sound: false});
+          this.state.polish_sound.play()
+        }
+
+        if(this.state.polish_sound.ended){
+          this.setState({can_make_polish_sound: true});
+        }
+
+        if(this.state.move_count >= 1000){
+          this.state.interaction_state = "none";
           console.log("YOU DONE");
         } else {
-          if(this.state.moveCount >= 300){
+          if(this.state.move_count >= 300){
             if(document.getElementById("shimmer1_img").style.visibility != "visible"){
               document.getElementById("shimmer1_img").style.visibility = "visible";
             }
-            if(this.state.moveCount >= 600){
+            if(this.state.move_count >= 600){
               if(document.getElementById("shimmer2_img").style.visibility != "visible"){
                 document.getElementById("shimmer2_img").style.visibility = "visible";
               }
