@@ -66,6 +66,10 @@ class Polish extends React.Component{
       var positions = this.state.end_positions[rock_number - 1];
       document.getElementById(rockString).style.top = positions[0] + "rem";
       document.getElementById(rockString).style.left = positions[1] + "rem";
+
+      if ("vibrate" in navigator) {
+        navigator.vibrate(1000);
+      }
     }
 
     checkBrushDone(){
@@ -81,17 +85,17 @@ class Polish extends React.Component{
       this.state.wash_sound.play();
       this.state.interaction_state = "polish"
       this.updateVisuals();
-    }
-
-    test(){
-      console.log("test");
+      if ("vibrate" in navigator) {
+        navigator.vibrate(1000);
+      }
     }
 
     polishGeode(){
       if(this.state.interaction_state == "polish"){
         this.state.move_count++;
-
-
+        if ("vibrate" in navigator) {
+          navigator.vibrate(100);
+        }
         if(this.state.can_make_polish_sound){
           this.setState({can_make_polish_sound: false});
           this.state.polish_sound.play()
