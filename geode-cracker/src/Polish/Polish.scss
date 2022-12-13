@@ -65,6 +65,15 @@
         }
       }
     }
+
+    &__percent{
+      margin-top: .5rem;
+
+      text-align: center;
+      font-size: 2rem;
+
+      visibility: hidden;
+    }
   }
 
   &__moveable{

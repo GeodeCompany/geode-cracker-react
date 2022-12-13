@@ -21,7 +21,7 @@ function App() {
       <Settings />
       <Routes>
         <Route path="/">
-          <Route index element={[<Polish />]} />
+          <Route index element={<h1>Home Pagina</h1>} />
           <Route path="syntax" element={[<Syntax />]} />
           <Route path="settings" element={[<Settings />]} />
           <Route path="mascot/choice" element={[<MascotChoice />]} />
@@ -29,7 +29,7 @@ function App() {
           <Route path="mascot/next" element={[<MascotNext />]} />
           <Route path="collection" element={[<Collection />]} />
 
-
+          <Route path="polish" element={[<Polish />]} />
 
           <Route path="*" element={<h1>Fallback 404</h1>} />
         </Route>

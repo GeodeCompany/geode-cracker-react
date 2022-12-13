@@ -48,6 +48,7 @@ class Polish extends React.Component{
             document.getElementsByClassName("polish__section__figure__rock")[i].style.visibility = "hidden";
           }
           document.getElementById("cloth_img").style.visibility = "visible";
+          document.getElementById("percent_text").style.visibility = "visible";
           break;
       }
     }
@@ -93,27 +94,30 @@ class Polish extends React.Component{
     polishGeode(){
       if(this.state.interaction_state == "polish"){
         this.state.move_count++;
+
+        document.getElementById("percent_text").innerHTML = Math.round(this.state.move_count / 300 * 100) + "%";
+
         if ("vibrate" in navigator) {
           navigator.vibrate(100);
         }
+
         if(this.state.can_make_polish_sound){
           this.setState({can_make_polish_sound: false});
           this.state.polish_sound.play()
         }
-
         if(this.state.polish_sound.ended){
           this.setState({can_make_polish_sound: true});
         }
 
-        if(this.state.move_count >= 1000){
+        if(this.state.move_count >= 300){
           this.state.interaction_state = "none";
           console.log("YOU DONE");
         } else {
-          if(this.state.move_count >= 300){
+          if(this.state.move_count >= 50){
             if(document.getElementById("shimmer1_img").style.visibility != "visible"){
               document.getElementById("shimmer1_img").style.visibility = "visible";
             }
-            if(this.state.move_count >= 600){
+            if(this.state.move_count >= 200){
               if(document.getElementById("shimmer2_img").style.visibility != "visible"){
                 document.getElementById("shimmer2_img").style.visibility = "visible";
               }
@@ -144,6 +148,7 @@ class Polish extends React.Component{
                     <img class="polish__section__figure__glimmer polish__section__figure__glimmer--1" id="shimmer1_img" src={this.state.glimmer1_image_path}></img>
                     <img class="polish__section__figure__glimmer polish__section__figure__glimmer--2" id="shimmer2_img" src={this.state.glimmer2_image_path}></img>
                 </figure>
+                <h2 class="polish__section__percent" id="percent_text">0%</h2>
             </section>
 
             <div class="polish__moveable polish__moveable--brush" id="brush_img">
