@@ -1,0 +1,21 @@
+.crackFinish{
+    &__figure{
+        position: relative;
+        width: 100%;
+        height: 100%;
+
+        &__image{
+            width: 100%;
+            height: 100%;
+        }
+
+        &__button{
+            position: absolute;
+            top: 28%;
+            left: 28%;
+
+            width: 44%;
+            height: 21%;
+        }
+    }
+}
