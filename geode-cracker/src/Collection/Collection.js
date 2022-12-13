@@ -44,6 +44,9 @@ class Collection extends React.Component{
                 this.state.geode_english = data[rock].geode_english;
                 this.state.information = data[rock].information;
                 this.state.location = data[rock].location;
+
+                this.state.geode_image_image_path = data[rock].geode_image_image_path;
+                this.state.geode_map_image_path = data[rock].geode_map_image_path;
             }
         }
     }
