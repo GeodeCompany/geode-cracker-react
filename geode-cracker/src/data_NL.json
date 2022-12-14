@@ -138,7 +138,11 @@
             "location" : "Brazilië, Uruguay, Mexico, Namibië, Zambia, Noord-Amerika, Europa, Australië en Japan",
 
             "geode_image_image_path" : "/img/geode_image_amethyst.png",
-            "geode_map_image_path" : "/img/geode_map_amethyst.png"
+            "geode_map_image_path" : "/img/geode_map_amethyst.png",
+
+            "geode_clean_image_path" : "/img/geode.png",
+            "geode_clean_start_positions": [[1.5, 22],[2.5, 4.5],[26, 24],[26, 0]],
+            "geode_clean_end_positions": [[27, 15],[28, 7],[23, 20],[21, 11]]
         },
         "quartz" : {
             "title" : "Kwarts",
@@ -148,7 +152,11 @@
             "location" : "Wereldwijd",
             
             "geode_image_image_path" : "/img/geode_image_quartz.png",
-            "geode_map_image_path" : "/img/geode_map_quartz.png"
+            "geode_map_image_path" : "/img/geode_map_quartz.png",
+
+            "geode_clean_image_path" : "/img/geode.png",
+            "geode_clean_start_positions": [[1.5, 22],[2.5, 4.5],[26, 24],[26, 0]],
+            "geode_clean_end_positions": [[27, 15],[28, 7],[23, 20],[21, 11]]
         },
 
         "citrine" : {
@@ -159,7 +167,11 @@
             "location" : "De belangrijkste bron is Brazilië",
             
             "geode_image_image_path" : "/img/geode_image_citrine.png",
-            "geode_map_image_path" : "/img/geode_map_citrine.png"
+            "geode_map_image_path" : "/img/geode_map_citrine.png",
+
+            "geode_clean_image_path" : "/img/geode.png",
+            "geode_clean_start_positions": [[1.5, 22],[2.5, 4.5],[26, 24],[26, 0]],
+            "geode_clean_end_positions": [[27, 15],[28, 7],[23, 20],[21, 11]]
         },
 
         "pyrite" : {
@@ -170,7 +182,11 @@
             "location" : "Komt wereldwijd voor, zeer algemeen mineraal. Bekende locaties: Rio Tinto in Spanje en Sulitelma in Noorwegen.",
             
             "geode_image_image_path" : "/img/geode_image_pyrite.png",
-            "geode_map_image_path" : "/img/geode_map_pyrite.png"
+            "geode_map_image_path" : "/img/geode_map_pyrite.png",
+
+            "geode_clean_image_path" : "/img/geode.png",
+            "geode_clean_start_positions": [[1.5, 22],[2.5, 4.5],[26, 24],[26, 0]],
+            "geode_clean_end_positions": [[27, 15],[28, 7],[23, 20],[21, 11]]
         }
     }
 }
