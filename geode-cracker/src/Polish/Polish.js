@@ -7,6 +7,7 @@ class Polish extends React.Component{
         brush_text: "Borstel de stukken los",
         wash_text: "Spoel de stukken weg",
         polish_text: "Poets de geode schoon",
+        done_text: "Helemaal schoon!",
 
         start_positions: [[1.5, 22],[2.5, 4.5],[26, 24],[26, 0]],
         end_positions: [[27, 15],[28, 7],[23, 20],[21, 11]],
@@ -32,6 +33,33 @@ class Polish extends React.Component{
         rock_sound: new Audio("http://codeskulptor-demos.commondatastorage.googleapis.com/pang/pop.mp3"),
         wash_sound: new Audio("http://codeskulptor-demos.commondatastorage.googleapis.com/descent/gotitem.mp3"),
         polish_sound: new Audio("http://codeskulptor-demos.commondatastorage.googleapis.com/descent/Zombie.mp3")
+    }
+
+    updateData (language, geode) {
+      var data;
+
+      switch (language) {
+          case "NL":
+              data = data_NL
+              break;
+
+          case "EN":
+              data = data_EN
+              break;
+      };
+
+      this.state.brush_text = data.clean.brush.title;
+      this.wash_text = data.clean.water.title;
+      this.polish_text = data.clean.wipe.title;
+      this.done_text = data.clean.clean.title;
+
+      for (let rock in data.colletion) {
+        if (rock == geode) {
+            this.state.geode_image_path = data.collection[rock].geode_clean_image_path;
+            this.state.start_positions = data.collection[rock].geode_clean_start_positions;
+            this.state.end_positions = data.collection[rock].geode_clean_end_positions;
+        }
+      }
     }
 
     updateVisuals(){
@@ -111,7 +139,7 @@ class Polish extends React.Component{
 
         if(this.state.move_count >= 300){
           this.state.interaction_state = "none";
-          console.log("YOU DONE");
+          document.getElementById("action_text").innerHTML = this.state.done_text;
         } else {
           if(this.state.move_count >= 50){
             if(document.getElementById("shimmer1_img").style.visibility != "visible"){
