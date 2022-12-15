@@ -1,6 +1,9 @@
 import React from 'react';
 import './Polish.scss';
 
+import data_NL from '../data_NL.json';
+import data_EN from '../data_EN.json';
+
 class Polish extends React.Component{
 
     state = {
@@ -15,6 +18,7 @@ class Polish extends React.Component{
         interaction_state: "brush",
         rocks_clicked: [false, false, false, false],
         move_count: 0,
+        max_move_count: 100,
 
         can_make_polish_sound: true,
 
@@ -37,7 +41,7 @@ class Polish extends React.Component{
 
     updateData (language, geode) {
       var data;
-
+      console.log(navigator.userAgent.indexOf('Linux'));
       switch (language) {
           case "NL":
               data = data_NL
@@ -59,6 +63,17 @@ class Polish extends React.Component{
             this.state.start_positions = data.collection[rock].geode_clean_start_positions;
             this.state.end_positions = data.collection[rock].geode_clean_end_positions;
         }
+      }
+    }
+
+    startUp(){
+      this.updateData("NL", "Amethyst");
+      if (window.navigator.userAgent.indexOf("Mac") != -1){
+        this.state.max_move_count = 500;
+      } else if (window.navigator.userAgent.indexOf("Linux") != -1){
+        this.state.max_move_count = 250;
+      } else {
+        this.state.max_move_count = 300;
       }
     }
 
@@ -97,7 +112,7 @@ class Polish extends React.Component{
       document.getElementById(rockString).style.left = positions[1] + "rem";
 
       if ("vibrate" in navigator) {
-        navigator.vibrate(1000);
+        navigator.vibrate(400);
       }
     }
 
@@ -123,7 +138,7 @@ class Polish extends React.Component{
       if(this.state.interaction_state == "polish"){
         this.state.move_count++;
 
-        document.getElementById("percent_text").innerHTML = Math.round(this.state.move_count / 300 * 100) + "%";
+        document.getElementById("percent_text").innerHTML = Math.round(this.state.move_count / this.state.max_move_count * 100) + "%";
 
         if ("vibrate" in navigator) {
           navigator.vibrate(100);
@@ -137,15 +152,15 @@ class Polish extends React.Component{
           this.setState({can_make_polish_sound: true});
         }
 
-        if(this.state.move_count >= 300){
+        if(this.state.move_count >= this.state.max_move_count){
           this.state.interaction_state = "none";
           document.getElementById("action_text").innerHTML = this.state.done_text;
         } else {
-          if(this.state.move_count >= 50){
+          if(this.state.move_count >= (this.state.max_move_count / 5)){
             if(document.getElementById("shimmer1_img").style.visibility != "visible"){
               document.getElementById("shimmer1_img").style.visibility = "visible";
             }
-            if(this.state.move_count >= 200){
+            if(this.state.move_count >= (this.state.max_move_count / 2)){
               if(document.getElementById("shimmer2_img").style.visibility != "visible"){
                 document.getElementById("shimmer2_img").style.visibility = "visible";
               }
@@ -156,6 +171,7 @@ class Polish extends React.Component{
     }
 
     render(){
+      this.startUp()
         return(
         <article class="polish">
             <button class="polish__button" id="bucket_img" onClick={() => this.bucketClick()}>
