@@ -13,14 +13,14 @@ class MascotCard extends React.Component{
     render(){
       if(this.props.mascot_type == "next"){
         this.state.button = 
-        <button class="mascot__dialogue__button--next button" onClick={() => this.props.changeContent("polish")}> {'>'} </button>
+        <button class="mascot__dialogue__button--next button" onClick={() => this.props.changeContent(this.props.mascot_next_content)}> {'>'} </button>
         ;
       };
       if(this.props.mascot_type == "choice"){
         this.state.button = 
         <Fragment>
-          <button class="mascot__dialogue__button--choice mascot__dialogue__button--choice--left button"> {this.state.left_button_text} </button>
-          <button class="mascot__dialogue__button--choice mascot__dialogue__button--choice--right button"> {this.state.right_button_text} </button>
+          <button class="mascot__dialogue__button--choice mascot__dialogue__button--choice--left button" onClick={() => this.props.changeContent(this.props.mascot_choice_left_content)}> {this.props.mascot_choice_left_text} </button>
+          <button class="mascot__dialogue__button--choice mascot__dialogue__button--choice--right button" onClick={() => this.props.changeContent(this.props.mascot_choice_right_content)}> {this.props.mascot_choice_right_text} </button>
         </Fragment>
         ;
       };

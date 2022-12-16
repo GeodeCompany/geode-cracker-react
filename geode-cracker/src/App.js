@@ -16,6 +16,11 @@ class App extends React.Component{
   state = {
     mascot_text: "placeholder",
     mascot_type: "placeholder",
+    mascot_next_content: "crack",
+    mascot_choice_left_text: "crack",
+    mascot_choice_right_text: "polish",
+    mascot_choice_left_content: "crack",
+    mascot_choice_right_content: "polish",
     mascot_card_state: false,
     mascot_help_state: false,
 
@@ -26,17 +31,18 @@ class App extends React.Component{
   changeContent(component){
     console.log("changeContent(): change content to " + component);
     this.resetContent();
+    // type, text, next_content, choice_left_text, choice_right_text, choice_left_content, choice_right_content
     switch(component){
       case "mascot_next":
-        this.updateMascot("next", "mascot_next");
+        this.updateMascot("next", "mascot_next", "mascot_choice", "", "", "", "");
         this.toggleComponent("mascot_card");
         break;
       case "mascot_choice":
-        this.updateMascot("choice", "mascot_choice");
+        this.updateMascot("choice", "mascot_choice", "", "to crack", "to polish", "crack", "polish");
         this.toggleComponent("mascot_card");
         break;
       case "mascot_help":
-        this.updateMascot("help", "mascot_help");
+        this.updateMascot("help", "mascot_help", "", "", "", "", "", "");
         this.toggleComponent("mascot_help");
         break;
       case "crack":
@@ -91,10 +97,15 @@ class App extends React.Component{
     });
   };
 
-  updateMascot(type, text){
+  updateMascot(type, text, next_content, choice_left_text, choice_right_text, choice_left_content, choice_right_content){
     this.setState({
       mascot_type: type,
       mascot_text: text,
+      mascot_next_content: next_content,
+      mascot_choice_left_text: choice_left_text,
+      mascot_choice_right_text: choice_right_text,
+      mascot_choice_left_content: choice_left_content,
+      mascot_choice_right_content: choice_right_content,
     })
   }
 
@@ -114,7 +125,7 @@ class App extends React.Component{
         <article class="content">
           
 
-          {this.state.mascot_card_state && <MascotCard mascot_type={this.state.mascot_type} mascot_text={this.state.mascot_text} changeContent={this.changeContent.bind(this)} />}
+          {this.state.mascot_card_state && <MascotCard mascot_type={this.state.mascot_type} mascot_text={this.state.mascot_text} changeContent={this.changeContent.bind(this)} mascot_next_content={this.state.mascot_next_content} mascot_choice_left_text={this.state.mascot_choice_left_text} mascot_choice_right_text={this.state.mascot_choice_right_text} mascot_choice_left_content={this.state.mascot_choice_left_content} mascot_choice_right_content={this.state.mascot_choice_right_content}/>}
           {this.state.mascot_help_state && <MascotHelp mascot_text={this.state.mascot_text} />}
 
           {this.state.polish_state && <Polish />}
