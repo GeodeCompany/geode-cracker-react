@@ -6,8 +6,8 @@ import BannerBottom from "./Banner/Banner-bottom";
 import Syntax from "./Syntax/Syntax";
 import Settings from "./Settings/Settings";
 import Collection from "./Collection/Collection";
-import MascotChoice from "./Mascot/MascotFullscreenChoice";
-import MascotNext from "./Mascot/MascotFullscreenNext";
+import MascotChoice from "./Mascot/MascotChoice";
+import MascotNext from "./Mascot/MascotNext";
 import MascotHelp from "./Mascot/MascotHelp";
 
 import Polish from "./Polish/Polish";

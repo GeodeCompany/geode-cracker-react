@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react';
-import "./MascotFullscreenCard.scss"
+import "./MascotCard.scss"
 
 
-class MascotFullscreenCard extends React.Component{
+class MascotCard extends React.Component{
     state = {
         text: "Goed gedaan! We gaan de geode nu kraken",
         left_button_text: "Gevoel",
@@ -43,4 +43,4 @@ class MascotFullscreenCard extends React.Component{
     }
 }
 
-export default MascotFullscreenCard;
+export default MascotCard;
