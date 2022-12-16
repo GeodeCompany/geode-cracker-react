@@ -33,6 +33,7 @@ class Polish extends React.Component{
         rock4_image_path: "/img/rock4.png",
         glimmer1_image_path: "/img/glimmers1.png",
         glimmer2_image_path: "/img/glimmers2.png",
+        foam_image_path: "/img/foam.png",
 
         rock_sound: new Audio("http://codeskulptor-demos.commondatastorage.googleapis.com/pang/pop.mp3"),
         wash_sound: new Audio("http://codeskulptor-demos.commondatastorage.googleapis.com/descent/gotitem.mp3"),
@@ -125,7 +126,8 @@ class Polish extends React.Component{
     }
 
     bucketClick(){
-      console.log("CLICKED DA BUCKET");
+      document.getElementById("wash_animation").classList.remove("polish__wash--before");
+      document.getElementById("wash_animation").classList.add("polish__wash--after");
       this.state.wash_sound.play();
       this.state.interaction_state = "polish"
       this.updateVisuals();
@@ -201,6 +203,10 @@ class Polish extends React.Component{
 
             <div class="polish__moveable polish__moveable--cloth" id="cloth_img">
                 <img class="polish__moveable __img" src={this.state.cloth_image_path}></img>
+            </div>
+
+            <div class="polish__wash polish__wash--before" id="wash_animation">
+              <img class="polish__wash__foam" src={this.state.foam_image_path}></img>
             </div>
         </article>
         )
