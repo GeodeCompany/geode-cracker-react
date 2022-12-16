@@ -12,7 +12,7 @@ class CrackFinish extends React.Component{
         return(
             <section class="crackFinish">
             <figure class="crackFinish__figure">
-                <button class="crackFinish__figure__button button--triggerbox" onClick={() => this.props.changeContent("crack_place")}>LEVER</button>
+                <button class="crackFinish__figure__button button--triggerbox" onClick={() => this.props.changeContent(this.props.crack_finish_content)}>LEVER</button>
                 <img class="crackFinish__figure__image" src={this.state.crack_finish_image_path}></img>
             </figure>
         </section>

@@ -21,10 +21,13 @@ class App extends React.Component{
     mascot_choice_right_text: "polish",
     mascot_choice_left_content: "crack",
     mascot_choice_right_content: "polish",
+
     mascot_card_state: false,
     mascot_help_state: false,
 
-    crack_state: false, 
+    crack_state: false,
+    crack_finish_content: "polish",
+    
     polish_state: false,   
   };
 
@@ -55,6 +58,10 @@ class App extends React.Component{
         break;
       case "collection":
         this.toggleComponent("collection");
+        break;
+      case "start":
+        this.updateMascot("next", "Welkom in de app!", "crack", "", "", "", "");
+        this.toggleComponent("mascot_card");
         break;
       default:
         console.log("toggleComponent(): ERROR! Could not find " + component);
@@ -115,12 +122,13 @@ class App extends React.Component{
         <BannerTop />
         <Settings />
         <article class="testing">
-          <button class="testing__button button button--red" onClick={() => this.changeContent("mascot_next")}>toggleComponent("mascot_next")</button>
-          <button class="testing__button button button--red" onClick={() => this.changeContent("mascot_choice")}>toggleComponent("mascot_choice")</button>
-          <button class="testing__button button button--red" onClick={() => this.changeContent("mascot_help")}>toggleComponent("mascot_help")</button>
-          <button class="testing__button button button--green" onClick={() => this.changeContent("crack")}>toggleComponent("crack")</button>
-          <button class="testing__button button button--green" onClick={() => this.changeContent("polish")}>toggleComponent("polish")</button>
-          <button class="testing__button button button--green" onClick={() => this.changeContent("collection")}>toggleComponent("collection")</button>
+          <button class="testing__button button button--red" onClick={() => this.changeContent("mascot_next")}>mascot_next</button>
+          <button class="testing__button button button--red" onClick={() => this.changeContent("mascot_choice")}>mascot_choice</button>
+          <button class="testing__button button button--red" onClick={() => this.changeContent("mascot_help")}>mascot_help</button>
+          <button class="testing__button button button--red" onClick={() => this.changeContent("crack")}>crack</button>
+          <button class="testing__button button button--red" onClick={() => this.changeContent("polish")}>polish</button>
+          <button class="testing__button button button--red" onClick={() => this.changeContent("collection")}>Collection</button>
+          <button class="testing__button button button--green" onClick={() => this.changeContent("start")}>Start</button>
         </article>
         <article class="content">
           
@@ -128,8 +136,8 @@ class App extends React.Component{
           {this.state.mascot_card_state && <MascotCard mascot_type={this.state.mascot_type} mascot_text={this.state.mascot_text} changeContent={this.changeContent.bind(this)} mascot_next_content={this.state.mascot_next_content} mascot_choice_left_text={this.state.mascot_choice_left_text} mascot_choice_right_text={this.state.mascot_choice_right_text} mascot_choice_left_content={this.state.mascot_choice_left_content} mascot_choice_right_content={this.state.mascot_choice_right_content}/>}
           {this.state.mascot_help_state && <MascotHelp mascot_text={this.state.mascot_text} />}
 
+          {this.state.crack_state && <Crack changeContent={this.changeContent.bind(this)} crack_finish_content={this.state.crack_finish_content} />}
           {this.state.polish_state && <Polish />}
-          {this.state.crack_state && <Crack />}
           {this.state.collection_state && <Collection />}
         </article>
       </section>
