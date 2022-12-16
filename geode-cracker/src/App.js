@@ -26,15 +26,16 @@ class App extends React.Component{
     mascot_help_state: false,
 
     crack_state: false,
-    crack_finish_content: "polish",
-    
-    polish_state: false,   
+    crack_finish_content: "crack_finish",
+
+    polish_state: false,  
+    polish_finish_content: "polish_finish", 
   };
 
   changeContent(component){
     console.log("changeContent(): change content to " + component);
     this.resetContent();
-    // type, text, next_content, choice_left_text, choice_right_text, choice_left_content, choice_right_content
+    // Reference: updateMascot(type, text, next_content, choice_left_text, choice_right_text, choice_left_content, choice_right_content);
     switch(component){
       case "mascot_next":
         this.updateMascot("next", "mascot_next", "mascot_choice", "", "", "", "");
@@ -48,19 +49,27 @@ class App extends React.Component{
         this.updateMascot("help", "mascot_help", "", "", "", "", "", "");
         this.toggleComponent("mascot_help");
         break;
-      case "crack":
-        this.toggleComponent("crack");
-        this.toggleComponent("mascot_help");
-        break;
-      case "polish":
-        this.toggleComponent("polish");
-        this.toggleComponent("mascot_help");
-        break;
       case "collection":
         this.toggleComponent("collection");
         break;
       case "start":
         this.updateMascot("next", "Welkom in de app!", "crack", "", "", "", "");
+        this.toggleComponent("mascot_card");
+        break;
+      case "crack":
+        this.toggleComponent("crack");
+        this.toggleComponent("mascot_help");
+        break;
+      case "crack_finish":
+        this.updateMascot("next", "Je hebt de geode gekraakt! Laten we hem poetsen", "polish", "", "", "", "");
+        this.toggleComponent("mascot_card");
+        break;
+      case "polish":
+        this.toggleComponent("polish");
+        this.toggleComponent("mascot_help");
+        break;
+      case "polish_finish":
+        this.updateMascot("next", "Het is tijd om de geode te gaan bewonderen!", "collection", "", "", "", "");
         this.toggleComponent("mascot_card");
         break;
       default:
@@ -137,7 +146,7 @@ class App extends React.Component{
           {this.state.mascot_help_state && <MascotHelp mascot_text={this.state.mascot_text} />}
 
           {this.state.crack_state && <Crack changeContent={this.changeContent.bind(this)} crack_finish_content={this.state.crack_finish_content} />}
-          {this.state.polish_state && <Polish />}
+          {this.state.polish_state && <Polish changeContent={this.changeContent.bind(this)} polish_finish_content={this.state.polish_finish_content} />}
           {this.state.collection_state && <Collection />}
         </article>
       </section>
