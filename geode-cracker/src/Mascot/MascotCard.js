@@ -11,12 +11,12 @@ class MascotCard extends React.Component{
     }
 
     render(){
-      if(this.props.type == "next"){
+      if(this.props.mascot_type == "next"){
         this.state.button = 
-        <button class="mascot__dialogue__button--next button"> {'>'} </button>
+        <button class="mascot__dialogue__button--next button" onClick={() => this.props.changeContent("polish")}> {'>'} </button>
         ;
       };
-      if(this.props.type == "choice"){
+      if(this.props.mascot_type == "choice"){
         this.state.button = 
         <Fragment>
           <button class="mascot__dialogue__button--choice mascot__dialogue__button--choice--left button"> {this.state.left_button_text} </button>
@@ -24,22 +24,22 @@ class MascotCard extends React.Component{
         </Fragment>
         ;
       };
-        return(
-          <section class="mascot">
-            <figure class="mascot__figure">
-              <img class="mascot__figure__image" src={this.state.mascot_base_image_path} alt="A picture of the mascot" />
-            </figure>
+      return(
+        <section class="mascot">
+          <figure class="mascot__figure">
+            <img class="mascot__figure__image" src={this.state.mascot_base_image_path} alt="A picture of the mascot" />
+          </figure>
 
-            <section class="mascot__dialogue">
-              <section class="mascot__dialogue__arrowContainer">
-                <div class="mascot__dialogue__arrowContainer__arrow--up"></div>
-              </section>
-
-              <p class={"mascot__dialogue__text mascot__dialogue__text--" + this.props.type} >{this.state.text}</p>
-              {this.state.button}
+          <section class="mascot__dialogue">
+            <section class="mascot__dialogue__arrowContainer">
+              <div class="mascot__dialogue__arrowContainer__arrow--up"></div>
             </section>
+
+            <p class={"mascot__dialogue__text mascot__dialogue__text--" + this.props.mascot_type} >{this.props.mascot_text}</p>
+            {this.state.button}
           </section>
-        )
+        </section>
+      )
     }
 }
 

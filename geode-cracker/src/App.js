@@ -6,8 +6,7 @@ import BannerBottom from "./Banner/Banner-bottom";
 import Syntax from "./Syntax/Syntax";
 import Settings from "./Settings/Settings";
 import Collection from "./Collection/Collection";
-import MascotChoice from "./Mascot/MascotChoice";
-import MascotNext from "./Mascot/MascotNext";
+import MascotCard from './Mascot/MascotCard';
 import MascotHelp from "./Mascot/MascotHelp";
 
 import Polish from "./Polish/Polish";
@@ -15,8 +14,9 @@ import Crack from "./Crack/Crack";
 
 class App extends React.Component{
   state = {
-    mascot_next_state: true,
-    mascot_choice_state: false,
+    mascot_text: "placeholder",
+    mascot_type: "placeholder",
+    mascot_card_state: false,
     mascot_help_state: false,
 
     crack_state: false, 
@@ -28,12 +28,15 @@ class App extends React.Component{
     this.resetContent();
     switch(component){
       case "mascot_next":
-        this.toggleComponent("mascot_next");
+        this.updateMascot("next", "mascot_next");
+        this.toggleComponent("mascot_card");
         break;
       case "mascot_choice":
-        this.toggleComponent("mascot_choice");
+        this.updateMascot("choice", "mascot_choice");
+        this.toggleComponent("mascot_card");
         break;
       case "mascot_help":
+        this.updateMascot("help", "mascot_help");
         this.toggleComponent("mascot_help");
         break;
       case "crack":
@@ -56,11 +59,8 @@ class App extends React.Component{
   toggleComponent(component){
     console.log("toggleComponent(): toggle component named " + component)
     switch(component){
-      case "mascot_next":
-        this.setState({mascot_next_state: !this.mascot_next_state});
-        break;
-      case "mascot_choice":
-        this.setState({mascot_choice_state: !this.mascot_choice_state});
+      case "mascot_card":
+        this.setState({mascot_card_state: !this.mascot_card_state});
         break;
       case "mascot_help":
         this.setState({mascot_help_state: !this.mascot_help_state});
@@ -82,8 +82,7 @@ class App extends React.Component{
 
   resetContent(){
     this.setState({
-      mascot_next_state: false,
-      mascot_choice_state: false,
+      mascot_card_state: false,
       mascot_help_state: false,
 
       polish_state: false,
@@ -91,6 +90,13 @@ class App extends React.Component{
       collection_state: false,
     });
   };
+
+  updateMascot(type, text){
+    this.setState({
+      mascot_type: type,
+      mascot_text: text,
+    })
+  }
 
   render(){
     return(
@@ -108,9 +114,8 @@ class App extends React.Component{
         <article class="content">
           
 
-          {this.state.mascot_next_state && <MascotNext />}
-          {this.state.mascot_choice_state && <MascotChoice />}
-          {this.state.mascot_help_state && <MascotHelp />}
+          {this.state.mascot_card_state && <MascotCard mascot_type={this.state.mascot_type} mascot_text={this.state.mascot_text} changeContent={this.changeContent.bind(this)} />}
+          {this.state.mascot_help_state && <MascotHelp mascot_text={this.state.mascot_text} />}
 
           {this.state.polish_state && <Polish />}
           {this.state.crack_state && <Crack />}
