@@ -129,11 +129,13 @@ class Polish extends React.Component{
       document.getElementById("wash_animation").classList.remove("polish__wash--before");
       document.getElementById("wash_animation").classList.add("polish__wash--after");
       this.state.wash_sound.play();
-      this.state.interaction_state = "polish"
-      this.updateVisuals();
       if ("vibrate" in navigator) {
         navigator.vibrate(1000);
       }
+      setTimeout(() => {
+        this.state.interaction_state = "polish"
+        this.updateVisuals();
+      }, 4000);
     }
 
     polishGeode(){
