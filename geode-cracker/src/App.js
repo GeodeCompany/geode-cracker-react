@@ -17,6 +17,10 @@ class App extends React.Component{
     startup_state: true,
     data_geode: "placeholder",
     data_language: "placeholder",
+    data_language_default: "nl",
+
+    settings_vibrations: true,
+    settings_restart_content: "start",
 
     mascot_text: "placeholder",
     mascot_type: "placeholder",
@@ -136,6 +140,9 @@ class App extends React.Component{
   startUp(){
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
+    this.setState({
+      data_language: this.state.data_language_default
+    })
     if(urlParams.get("content") != null && urlParams.get("geode") != null){
       this.changeContent(urlParams.get("content"));
       this.setState({
@@ -165,6 +172,26 @@ class App extends React.Component{
     })
   }
 
+  updateLanguage(new_language){
+    console.log("updateLanguage(): update language to " + new_language);
+    this.setState({
+      data_language: new_language
+    })
+  }
+
+  updateSettings(setting, new_state){
+    console.log("updateSettings(): changing " + setting + " to " + new_state);
+    switch(setting){
+      case "vibrations":
+        this.setState({
+          settings_vibrations: new_state
+        })
+        break;
+      default:
+        break;
+    }
+  }
+
   redirect(url){
     window.location.replace(url);
   }
@@ -180,7 +207,7 @@ class App extends React.Component{
     return(
       <section>
         <BannerTop />
-        <Settings />
+        <Settings data_language={this.state.data_language} settings_vibrations={this.state.settings_vibrations} settings_restart_content={this.state.settings_restart_content} changeContent={this.changeContent.bind(this)} updateLanguage={this.updateLanguage.bind(this)} updateSettings={this.updateSettings.bind(this)}/>
         <article class="testing">
           {/* <button class="testing__button button button--red" onClick={() => this.changeContent("mascot_next")}>mascot_next</button> */}
           {/* <button class="testing__button button button--red" onClick={() => this.changeContent("mascot_choice")}>mascot_choice</button> */}
