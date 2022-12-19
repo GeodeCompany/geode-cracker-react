@@ -1,61 +1,40 @@
 import React from 'react';
 import './Collection.scss';
 
-import data_NL from '../data_NL.json';
-import data_EN from '../data_EN.json';
-
 class Collection extends React.Component{
 
     state = {
-        title: data_NL.collection.amethyst.title,
-        title_name_dutch: data_NL.collection.general.title_name_dutch,
-        geode_dutch: data_NL.collection.amethyst.geode_dutch,
-        title_name_english: data_NL.collection.general.title_name_english,
-        geode_english: data_NL.collection.amethyst.geode_english,
-        information: data_NL.collection.amethyst.information,
-        title_where: data_NL.collection.general.title_where,
-        location: data_NL.collection.amethyst.location,
+        title: "placeholder",
+        title_name_dutch: "placeholder",
+        geode_dutch: "placeholder",
+        title_name_english: "placeholder",
+        geode_english: "placeholder",
+        information: "placeholder",
+        title_where: "placeholder",
+        location: "placeholder",
         
-        geode_image_image_path: "/img/geode_image_amethyst.png",
-        geode_map_image_path: "/img/geode_map_amethyst.png"
+        geode_image_image_path: "placeholder",
+        geode_map_image_path: "placeholder"
     }
 
-    updateData (language, geode) {
-        var data;
+    updateData (data_JSON, geode) {
+        this.state.title_name_dutch = data_JSON.collection.general.title_name_dutch;
+        this.state.title_name_english = data_JSON.collection.general.title_name_english;
+        this.state.title_where = data_JSON.collection.general.title_where;
 
-        switch (language) {
-            case "NL":
-                data = data_NL.collection;
-                break;
+        this.state.title = data_JSON.collection[geode].title;
+        this.state.geode_dutch = data_JSON.collection[geode].geode_dutch;
+        this.state.geode_english = data_JSON.collection[geode].geode_english;
+        this.state.information = data_JSON.collection[geode].information;
+        this.state.location = data_JSON.collection[geode].location;
 
-            case "EN":
-                data = data_EN.collection;
-                break;
-        };
-
-        this.state.title_name_dutch = data.general.title_name_dutch;
-        this.state.title_name_english = data.general.title_name_english;
-        this.state.title_where = data.general.title_where;
-
-        for (let rock in data) {
-            if (rock == geode) {
-                this.state.title = data[rock].title;
-                this.state.geode_dutch = data[rock].geode_dutch;
-                this.state.geode_english = data[rock].geode_english;
-                this.state.information = data[rock].information;
-                this.state.location = data[rock].location;
-
-                this.state.geode_image_image_path = data[rock].geode_image_image_path;
-                this.state.geode_map_image_path = data[rock].geode_map_image_path;
-            }
-        }
+        this.state.geode_image_image_path = data_JSON.collection[geode].geode_image_image_path;
+        this.state.geode_map_image_path = data_JSON.collection[geode].geode_map_image_path;
     }
-    
 
 
     render(){
-
-        this.updateData ("NL", "amethyst");
+        this.updateData(this.props.data_JSON, this.props.data_geode);
         
         return(
           <article class="collection">

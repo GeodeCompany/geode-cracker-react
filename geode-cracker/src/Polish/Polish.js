@@ -5,10 +5,10 @@ class Polish extends React.Component{
 
     state = {
       startup_state: true,
-      brush_text: "Borstel de stukken los",
-      wash_text: "Spoel de stukken weg",
-      polish_text: "Poets de geode schoon",
-      done_text: "Helemaal schoon!",
+      brush_text: "placeholder",
+      wash_text: "placeholder",
+      polish_text: "placeholder",
+      done_text: "placeholder",
 
       start_positions: "placeholder",
       end_positions: "placeholder",
@@ -50,7 +50,6 @@ class Polish extends React.Component{
     }
 
     startUp(){
-      this.updateData(this.props.data_JSON, "amethyst");
       this.props.updateMascotText("brush");
       if (window.navigator.userAgent.indexOf("Mac") != -1){
         this.state.max_move_count = 500;
@@ -169,7 +168,7 @@ class Polish extends React.Component{
           startup_state: false,
         })
       }
-      this.updateData(this.props.data_JSON, "amethyst");
+      this.updateData(this.props.data_JSON, this.props.data_geode);
 
       return(
       <article class="polish">

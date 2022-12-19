@@ -179,11 +179,11 @@ class App extends React.Component{
   updateLanguage(new_language){
     console.log("updateLanguage(): update language to " + new_language);
     this.setState({data_language: new_language})
-    this.updateData(new_language);
+    this.updateJSON(new_language);
   }
 
-  updateData(new_language){
-    console.log("updateData(): update data_JSON to data_" + new_language);
+  updateJSON(new_language){
+    console.log("updateJSON(): update data_JSON to data_" + new_language);
     switch (new_language) {
       case "NL":
           this.setState({data_JSON: data_NL});
@@ -233,9 +233,9 @@ class App extends React.Component{
           {this.state.mascot_card_state && <MascotCard mascot_type={this.state.mascot_type} mascot_text={this.state.mascot_text} changeContent={this.changeContent.bind(this)} mascot_next_content={this.state.mascot_next_content} mascot_choice_left_text={this.state.mascot_choice_left_text} mascot_choice_right_text={this.state.mascot_choice_right_text} mascot_choice_left_content={this.state.mascot_choice_left_content} mascot_choice_right_content={this.state.mascot_choice_right_content}/>}
           {this.state.mascot_help_state && <MascotHelp mascot_text={this.state.mascot_text} />}
 
-          {this.state.crack_state && <Crack data_JSON={this.state.data_JSON} settings_vibrations={this.settings_vibrations} changeContent={this.changeContent.bind(this)} updateMascotText={this.updateMascotText.bind(this)} crack_finish_content={this.state.crack_finish_content} />}
-          {this.state.polish_state && <Polish data_JSON={this.state.data_JSON} settings_vibrations={this.settings_vibrations} changeContent={this.changeContent.bind(this)} updateMascotText={this.updateMascotText.bind(this)} polish_finish_content={this.state.polish_finish_content} />}
-          {this.state.collection_state && <Collection data_JSON={this.state.data_JSON} />}
+          {this.state.crack_state && <Crack data_JSON={this.state.data_JSON} data_geode={this.state.data_geode} settings_vibrations={this.settings_vibrations} changeContent={this.changeContent.bind(this)} updateMascotText={this.updateMascotText.bind(this)} crack_finish_content={this.state.crack_finish_content} />}
+          {this.state.polish_state && <Polish data_JSON={this.state.data_JSON} data_geode={this.state.data_geode} settings_vibrations={this.settings_vibrations} changeContent={this.changeContent.bind(this)} updateMascotText={this.updateMascotText.bind(this)} polish_finish_content={this.state.polish_finish_content} />}
+          {this.state.collection_state && <Collection data_JSON={this.state.data_JSON} data_geode={this.state.data_geode} />}
         </article>
       </section>
     )
