@@ -38,7 +38,10 @@ class App extends React.Component{
 
     polish_state: false,  
     polish_finish_mascot_text: "polish_finish_mascot_text",
-    polish_finish_mascot_next_content: "redirect_inspect", 
+    polish_finish_mascot_next_content: "redirect_inspect",
+
+    default_mascot_text: "default_mascot_text",
+    default_mascot_next_content: "default",
   };
 
   changeContent(new_content){
@@ -85,7 +88,8 @@ class App extends React.Component{
         this.toggleComponent("collection");
         break;
       default:
-        console.log("toggleComponent(): ERROR! Could not find " + new_content);
+        this.updateMascot("next", this.state.default_mascot_text, this.state.default_mascot_next_content, "", "", "", "");
+        this.toggleComponent("mascot_card");
         break;
     }
   };
@@ -109,7 +113,7 @@ class App extends React.Component{
         this.setState({collection_state: !this.collection_state});
         break;
       default:
-        console.log("toggleComponent(): ERROR! Could not find " + component);
+        console.log("toggleComponent(): Could not find " + component);
         break;
     }
   }
@@ -128,10 +132,15 @@ class App extends React.Component{
   startUp(){
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
-    this.changeContent(urlParams.get("content"));
-    this.setState({
-      data_geode: urlParams.get("geode")
-    })
+    if(urlParams.get("content") != null && urlParams.get("geode") != null){
+      this.changeContent(urlParams.get("content"));
+      this.setState({
+        data_geode: urlParams.get("geode")
+      })
+    } else {
+      this.changeContent("default");
+    }
+    
   }
 
   updateMascot(type, text, next_content, choice_left_text, choice_right_text, choice_left_content, choice_right_content){
