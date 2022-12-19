@@ -29,7 +29,8 @@
     &__text{
       color: var(--white-color);
       font-size: 2rem;
-
+      overflow-wrap: break-word;
+      
       &--choice{
         width: 100%;
         margin-bottom: 2rem;
