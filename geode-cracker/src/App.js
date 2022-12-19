@@ -33,10 +33,14 @@ class App extends React.Component{
     start_mascot_next_content: "crack",
 
     crack_state: false,
+    crack_finish_content: "crack_finish",
+
     crack_finish_mascot_text: "crack_finish_mascot_text",
     crack_finish_mascot_next_content: "polish",
 
-    polish_state: false,  
+    polish_state: false, 
+    polish_finish_content: "polish_finish", 
+
     polish_finish_mascot_text: "polish_finish_mascot_text",
     polish_finish_mascot_next_content: "redirect_inspect",
 
@@ -190,8 +194,8 @@ class App extends React.Component{
           {this.state.mascot_card_state && <MascotCard mascot_type={this.state.mascot_type} mascot_text={this.state.mascot_text} changeContent={this.changeContent.bind(this)} mascot_next_content={this.state.mascot_next_content} mascot_choice_left_text={this.state.mascot_choice_left_text} mascot_choice_right_text={this.state.mascot_choice_right_text} mascot_choice_left_content={this.state.mascot_choice_left_content} mascot_choice_right_content={this.state.mascot_choice_right_content}/>}
           {this.state.mascot_help_state && <MascotHelp mascot_text={this.state.mascot_text} />}
 
-          {this.state.crack_state && <Crack changeContent={this.changeContent.bind(this)} updateMascotText={this.updateMascotText.bind(this)} crack_finish_content={this.state.crack_finish_mascot_next_content} />}
-          {this.state.polish_state && <Polish changeContent={this.changeContent.bind(this)} updateMascotText={this.updateMascotText.bind(this)} polish_finish_content={this.state.polish_finish_mascot_next_content} />}
+          {this.state.crack_state && <Crack changeContent={this.changeContent.bind(this)} updateMascotText={this.updateMascotText.bind(this)} crack_finish_content={this.state.crack_finish_content} />}
+          {this.state.polish_state && <Polish changeContent={this.changeContent.bind(this)} updateMascotText={this.updateMascotText.bind(this)} polish_finish_content={this.state.polish_finish_content} />}
           {this.state.collection_state && <Collection />}
         </article>
       </section>
