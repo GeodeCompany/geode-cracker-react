@@ -12,12 +12,16 @@ import MascotHelp from "./Mascot/MascotHelp";
 import Polish from "./Polish/Polish";
 import Crack from "./Crack/Crack";
 
+import data_NL from './data_NL.json';
+import data_EN from './data_EN.json';
+
 class App extends React.Component{
   state = {
     startup_state: true,
+    data_JSON: data_NL,
     data_geode: "placeholder",
     data_language: "placeholder",
-    data_language_default: "nl",
+    data_language_default: "NL",
 
     settings_vibrations: true,
     settings_restart_content: "start",
@@ -174,18 +178,28 @@ class App extends React.Component{
 
   updateLanguage(new_language){
     console.log("updateLanguage(): update language to " + new_language);
-    this.setState({
-      data_language: new_language
-    })
+    this.setState({data_language: new_language})
+    this.updateData(new_language);
+  }
+
+  updateData(new_language){
+    console.log("updateData(): update data_JSON to data_" + new_language);
+    switch (new_language) {
+      case "NL":
+          this.setState({data_JSON: data_NL});
+          break;
+
+      case "EN":
+        this.setState({data_JSON: data_EN});
+          break;
+    };
   }
 
   updateSettings(setting, new_state){
-    console.log("updateSettings(): changing " + setting + " to " + new_state);
+    console.log("updateSettings(): updating " + setting + " to " + new_state);
     switch(setting){
       case "vibrations":
-        this.setState({
-          settings_vibrations: new_state
-        })
+        this.setState({settings_vibrations: new_state});
         break;
       default:
         break;
@@ -199,15 +213,13 @@ class App extends React.Component{
   render(){
     if(this.state.startup_state){
       this.startUp();
-      this.setState({
-        startup_state: false
-      })
+      this.setState({startup_state: false});
     }
 
     return(
       <section>
         <BannerTop />
-        <Settings data_language={this.state.data_language} settings_vibrations={this.state.settings_vibrations} settings_restart_content={this.state.settings_restart_content} changeContent={this.changeContent.bind(this)} updateLanguage={this.updateLanguage.bind(this)} updateSettings={this.updateSettings.bind(this)}/>
+        <Settings data_JSON={this.state.data_JSON} data_language={this.state.data_language} settings_vibrations={this.state.settings_vibrations} settings_restart_content={this.state.settings_restart_content} changeContent={this.changeContent.bind(this)} updateLanguage={this.updateLanguage.bind(this)} updateSettings={this.updateSettings.bind(this)}/>
         <article class="testing">
           {/* <button class="testing__button button button--red" onClick={() => this.changeContent("mascot_next")}>mascot_next</button> */}
           {/* <button class="testing__button button button--red" onClick={() => this.changeContent("mascot_choice")}>mascot_choice</button> */}
@@ -221,9 +233,9 @@ class App extends React.Component{
           {this.state.mascot_card_state && <MascotCard mascot_type={this.state.mascot_type} mascot_text={this.state.mascot_text} changeContent={this.changeContent.bind(this)} mascot_next_content={this.state.mascot_next_content} mascot_choice_left_text={this.state.mascot_choice_left_text} mascot_choice_right_text={this.state.mascot_choice_right_text} mascot_choice_left_content={this.state.mascot_choice_left_content} mascot_choice_right_content={this.state.mascot_choice_right_content}/>}
           {this.state.mascot_help_state && <MascotHelp mascot_text={this.state.mascot_text} />}
 
-          {this.state.crack_state && <Crack changeContent={this.changeContent.bind(this)} updateMascotText={this.updateMascotText.bind(this)} crack_finish_content={this.state.crack_finish_content} />}
-          {this.state.polish_state && <Polish changeContent={this.changeContent.bind(this)} updateMascotText={this.updateMascotText.bind(this)} polish_finish_content={this.state.polish_finish_content} />}
-          {this.state.collection_state && <Collection />}
+          {this.state.crack_state && <Crack data_JSON={this.state.data_JSON} settings_vibrations={this.settings_vibrations} changeContent={this.changeContent.bind(this)} updateMascotText={this.updateMascotText.bind(this)} crack_finish_content={this.state.crack_finish_content} />}
+          {this.state.polish_state && <Polish data_JSON={this.state.data_JSON} settings_vibrations={this.settings_vibrations} changeContent={this.changeContent.bind(this)} updateMascotText={this.updateMascotText.bind(this)} polish_finish_content={this.state.polish_finish_content} />}
+          {this.state.collection_state && <Collection data_JSON={this.state.data_JSON} />}
         </article>
       </section>
     )

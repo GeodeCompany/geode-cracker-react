@@ -1,9 +1,6 @@
 import React from 'react';
 import './Polish.scss';
 
-import data_NL from '../data_NL.json';
-import data_EN from '../data_EN.json';
-
 class Polish extends React.Component{
 
     state = {
@@ -13,8 +10,8 @@ class Polish extends React.Component{
       polish_text: "Poets de geode schoon",
       done_text: "Helemaal schoon!",
 
-      start_positions: [[1.5, 22],[2.5, 4.5],[26, 24],[26, 0]],
-      end_positions: [[27, 15],[28, 7],[23, 20],[21, 11]],
+      start_positions: "placeholder",
+      end_positions: "placeholder",
 
       interaction_state: "brush",
       rocks_clicked: [false, false, false, false],
@@ -23,7 +20,7 @@ class Polish extends React.Component{
 
       can_make_polish_sound: true,
 
-      geode_image_path: "/img/geode.png",
+      geode_image_path: "placeholder",
       bucket_normal_image_path: "/img/bucket_normal.png",
       bucket_pour_image_path: "/img/bucket_pour.png",
       cloth_image_path: "/img/cloth.png",
@@ -41,35 +38,19 @@ class Polish extends React.Component{
       polish_sound: new Audio("http://codeskulptor-demos.commondatastorage.googleapis.com/descent/Zombie.mp3")
     }
 
-    updateData (language, geode) {
-      var data;
-      console.log(navigator.userAgent.indexOf('Linux'));
-      switch (language) {
-          case "NL":
-              data = data_NL
-              break;
+    updateData (data_JSON, geode) {
+      this.state.brush_text = data_JSON.clean.brush.title;
+      this.state.wash_text = data_JSON.clean.water.title;
+      this.state.polish_text = data_JSON.clean.wipe.title;
+      this.state.done_text = data_JSON.clean.clean.title;
 
-          case "EN":
-              data = data_EN
-              break;
-      };
-
-      this.state.brush_text = data.clean.brush.title;
-      this.wash_text = data.clean.water.title;
-      this.polish_text = data.clean.wipe.title;
-      this.done_text = data.clean.clean.title;
-
-      for (let rock in data.colletion) {
-        if (rock == geode) {
-            this.state.geode_image_path = data.collection[rock].geode_clean_image_path;
-            this.state.start_positions = data.collection[rock].geode_clean_start_positions;
-            this.state.end_positions = data.collection[rock].geode_clean_end_positions;
-        }
-      }
+      this.state.geode_image_path = data_JSON.collection[geode].geode_clean_image_path;
+      this.state.start_positions = data_JSON.collection[geode].geode_clean_start_positions;
+      this.state.end_positions = data_JSON.collection[geode].geode_clean_end_positions;
     }
 
     startUp(){
-      this.updateData("NL", "Amethyst");
+      this.updateData(this.props.data_JSON, "amethyst");
       this.props.updateMascotText("brush");
       if (window.navigator.userAgent.indexOf("Mac") != -1){
         this.state.max_move_count = 500;
@@ -116,7 +97,7 @@ class Polish extends React.Component{
       document.getElementById(rockString).style.top = positions[0] + "rem";
       document.getElementById(rockString).style.left = positions[1] + "rem";
 
-      if ("vibrate" in navigator) {
+      if ("vibrate" in navigator && this.props.settings_vibrations) {
         navigator.vibrate(400);
       }
     }
@@ -133,7 +114,7 @@ class Polish extends React.Component{
       document.getElementById("wash_animation").classList.remove("polish__wash--before");
       document.getElementById("wash_animation").classList.add("polish__wash--after");
       this.state.wash_sound.play();
-      if ("vibrate" in navigator) {
+      if ("vibrate" in navigator && this.props.settings_vibrations) {
         navigator.vibrate(1000);
       }
       setTimeout(() => {
@@ -148,7 +129,7 @@ class Polish extends React.Component{
 
         document.getElementById("percent_text").innerHTML = Math.round(this.state.move_count / this.state.max_move_count * 100) + "%";
 
-        if ("vibrate" in navigator) {
+        if ("vibrate" in navigator && this.props.settings_vibrations) {
           navigator.vibrate(100);
         }
 
@@ -188,7 +169,8 @@ class Polish extends React.Component{
           startup_state: false,
         })
       }
-      
+      this.updateData(this.props.data_JSON, "amethyst");
+
       return(
       <article class="polish">
           <button class="polish__button" id="bucket_img" onClick={() => this.bucketClick()}>

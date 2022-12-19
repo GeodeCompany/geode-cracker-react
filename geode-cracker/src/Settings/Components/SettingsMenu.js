@@ -15,10 +15,10 @@ class SettingsMenu extends React.Component{
         this.resetLanguageButtonStyling();
         this.props.updateLanguage(new_language);
         switch (new_language){
-            case "nl":
+            case "NL":
                 this.setState({language_button_style_nl: ""});
                 break;
-            case "en":
+            case "EN":
                 this.setState({language_button_style_en: ""});
                 break;
             default:
@@ -34,10 +34,10 @@ class SettingsMenu extends React.Component{
     }
 
     render(){
-        var language_button_nl = <button class={"settingsMenu__languages__button button button--green"} onClick={() => this.updateLanguage("nl")} >Nederlands</button>;
-        var language_button_en = <button class={"settingsMenu__languages__button button button--green"} onClick={() => this.updateLanguage("en")} >English</button>;
-        if(this.props.data_language != "nl"){language_button_nl = <button class={"settingsMenu__languages__button button button--green--inactive"} onClick={() => this.updateLanguage("nl")} >Nederlands</button>;} 
-        if(this.props.data_language != "en"){language_button_en = <button class={"settingsMenu__languages__button button button--green--inactive"} onClick={() => this.updateLanguage("en")} >English</button>;}
+        var language_button_nl = <button class={"settingsMenu__languages__button button button--green"} onClick={() => this.updateLanguage("NL")} >Nederlands</button>;
+        var language_button_en = <button class={"settingsMenu__languages__button button button--green"} onClick={() => this.updateLanguage("EN")} >English</button>;
+        if(this.props.data_language != "NL"){language_button_nl = <button class={"settingsMenu__languages__button button button--green--inactive"} onClick={() => this.updateLanguage("NL")} >Nederlands</button>;} 
+        if(this.props.data_language != "EN"){language_button_en = <button class={"settingsMenu__languages__button button button--green--inactive"} onClick={() => this.updateLanguage("EN")} >English</button>;}
         
         return(
             <section class="settingsMenu">
