@@ -7,8 +7,9 @@ import CrackFinish from './Components/CrackFinish';
 
 class Crack extends React.Component{
     state = {
+        startup_state: true,
         crack_action_text: "Plaats de Geode",
-        crack_place_state: true,
+        crack_place_state: false,
         crack_lever_state: false,
         crack_finish_state: false
     };
@@ -17,14 +18,17 @@ class Crack extends React.Component{
         this.resetContent();
         switch (name) {
             case "crack_place":
+                this.props.updateMascotText("crack_place");
                 this.changeActionText("Plaats de Geode");
                 this.setState({crack_place_state: true});
                 break;
             case "crack_lever":
+                this.props.updateMascotText("crack_lever");
                 this.changeActionText("Kraak de Geode");
                 this.setState({crack_lever_state: true});
                 break;
             case "crack_finish":
+                this.props.updateMascotText("crack_finish");
                 this.changeActionText("Gelukt!");
                 this.setState({crack_finish_state: true});
                 break;
@@ -46,6 +50,12 @@ class Crack extends React.Component{
     }
 
     render(){
+        if(this.state.startup_state){
+            this.changeContent("crack_place");
+            this.setState({
+                startup_state: false
+            })
+        }
         return(
             <section class="crack">
                 <h1 class="crack__action">{this.state.crack_action_text}</h1>

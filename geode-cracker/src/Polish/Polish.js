@@ -7,37 +7,38 @@ import data_EN from '../data_EN.json';
 class Polish extends React.Component{
 
     state = {
-        brush_text: "Borstel de stukken los",
-        wash_text: "Spoel de stukken weg",
-        polish_text: "Poets de geode schoon",
-        done_text: "Helemaal schoon!",
+      startup_state: true,
+      brush_text: "Borstel de stukken los",
+      wash_text: "Spoel de stukken weg",
+      polish_text: "Poets de geode schoon",
+      done_text: "Helemaal schoon!",
 
-        start_positions: [[1.5, 22],[2.5, 4.5],[26, 24],[26, 0]],
-        end_positions: [[27, 15],[28, 7],[23, 20],[21, 11]],
+      start_positions: [[1.5, 22],[2.5, 4.5],[26, 24],[26, 0]],
+      end_positions: [[27, 15],[28, 7],[23, 20],[21, 11]],
 
-        interaction_state: "brush",
-        rocks_clicked: [false, false, false, false],
-        move_count: 0,
-        max_move_count: 100,
+      interaction_state: "brush",
+      rocks_clicked: [false, false, false, false],
+      move_count: 0,
+      max_move_count: 100,
 
-        can_make_polish_sound: true,
+      can_make_polish_sound: true,
 
-        geode_image_path: "/img/geode.png",
-        bucket_normal_image_path: "/img/bucket_normal.png",
-        bucket_pour_image_path: "/img/bucket_pour.png",
-        cloth_image_path: "/img/cloth.png",
-        brush_image_path: "/img/brush.png",
-        rock1_image_path: "/img/rock1.png",
-        rock2_image_path: "/img/rock2.png",
-        rock3_image_path: "/img/rock3.png",
-        rock4_image_path: "/img/rock4.png",
-        glimmer1_image_path: "/img/glimmers1.png",
-        glimmer2_image_path: "/img/glimmers2.png",
-        foam_image_path: "/img/foam.png",
+      geode_image_path: "/img/geode.png",
+      bucket_normal_image_path: "/img/bucket_normal.png",
+      bucket_pour_image_path: "/img/bucket_pour.png",
+      cloth_image_path: "/img/cloth.png",
+      brush_image_path: "/img/brush.png",
+      rock1_image_path: "/img/rock1.png",
+      rock2_image_path: "/img/rock2.png",
+      rock3_image_path: "/img/rock3.png",
+      rock4_image_path: "/img/rock4.png",
+      glimmer1_image_path: "/img/glimmers1.png",
+      glimmer2_image_path: "/img/glimmers2.png",
+      foam_image_path: "/img/foam.png",
 
-        rock_sound: new Audio("http://codeskulptor-demos.commondatastorage.googleapis.com/pang/pop.mp3"),
-        wash_sound: new Audio("http://codeskulptor-demos.commondatastorage.googleapis.com/descent/gotitem.mp3"),
-        polish_sound: new Audio("http://codeskulptor-demos.commondatastorage.googleapis.com/descent/Zombie.mp3")
+      rock_sound: new Audio("http://codeskulptor-demos.commondatastorage.googleapis.com/pang/pop.mp3"),
+      wash_sound: new Audio("http://codeskulptor-demos.commondatastorage.googleapis.com/descent/gotitem.mp3"),
+      polish_sound: new Audio("http://codeskulptor-demos.commondatastorage.googleapis.com/descent/Zombie.mp3")
     }
 
     updateData (language, geode) {
@@ -69,6 +70,7 @@ class Polish extends React.Component{
 
     startUp(){
       this.updateData("NL", "Amethyst");
+      this.props.updateMascotText("brush");
       if (window.navigator.userAgent.indexOf("Mac") != -1){
         this.state.max_move_count = 500;
       } else if (window.navigator.userAgent.indexOf("Linux") != -1){
@@ -81,11 +83,13 @@ class Polish extends React.Component{
     updateVisuals(){
       switch (this.state.interaction_state) {
         case "wash":
+          this.props.updateMascotText("wash");
           document.getElementById("action_text").innerHTML = this.state.wash_text;
           document.getElementById("brush_img").style.visibility = "hidden";
           document.getElementById("bucket_img").style.visibility = "visible";
           break;
         case "polish":
+          this.props.updateMascotText("polish");
           document.getElementById("action_text").innerHTML = this.state.polish_text;
           document.getElementById("bucket_img").style.visibility = "hidden";
           for(var i = 0; i < document.getElementsByClassName("polish__section__figure__rock").length; i++) {
@@ -178,43 +182,49 @@ class Polish extends React.Component{
     }
 
     render(){
-      this.startUp()
-        return(
-        <article class="polish">
-            <button class="polish__button" id="bucket_img" onClick={() => this.bucketClick()}>
-                <img class="polish__button__img" src={this.state.bucket_normal_image_path}></img>
-            </button>
+      if(this.state.startup_state){
+        this.startUp();
+        this.setState({
+          startup_state: false,
+        })
+      }
+      
+      return(
+      <article class="polish">
+          <button class="polish__button" id="bucket_img" onClick={() => this.bucketClick()}>
+              <img class="polish__button__img" src={this.state.bucket_normal_image_path}></img>
+          </button>
 
-            <h1 class="polish__text" id="action_text">{this.state.brush_text}</h1>
+          <h1 class="polish__text" id="action_text">{this.state.brush_text}</h1>
 
-            <section class="polish__section">
-                <figure class="polish__section__figure" onTouchMove={() => this.polishGeode()}>
-                    <img class="polish__section__figure__geode" src={this.state.geode_image_path}></img>
+          <section class="polish__section">
+              <figure class="polish__section__figure" onTouchMove={() => this.polishGeode()}>
+                  <img class="polish__section__figure__geode" src={this.state.geode_image_path}></img>
 
-                    <img class="polish__section__figure__rock polish__section__figure__rock--1" id="rock1_img" src={this.state.rock1_image_path} style={{top: this.state.start_positions[0][0] + 'rem', left: this.state.start_positions[0][1] + 'rem'}} onClick={() => this.rockClick(1)}></img>
-                    <img class="polish__section__figure__rock polish__section__figure__rock--2" id="rock2_img" src={this.state.rock2_image_path} style={{top: this.state.start_positions[1][0] + 'rem', left: this.state.start_positions[1][1] + 'rem'}} onClick={() => this.rockClick(2)}></img>
-                    <img class="polish__section__figure__rock polish__section__figure__rock--3" id="rock3_img" src={this.state.rock3_image_path} style={{top: this.state.start_positions[2][0] + 'rem', left: this.state.start_positions[2][1] + 'rem'}} onClick={() => this.rockClick(3)}></img>
-                    <img class="polish__section__figure__rock polish__section__figure__rock--4" id="rock4_img" src={this.state.rock4_image_path} style={{top: this.state.start_positions[3][0] + 'rem', left: this.state.start_positions[3][1] + 'rem'}} onClick={() => this.rockClick(4)}></img>
+                  <img class="polish__section__figure__rock polish__section__figure__rock--1" id="rock1_img" src={this.state.rock1_image_path} style={{top: this.state.start_positions[0][0] + 'rem', left: this.state.start_positions[0][1] + 'rem'}} onClick={() => this.rockClick(1)}></img>
+                  <img class="polish__section__figure__rock polish__section__figure__rock--2" id="rock2_img" src={this.state.rock2_image_path} style={{top: this.state.start_positions[1][0] + 'rem', left: this.state.start_positions[1][1] + 'rem'}} onClick={() => this.rockClick(2)}></img>
+                  <img class="polish__section__figure__rock polish__section__figure__rock--3" id="rock3_img" src={this.state.rock3_image_path} style={{top: this.state.start_positions[2][0] + 'rem', left: this.state.start_positions[2][1] + 'rem'}} onClick={() => this.rockClick(3)}></img>
+                  <img class="polish__section__figure__rock polish__section__figure__rock--4" id="rock4_img" src={this.state.rock4_image_path} style={{top: this.state.start_positions[3][0] + 'rem', left: this.state.start_positions[3][1] + 'rem'}} onClick={() => this.rockClick(4)}></img>
 
-                    <img class="polish__section__figure__glimmer polish__section__figure__glimmer--1" id="shimmer1_img" src={this.state.glimmer1_image_path}></img>
-                    <img class="polish__section__figure__glimmer polish__section__figure__glimmer--2" id="shimmer2_img" src={this.state.glimmer2_image_path}></img>
-                </figure>
-                <h2 class="polish__section__percent" id="percent_text">0%</h2>
-            </section>
+                  <img class="polish__section__figure__glimmer polish__section__figure__glimmer--1" id="shimmer1_img" src={this.state.glimmer1_image_path}></img>
+                  <img class="polish__section__figure__glimmer polish__section__figure__glimmer--2" id="shimmer2_img" src={this.state.glimmer2_image_path}></img>
+              </figure>
+              <h2 class="polish__section__percent" id="percent_text">0%</h2>
+          </section>
 
-            <div class="polish__moveable polish__moveable--brush" id="brush_img">
-                <img class="polish__moveable __img" src={this.state.brush_image_path}></img>
-            </div>
+          <div class="polish__moveable polish__moveable--brush" id="brush_img">
+              <img class="polish__moveable __img" src={this.state.brush_image_path}></img>
+          </div>
 
-            <div class="polish__moveable polish__moveable--cloth" id="cloth_img">
-                <img class="polish__moveable __img" src={this.state.cloth_image_path}></img>
-            </div>
+          <div class="polish__moveable polish__moveable--cloth" id="cloth_img">
+              <img class="polish__moveable __img" src={this.state.cloth_image_path}></img>
+          </div>
 
-            <div class="polish__wash polish__wash--before" id="wash_animation">
-              <img class="polish__wash__foam" src={this.state.foam_image_path}></img>
-            </div>
-        </article>
-        )
+          <div class="polish__wash polish__wash--before" id="wash_animation">
+            <img class="polish__wash__foam" src={this.state.foam_image_path}></img>
+          </div>
+      </article>
+      )
     }
 }
 

@@ -14,46 +14,52 @@ import Crack from "./Crack/Crack";
 
 class App extends React.Component{
   state = {
+    startup_state: true,
+    data_geode: "placeholder",
+    data_language: "placeholder",
+
     mascot_text: "placeholder",
     mascot_type: "placeholder",
-    mascot_next_content: "crack",
-    mascot_choice_left_text: "crack",
-    mascot_choice_right_text: "polish",
-    mascot_choice_left_content: "crack",
-    mascot_choice_right_content: "polish",
+    mascot_next_content: "placeholder",
+    mascot_choice_left_text: "placeholder",
+    mascot_choice_right_text: "placeholder",
+    mascot_choice_left_content: "placeholder",
+    mascot_choice_right_content: "placeholder",
 
     mascot_card_state: false,
     mascot_help_state: false,
 
+    start_mascot_text: "start_mascot_text",
+    start_mascot_next_content: "crack",
+
     crack_state: false,
-    crack_finish_content: "crack_finish",
+    crack_finish_mascot_text: "crack_finish_mascot_text",
+    crack_finish_mascot_next_content: "polish",
 
     polish_state: false,  
-    polish_finish_content: "polish_finish", 
+    polish_finish_mascot_text: "polish_finish_mascot_text",
+    polish_finish_mascot_next_content: "redirect_inspect", 
   };
 
-  changeContent(component){
-    console.log("changeContent(): change content to " + component);
+  changeContent(new_content){
+    console.log("changeContent(): change content to " + new_content);
     this.resetContent();
     // Reference: updateMascot(type, text, next_content, choice_left_text, choice_right_text, choice_left_content, choice_right_content);
-    switch(component){
-      case "mascot_next":
-        this.updateMascot("next", "mascot_next", "mascot_choice", "", "", "", "");
-        this.toggleComponent("mascot_card");
-        break;
-      case "mascot_choice":
-        this.updateMascot("choice", "mascot_choice", "", "to crack", "to polish", "crack", "polish");
-        this.toggleComponent("mascot_card");
-        break;
-      case "mascot_help":
-        this.updateMascot("help", "mascot_help", "", "", "", "", "", "");
-        this.toggleComponent("mascot_help");
-        break;
-      case "collection":
-        this.toggleComponent("collection");
-        break;
+    switch(new_content){
+      // case "mascot_next":
+      //   this.updateMascot("next", "mascot_next", "mascot_choice", "", "", "", "");
+      //   this.toggleComponent("mascot_card");
+      //   break;
+      // case "mascot_choice":
+      //   this.updateMascot("choice", "mascot_choice", "", "to crack", "to polish", "crack", "polish");
+      //   this.toggleComponent("mascot_card");
+      //   break;
+      // case "mascot_help":
+      //   this.updateMascot("help", "mascot_help", "", "", "", "", "", "");
+      //   this.toggleComponent("mascot_help");
+      //   break;
       case "start":
-        this.updateMascot("next", "Welkom in de app!", "crack", "", "", "", "");
+        this.updateMascot("next", this.state.start_mascot_text, "crack", "", "", "", "");
         this.toggleComponent("mascot_card");
         break;
       case "crack":
@@ -61,7 +67,7 @@ class App extends React.Component{
         this.toggleComponent("mascot_help");
         break;
       case "crack_finish":
-        this.updateMascot("next", "Je hebt de geode gekraakt! Laten we hem poetsen", "polish", "", "", "", "");
+        this.updateMascot("next", this.state.crack_finish_mascot_text, this.state.crack_finish_mascot_next_content, "", "", "", "");
         this.toggleComponent("mascot_card");
         break;
       case "polish":
@@ -69,11 +75,17 @@ class App extends React.Component{
         this.toggleComponent("mascot_help");
         break;
       case "polish_finish":
-        this.updateMascot("next", "Het is tijd om de geode te gaan bewonderen!", "collection", "", "", "", "");
+        this.updateMascot("next", this.state.polish_finish_mascot_text, this.state.polish_finish_mascot_next_content, "", "", "", "");
         this.toggleComponent("mascot_card");
         break;
+      case "redirect_inspect":
+        this.redirect("http://www.w3schools.com");
+        break;
+      case "collection":
+        this.toggleComponent("collection");
+        break;
       default:
-        console.log("toggleComponent(): ERROR! Could not find " + component);
+        console.log("toggleComponent(): ERROR! Could not find " + new_content);
         break;
     }
   };
@@ -113,6 +125,15 @@ class App extends React.Component{
     });
   };
 
+  startUp(){
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    this.changeContent(urlParams.get("content"));
+    this.setState({
+      data_geode: urlParams.get("geode")
+    })
+  }
+
   updateMascot(type, text, next_content, choice_left_text, choice_right_text, choice_left_content, choice_right_content){
     this.setState({
       mascot_type: type,
@@ -125,28 +146,43 @@ class App extends React.Component{
     })
   }
 
+  updateMascotText(new_mascot_text){
+    this.setState({
+      mascot_text: new_mascot_text
+    })
+  }
+
+  redirect(url){
+    window.location.replace(url);
+  }
+
   render(){
+    if(this.state.startup_state){
+      this.startUp();
+      this.setState({
+        startup_state: false
+      })
+    }
+
     return(
       <section>
         <BannerTop />
         <Settings />
         <article class="testing">
-          <button class="testing__button button button--red" onClick={() => this.changeContent("mascot_next")}>mascot_next</button>
-          <button class="testing__button button button--red" onClick={() => this.changeContent("mascot_choice")}>mascot_choice</button>
-          <button class="testing__button button button--red" onClick={() => this.changeContent("mascot_help")}>mascot_help</button>
-          <button class="testing__button button button--red" onClick={() => this.changeContent("crack")}>crack</button>
-          <button class="testing__button button button--red" onClick={() => this.changeContent("polish")}>polish</button>
-          <button class="testing__button button button--red" onClick={() => this.changeContent("collection")}>Collection</button>
-          <button class="testing__button button button--green" onClick={() => this.changeContent("start")}>Start</button>
+          {/* <button class="testing__button button button--red" onClick={() => this.changeContent("mascot_next")}>mascot_next</button> */}
+          {/* <button class="testing__button button button--red" onClick={() => this.changeContent("mascot_choice")}>mascot_choice</button> */}
+          {/* <button class="testing__button button button--red" onClick={() => this.changeContent("mascot_help")}>mascot_help</button> */}
+          {/* <button class="testing__button button button--red" onClick={() => this.changeContent("crack")}>crack</button> */}
+          {/* <button class="testing__button button button--red" onClick={() => this.changeContent("polish")}>polish</button> */}
+          {/* <button class="testing__button button button--red" onClick={() => this.changeContent("collection")}>Collection</button> */}
+          {/* <button class="testing__button button button--green" onClick={() => this.changeContent("start")}>Start</button> */}
         </article>
         <article class="content">
-          
-
           {this.state.mascot_card_state && <MascotCard mascot_type={this.state.mascot_type} mascot_text={this.state.mascot_text} changeContent={this.changeContent.bind(this)} mascot_next_content={this.state.mascot_next_content} mascot_choice_left_text={this.state.mascot_choice_left_text} mascot_choice_right_text={this.state.mascot_choice_right_text} mascot_choice_left_content={this.state.mascot_choice_left_content} mascot_choice_right_content={this.state.mascot_choice_right_content}/>}
           {this.state.mascot_help_state && <MascotHelp mascot_text={this.state.mascot_text} />}
 
-          {this.state.crack_state && <Crack changeContent={this.changeContent.bind(this)} crack_finish_content={this.state.crack_finish_content} />}
-          {this.state.polish_state && <Polish changeContent={this.changeContent.bind(this)} polish_finish_content={this.state.polish_finish_content} />}
+          {this.state.crack_state && <Crack changeContent={this.changeContent.bind(this)} updateMascotText={this.updateMascotText.bind(this)} crack_finish_content={this.state.crack_finish_mascot_next_content} />}
+          {this.state.polish_state && <Polish changeContent={this.changeContent.bind(this)} updateMascotText={this.updateMascotText.bind(this)} polish_finish_content={this.state.polish_finish_mascot_next_content} />}
           {this.state.collection_state && <Collection />}
         </article>
       </section>
