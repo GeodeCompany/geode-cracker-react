@@ -23,15 +23,12 @@ class SettingsMenu extends React.Component{
                     <button class={"settingsMenu__languages__button button button--green" + this.state.english}>English</button>
                 </article>
                 <article class="settingsMenu__toggles">
+                    <hr class="settingsMenu__toggles__hr" />
                     <section class="settingsMenu__toggles__toggleOption">
                         <h2 class="settingsMenu__toggles__toggleOption__text">{this.state.vibration}</h2>
                         <Switch defaultChecked />
                     </section>
                     <hr class="settingsMenu__toggles__hr" />
-                    <section class="settingsMenu__toggles__toggleOption">
-                        <h2 class="settingsMenu__toggles__toggleOption__text">{this.state.sound}</h2>
-                        <Switch defaultChecked />
-                    </section>
                     
                 </article>
                 <button class="settingsMenu__button button button--red" onClick={() => this.props.toggleComponent("confirmation_modal")}>
