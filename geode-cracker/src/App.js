@@ -94,7 +94,7 @@ class App extends React.Component{
         this.toggleComponent("mascot_card");
         break;
       case "redirect_inspect":
-        this.redirect("http://www.w3schools.com");
+        this.redirect("https://geode-cracker.web.app/?geode=" + this.state.data_geode);
         break;
       case "collection":
         this.toggleComponent("collection");
