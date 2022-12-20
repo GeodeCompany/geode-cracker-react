@@ -2,6 +2,136 @@
     min-width: 30rem;
     max-width: 38rem;
     margin: 0 auto;
+    height: 70vh;
+
+    overflow: hidden;
+
+    &__figure{
+        position: relative;
+        width: 100%;
+        height: 70rem;
+
+        &__image{
+            &--geode{
+                position: absolute;
+                top: 32%;
+                left: 0; 
+                right: 0; 
+                
+                margin-left: auto; 
+                margin-right: auto;
+
+                transition: all 1s;
+                &--dirty{
+                    &--left{
+                        transform: translateX(-2rem) rotate(-30deg);
+                    }
+                    &--right{
+                        transform: translateX(2rem) rotate(30deg);
+                    }
+                }
+            }
+            &--press{
+                &--base{
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+
+                    width: 100%;
+                    height: 100%;
+                }
+                &--top{
+                    position: absolute;
+                    top: 11%;
+                    left: 0; 
+                    right: 0; 
+                    
+                    margin-left: auto; 
+                    margin-right: auto;
+                }
+                &--stamp{
+                    transition: all 1s;
+                    width: 10rem;
+                    &--up{
+                        position: absolute;
+                        top: 18%;
+                        left: 0%;
+                        right: 0; 
+                        
+                        height: 5rem;
+                        margin-left: auto; 
+                        margin-right: auto;
+                    }
+                    &--down{
+                        position: absolute;
+                        top: 18%;
+                        left: 0%;
+                        right: 0;
+                        
+                        height: 10rem;
+                        margin-left: auto; 
+                        margin-right: auto;
+                    }
+                }
+
+                &--lever{
+                    transition: all 1s;
+                    &--up{
+                        position: absolute;
+                        top: 5%;
+                        left: 32%;
+                        right: 0; 
+                        
+                        margin-left: auto; 
+                        margin-right: auto;
+                    }
+                    &--down{
+                        position: absolute;
+                        top: 12%;
+                        left: 32%;
+                        right: 0;
+                        
+                        margin-left: auto; 
+                        margin-right: auto;
+
+                        transform: rotate(100deg);
+                    }
+                }
+            }
+        }
+
+        &__button{
+            display: none;
+            position: absolute;
+            left: 0; 
+            right: 0;
+
+            margin-left: auto; 
+            margin-right: auto;
+
+            &--placed{
+                top: 32%;
+                
+                width: 10rem;
+                height: 12rem;
+            }
+            &--lever{
+                &--up{
+                    top: 6%;
+                    left: 40%;
+                    width: 8rem;
+                    height: 12rem;
+                }
+
+                &--down{
+                    top: 6%;
+                    left: 40%;
+                    width: 8rem;
+                    height: 12rem;
+                }
+            }
+        }
+    }
 
     &__action{
         margin-bottom: 2rem;
@@ -18,3 +148,14 @@
         font-size: 3rem;
     }
 }
+
+#geode_base{display: none;}
+#geode_cracked{display: none;}
+#geode_dirty_left{display: none;}
+#geode_dirty_right{display: none;}
+#geode_outline{display: block;}
+#press_base{display: block;}
+#press_lever{display: block;}
+#press_top_up{display: block;}
+#press_top_down{display: none;}
+#triggerbox_crack_placed{display: block;}
