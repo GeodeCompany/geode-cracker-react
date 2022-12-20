@@ -13,6 +13,10 @@ class Polish extends React.Component{
       start_positions: "placeholder",
       end_positions: "placeholder",
 
+      mascot_brush_text: "placeholder",
+      mascot_wash_text: "placeholder",
+      mascot_polish_text: "placeholder",
+
       interaction_state: "brush",
       rocks_clicked: [false, false, false, false],
       move_count: 0,
@@ -44,13 +48,17 @@ class Polish extends React.Component{
       this.state.polish_text = data_JSON.clean.wipe.title;
       this.state.done_text = data_JSON.clean.clean.title;
 
+      this.state.mascot_brush_text = data_JSON.clean.brush.mascot;
+      this.state.mascot_wash_text = data_JSON.clean.water.mascot;
+      this.state.mascot_polish_text = data_JSON.clean.wipe.mascot;
+
       this.state.geode_image_path = data_JSON.collection[geode].geode_clean_image_path;
       this.state.start_positions = data_JSON.collection[geode].geode_clean_start_positions;
       this.state.end_positions = data_JSON.collection[geode].geode_clean_end_positions;
     }
 
     startUp(){
-      this.props.updateMascotText("brush");
+      this.props.updateMascotText(this.state.mascot_brush_text);
       if (window.navigator.userAgent.indexOf("Mac") != -1){
         this.state.max_move_count = 500;
       } else if (window.navigator.userAgent.indexOf("Linux") != -1){
@@ -63,13 +71,13 @@ class Polish extends React.Component{
     updateVisuals(){
       switch (this.state.interaction_state) {
         case "wash":
-          this.props.updateMascotText("wash");
+          this.props.updateMascotText(this.state.mascot_wash_text);
           document.getElementById("action_text").innerHTML = this.state.wash_text;
           document.getElementById("brush_img").style.visibility = "hidden";
           document.getElementById("bucket_img").style.visibility = "visible";
           break;
         case "polish":
-          this.props.updateMascotText("polish");
+          this.props.updateMascotText(this.state.mascot_polish_text);
           document.getElementById("action_text").innerHTML = this.state.polish_text;
           document.getElementById("bucket_img").style.visibility = "hidden";
           for(var i = 0; i < document.getElementsByClassName("polish__section__figure__rock").length; i++) {
@@ -119,7 +127,7 @@ class Polish extends React.Component{
       setTimeout(() => {
         this.state.interaction_state = "polish"
         this.updateVisuals();
-      }, 4000);
+      }, 1000);
     }
 
     polishGeode(){
