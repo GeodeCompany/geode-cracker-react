@@ -1,5 +1,6 @@
 import React from 'react';
 import './Polish.scss';
+import MascotHelp from '../Mascot/MascotHelp';
 
 class Polish extends React.Component{
 
@@ -12,6 +13,12 @@ class Polish extends React.Component{
 
       start_positions: "placeholder",
       end_positions: "placeholder",
+
+      mascot_help_state: "brush",
+      mascot_help_text: "placeholder",
+      mascot_brush_text: "placeholder",
+      mascot_wash_text: "placeholder",
+      mascot_polish_text: "placeholder",
 
       interaction_state: "brush",
       rocks_clicked: [false, false, false, false],
@@ -44,13 +51,17 @@ class Polish extends React.Component{
       this.state.polish_text = data_JSON.clean.wipe.title;
       this.state.done_text = data_JSON.clean.clean.title;
 
+      this.state.mascot_brush_text = data_JSON.clean.brush.mascot;
+      this.state.mascot_wash_text = data_JSON.clean.water.mascot;
+      this.state.mascot_polish_text = data_JSON.clean.wipe.mascot;
+
       this.state.geode_image_path = data_JSON.collection[geode].geode_clean_image_path;
       this.state.start_positions = data_JSON.collection[geode].geode_clean_start_positions;
       this.state.end_positions = data_JSON.collection[geode].geode_clean_end_positions;
     }
 
     startUp(){
-      this.props.updateMascotText("brush");
+      this.state.mascot_help_text = this.props.data_JSON.clean.brush.mascot;
       if (window.navigator.userAgent.indexOf("Mac") != -1){
         this.state.max_move_count = 500;
       } else if (window.navigator.userAgent.indexOf("Linux") != -1){
@@ -63,13 +74,13 @@ class Polish extends React.Component{
     updateVisuals(){
       switch (this.state.interaction_state) {
         case "wash":
-          this.props.updateMascotText("wash");
+          this.setState({mascot_help_state: "wash"});
           document.getElementById("action_text").innerHTML = this.state.wash_text;
           document.getElementById("brush_img").style.visibility = "hidden";
           document.getElementById("bucket_img").style.visibility = "visible";
           break;
         case "polish":
-          this.props.updateMascotText("polish");
+          this.setState({mascot_help_state: "polish"});
           document.getElementById("action_text").innerHTML = this.state.polish_text;
           document.getElementById("bucket_img").style.visibility = "hidden";
           for(var i = 0; i < document.getElementsByClassName("polish__section__figure__rock").length; i++) {
@@ -119,7 +130,7 @@ class Polish extends React.Component{
       setTimeout(() => {
         this.state.interaction_state = "polish"
         this.updateVisuals();
-      }, 4000);
+      }, 1000);
     }
 
     polishGeode(){
@@ -144,7 +155,7 @@ class Polish extends React.Component{
           this.state.interaction_state = "none";
           document.getElementById("action_text").innerHTML = this.state.done_text;
           setTimeout(() => {
-            this.props.changeContent(this.props.polish_end_content);
+            this.props.changeContent(this.props.polish_finish_content);
           }, 3000);
         } else {
           if(this.state.move_count >= (this.state.max_move_count / 5)){
@@ -171,42 +182,49 @@ class Polish extends React.Component{
       this.updateData(this.props.data_JSON, this.props.data_geode);
 
       return(
-      <article class="polish">
-          <button class="polish__button" id="bucket_img" onClick={() => this.bucketClick()}>
+        <section>
+          {this.state.mascot_help_state === "brush" && <MascotHelp mascot_text={this.state.mascot_brush_text} />}
+          {this.state.mascot_help_state === "wash" && <MascotHelp mascot_text={this.state.mascot_wash_text} />}
+          {this.state.mascot_help_state === "polish" && <MascotHelp mascot_text={this.state.mascot_polish_text} />}
+          
+          <article class="polish">
+            <button class="polish__button" id="bucket_img" onClick={() => this.bucketClick()}>
               <img class="polish__button__img" src={this.state.bucket_normal_image_path}></img>
-          </button>
+            </button>
 
-          <h1 class="polish__text" id="action_text">{this.state.brush_text}</h1>
+            <h1 class="polish__text" id="action_text">{this.state.brush_text}</h1>
 
-          <section class="polish__section">
-              <figure class="polish__section__figure" onTouchMove={() => this.polishGeode()}>
-                  <img class="polish__section__figure__geode" src={this.state.geode_image_path}></img>
+            <section class="polish__section">
+                <figure class="polish__section__figure" onTouchMove={() => this.polishGeode()}>
+                    <img class="polish__section__figure__geode" src={this.state.geode_image_path}></img>
 
-                  <img class="polish__section__figure__rock polish__section__figure__rock--1" id="rock1_img" src={this.state.rock1_image_path} style={{top: this.state.start_positions[0][0] + 'rem', left: this.state.start_positions[0][1] + 'rem'}} onClick={() => this.rockClick(1)}></img>
-                  <img class="polish__section__figure__rock polish__section__figure__rock--2" id="rock2_img" src={this.state.rock2_image_path} style={{top: this.state.start_positions[1][0] + 'rem', left: this.state.start_positions[1][1] + 'rem'}} onClick={() => this.rockClick(2)}></img>
-                  <img class="polish__section__figure__rock polish__section__figure__rock--3" id="rock3_img" src={this.state.rock3_image_path} style={{top: this.state.start_positions[2][0] + 'rem', left: this.state.start_positions[2][1] + 'rem'}} onClick={() => this.rockClick(3)}></img>
-                  <img class="polish__section__figure__rock polish__section__figure__rock--4" id="rock4_img" src={this.state.rock4_image_path} style={{top: this.state.start_positions[3][0] + 'rem', left: this.state.start_positions[3][1] + 'rem'}} onClick={() => this.rockClick(4)}></img>
+                    <img class="polish__section__figure__rock polish__section__figure__rock--1" id="rock1_img" src={this.state.rock1_image_path} style={{top: this.state.start_positions[0][0] + 'rem', left: this.state.start_positions[0][1] + 'rem'}} onClick={() => this.rockClick(1)}></img>
+                    <img class="polish__section__figure__rock polish__section__figure__rock--2" id="rock2_img" src={this.state.rock2_image_path} style={{top: this.state.start_positions[1][0] + 'rem', left: this.state.start_positions[1][1] + 'rem'}} onClick={() => this.rockClick(2)}></img>
+                    <img class="polish__section__figure__rock polish__section__figure__rock--3" id="rock3_img" src={this.state.rock3_image_path} style={{top: this.state.start_positions[2][0] + 'rem', left: this.state.start_positions[2][1] + 'rem'}} onClick={() => this.rockClick(3)}></img>
+                    <img class="polish__section__figure__rock polish__section__figure__rock--4" id="rock4_img" src={this.state.rock4_image_path} style={{top: this.state.start_positions[3][0] + 'rem', left: this.state.start_positions[3][1] + 'rem'}} onClick={() => this.rockClick(4)}></img>
 
-                  <img class="polish__section__figure__glimmer polish__section__figure__glimmer--1" id="shimmer1_img" src={this.state.glimmer1_image_path}></img>
-                  <img class="polish__section__figure__glimmer polish__section__figure__glimmer--2" id="shimmer2_img" src={this.state.glimmer2_image_path}></img>
-              </figure>
-              <h2 class="polish__section__percent" id="percent_text">0%</h2>
-          </section>
+                    <img class="polish__section__figure__glimmer polish__section__figure__glimmer--1" id="shimmer1_img" src={this.state.glimmer1_image_path}></img>
+                    <img class="polish__section__figure__glimmer polish__section__figure__glimmer--2" id="shimmer2_img" src={this.state.glimmer2_image_path}></img>
+                </figure>
+                <h2 class="polish__section__percent" id="percent_text">0%</h2>
+            </section>
 
-          <div class="polish__moveable polish__moveable--brush" id="brush_img">
-              <img class="polish__moveable __img" src={this.state.brush_image_path}></img>
-          </div>
+            <div class="polish__moveable polish__moveable--brush" id="brush_img">
+                <img class="polish__moveable __img" src={this.state.brush_image_path}></img>
+            </div>
 
-          <div class="polish__moveable polish__moveable--cloth" id="cloth_img">
-              <img class="polish__moveable __img" src={this.state.cloth_image_path}></img>
-          </div>
+            <div class="polish__moveable polish__moveable--cloth" id="cloth_img">
+                <img class="polish__moveable __img" src={this.state.cloth_image_path}></img>
+            </div>
 
-          <div class="polish__wash polish__wash--before" id="wash_animation">
-            <img class="polish__wash__foam" src={this.state.foam_image_path}></img>
-          </div>
-      </article>
-      )
-    }
+            <div class="polish__wash polish__wash--before" id="wash_animation">
+              <img class="polish__wash__foam" src={this.state.foam_image_path}></img>
+            </div>
+        </article>
+
+      </section>
+    )
+  }
 }
 
 export default Polish;
