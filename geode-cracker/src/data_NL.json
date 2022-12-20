@@ -67,7 +67,8 @@
 
         "lever" : {
             "title" : "Kraak de geode",
-            "mascot" : "Pak de hendel en doe hem omlaag."
+            "mascot_up" : "Pak de hendel en doe hem omlaag.",
+            "mascot_down" : "Hij kraakt! Pak de hendel en doe hem omhoog."
         },
 
         "finish" : {
@@ -132,6 +133,7 @@
             "geode_image_image_path" : "/img/geode_image_amethyst.png",
             "geode_map_image_path" : "/img/geode_map_amethyst.png",
 
+            "geode_dirty_image_path" : "/img/geode_dirty.png",
             "geode_clean_image_path" : "/img/geode.png",
             "geode_clean_start_positions": [[1.5, 22],[2.5, 4.5],[26, 24],[26, 0]],
             "geode_clean_end_positions": [[27, 15],[28, 7],[23, 20],[21, 11]]
@@ -146,6 +148,7 @@
             "geode_image_image_path" : "/img/geode_image_quartz.png",
             "geode_map_image_path" : "/img/geode_map_quartz.png",
 
+            "geode_dirty_image_path" : "/img/geode_dirty.png",
             "geode_clean_image_path" : "/img/geode.png",
             "geode_clean_start_positions": [[1.5, 22],[2.5, 4.5],[26, 24],[26, 0]],
             "geode_clean_end_positions": [[27, 15],[28, 7],[23, 20],[21, 11]]
@@ -161,6 +164,7 @@
             "geode_image_image_path" : "/img/geode_image_citrine.png",
             "geode_map_image_path" : "/img/geode_map_citrine.png",
 
+            "geode_dirty_image_path" : "/img/geode_dirty.png",
             "geode_clean_image_path" : "/img/geode.png",
             "geode_clean_start_positions": [[1.5, 22],[2.5, 4.5],[26, 24],[26, 0]],
             "geode_clean_end_positions": [[27, 15],[28, 7],[23, 20],[21, 11]]
@@ -176,6 +180,7 @@
             "geode_image_image_path" : "/img/geode_image_pyrite.png",
             "geode_map_image_path" : "/img/geode_map_pyrite.png",
 
+            "geode_dirty_image_path" : "/img/geode_dirty.png",
             "geode_clean_image_path" : "/img/geode.png",
             "geode_clean_start_positions": [[1.5, 22],[2.5, 4.5],[26, 24],[26, 0]],
             "geode_clean_end_positions": [[27, 15],[28, 7],[23, 20],[21, 11]]
