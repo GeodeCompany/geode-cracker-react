@@ -155,7 +155,7 @@ class Polish extends React.Component{
           this.state.interaction_state = "none";
           document.getElementById("action_text").innerHTML = this.state.done_text;
           setTimeout(() => {
-            this.props.changeContent(this.props.polish_finish_content);
+            this.props.changeContent(this.props.polish_end_content);
           }, 3000);
         } else {
           if(this.state.move_count >= (this.state.max_move_count / 5)){
