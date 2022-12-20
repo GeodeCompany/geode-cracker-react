@@ -52,6 +52,7 @@ class Crack extends React.Component{
                 document.getElementById("geode_dirty_right").style.display = "block";
                 setTimeout(() => document.getElementById("geode_dirty_left").classList.add("crack__figure__image--geode--dirty--left"), 100);
                 setTimeout(() => document.getElementById("geode_dirty_right").classList.add("crack__figure__image--geode--dirty--right"), 100);
+                setTimeout(() => this.props.changeContent("crack_finish"), 5000);
                 break;
         }
     }
