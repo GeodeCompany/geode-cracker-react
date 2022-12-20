@@ -7,7 +7,6 @@ import Syntax from "./Syntax/Syntax";
 import Settings from "./Settings/Settings";
 import Collection from "./Collection/Collection";
 import MascotCard from './Mascot/MascotCard';
-import MascotHelp from "./Mascot/MascotHelp";
 
 import Polish from "./Polish/Polish";
 import Crack from "./Crack/Crack";
@@ -55,11 +54,6 @@ class App extends React.Component{
     default_mascot_next_content: "default",
   };
 
-  // start_mascot_text: data_JSON.home.start.mascot,
-  // crack_finish_mascot_text: data_JSON.crack.finish.mascot,
-  // polish_finish_mascot_text: data_JSON.clean.finish.mascot,
-  // default_mascot_text: data_JSON.home.default.mascot,
-
   changeContent(new_content, data_JSON){
     console.log("changeContent(): change content to " + new_content);
     this.resetContent();
@@ -84,7 +78,6 @@ class App extends React.Component{
         break;
       case "crack":
         this.toggleComponent("crack");
-        this.toggleComponent("mascot_help");
         break;
       case "crack_finish":
         this.updateMascot("next", this.state.data_JSON.crack.finish.mascot, this.state.crack_finish_mascot_next_content, "", "", "", "");
@@ -92,7 +85,6 @@ class App extends React.Component{
         break;
       case "polish":
         this.toggleComponent("polish");
-        this.toggleComponent("mascot_help");
         break;
       case "polish_finish":
         this.updateMascot("next", this.state.data_JSON.clean.finish.mascot, this.state.polish_finish_mascot_next_content, "", "", "", "");
@@ -116,9 +108,6 @@ class App extends React.Component{
     switch(component){
       case "mascot_card":
         this.setState({mascot_card_state: !this.mascot_card_state});
-        break;
-      case "mascot_help":
-        this.setState({mascot_help_state: !this.mascot_help_state});
         break;
       case "crack":
         this.setState({crack_state: !this.crack_state});
@@ -255,7 +244,6 @@ class App extends React.Component{
         </article>
         <article class="content">
           {this.state.mascot_card_state && <MascotCard mascot_type={this.state.mascot_type} mascot_text={this.state.mascot_text} changeContent={this.changeContent.bind(this)} mascot_next_content={this.state.mascot_next_content} mascot_choice_left_text={this.state.mascot_choice_left_text} mascot_choice_right_text={this.state.mascot_choice_right_text} mascot_choice_left_content={this.state.mascot_choice_left_content} mascot_choice_right_content={this.state.mascot_choice_right_content}/>}
-          {this.state.mascot_help_state && <MascotHelp mascot_text={this.state.mascot_text} />}
 
           {this.state.crack_state && <Crack data_JSON={this.state.data_JSON} data_geode={this.state.data_geode} settings_vibrations={this.state.settings_vibrations} changeContent={this.changeContent.bind(this)} updateMascotText={this.updateMascotText.bind(this)} crack_end_content={this.state.crack_end_content} />}
           {this.state.polish_state && <Polish data_JSON={this.state.data_JSON} data_geode={this.state.data_geode} settings_vibrations={this.state.settings_vibrations} changeContent={this.changeContent.bind(this)} updateMascotText={this.updateMascotText.bind(this)} polish_end_content={this.state.polish_end_content} />}
