@@ -63,7 +63,7 @@ class Crack extends React.Component{
                 ||
                 (this.state.crack_lever_state && <CrackLever changeContent={this.changeContent.bind(this)} changeActionText={this.changeActionText.bind(this)}/>)
                 ||
-                (this.state.crack_finish_state && <CrackFinish changeContent={this.props.changeContent} crack_finish_content={this.props.crack_finish_content} changeActionText={this.changeActionText.bind(this)}/>)
+                (this.state.crack_finish_state && <CrackFinish changeContent={this.props.changeContent} crack_end_content={this.props.crack_end_content} changeActionText={this.changeActionText.bind(this)}/>)
                 }
             </section>
         )

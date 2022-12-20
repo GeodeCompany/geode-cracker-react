@@ -19,9 +19,8 @@ class App extends React.Component{
   state = {
     startup_state: true,
     data_JSON: data_NL,
-    data_geode: "placeholder",
-    data_language: "placeholder",
-    data_language_default: "NL",
+    data_geode: "none",
+    data_language: "NL",
 
     settings_vibrations: true,
     settings_restart_content: "start",
@@ -37,28 +36,34 @@ class App extends React.Component{
     mascot_card_state: false,
     mascot_help_state: false,
 
-    start_mascot_text: "start_mascot_text",
+    start_mascot_text: "placeholder",
     start_mascot_next_content: "crack",
 
     crack_state: false,
-    crack_finish_content: "crack_finish",
+    crack_end_content: "crack_finish",
 
-    crack_finish_mascot_text: "crack_finish_mascot_text",
+    crack_finish_mascot_text: "placeholder",
     crack_finish_mascot_next_content: "polish",
 
     polish_state: false, 
-    polish_finish_content: "polish_finish", 
+    polish_end_content: "polish_finish", 
 
-    polish_finish_mascot_text: "polish_finish_mascot_text",
+    polish_finish_mascot_text: "placeholder",
     polish_finish_mascot_next_content: "redirect_inspect",
 
-    default_mascot_text: "default_mascot_text",
+    default_mascot_text: "placeholder",
     default_mascot_next_content: "default",
   };
 
-  changeContent(new_content){
+  // start_mascot_text: data_JSON.home.start.mascot,
+  // crack_finish_mascot_text: data_JSON.crack.finish.mascot,
+  // polish_finish_mascot_text: data_JSON.clean.finish.mascot,
+  // default_mascot_text: data_JSON.home.default.mascot,
+
+  changeContent(new_content, data_JSON){
     console.log("changeContent(): change content to " + new_content);
     this.resetContent();
+    this.setState({last_loaded_content : new_content});
     // Reference: updateMascot(type, text, next_content, choice_left_text, choice_right_text, choice_left_content, choice_right_content);
     switch(new_content){
       // case "mascot_next":
@@ -74,7 +79,7 @@ class App extends React.Component{
       //   this.toggleComponent("mascot_help");
       //   break;
       case "start":
-        this.updateMascot("next", this.state.start_mascot_text, "crack", "", "", "", "");
+        this.updateMascot("next", this.state.data_JSON.home.start.mascot, "crack", "", "", "", "");
         this.toggleComponent("mascot_card");
         break;
       case "crack":
@@ -82,7 +87,7 @@ class App extends React.Component{
         this.toggleComponent("mascot_help");
         break;
       case "crack_finish":
-        this.updateMascot("next", this.state.crack_finish_mascot_text, this.state.crack_finish_mascot_next_content, "", "", "", "");
+        this.updateMascot("next", this.state.data_JSON.crack.finish.mascot, this.state.crack_finish_mascot_next_content, "", "", "", "");
         this.toggleComponent("mascot_card");
         break;
       case "polish":
@@ -90,7 +95,7 @@ class App extends React.Component{
         this.toggleComponent("mascot_help");
         break;
       case "polish_finish":
-        this.updateMascot("next", this.state.polish_finish_mascot_text, this.state.polish_finish_mascot_next_content, "", "", "", "");
+        this.updateMascot("next", this.state.data_JSON.clean.finish.mascot, this.state.polish_finish_mascot_next_content, "", "", "", "");
         this.toggleComponent("mascot_card");
         break;
       case "redirect_inspect":
@@ -100,7 +105,7 @@ class App extends React.Component{
         this.toggleComponent("collection");
         break;
       default:
-        this.updateMascot("next", this.state.default_mascot_text, this.state.default_mascot_next_content, "", "", "", "");
+        this.updateMascot("next", this.state.data_JSON.home.default.mascot, this.state.default_mascot_next_content, "", "", "", "");
         this.toggleComponent("mascot_card");
         break;
     }
@@ -144,9 +149,6 @@ class App extends React.Component{
   startUp(){
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
-    this.setState({
-      data_language: this.state.data_language_default
-    })
     if(urlParams.get("content") != null && urlParams.get("geode") != null){
       this.changeContent(urlParams.get("content"));
       this.setState({
@@ -155,7 +157,6 @@ class App extends React.Component{
     } else {
       this.changeContent("default");
     }
-    
   }
 
   updateMascot(type, text, next_content, choice_left_text, choice_right_text, choice_left_content, choice_right_content){
@@ -187,12 +188,35 @@ class App extends React.Component{
     switch (new_language) {
       case "NL":
           this.setState({data_JSON: data_NL});
+          this.updateMascotLanguage(this.state.last_loaded_content, data_NL);
           break;
 
       case "EN":
         this.setState({data_JSON: data_EN});
+        this.updateMascotLanguage(this.state.last_loaded_content, data_EN);
           break;
     };
+  }
+
+  updateMascotLanguage(last_loaded_content, data_JSON){
+    switch(last_loaded_content){
+      case "start":
+        console.log("updateMascotLanguage(): " + last_loaded_content);
+        this.updateMascotText(data_JSON.home.start.mascot);
+        break;
+      case "crack_finish":
+        console.log("updateMascotLanguage(): " + last_loaded_content);
+        this.updateMascotText(data_JSON.crack.finish.mascot);
+        break;
+      case "polish_finish":
+        console.log("updateMascotLanguage(): " + last_loaded_content);
+        this.updateMascotText(data_JSON.clean.finish.mascot);
+        break;
+      case "default":
+        console.log("updateMascotLanguage(): " + last_loaded_content);
+        this.updateMascotText(data_JSON.home.default.mascot);
+        break;
+    }
   }
 
   updateSettings(setting, new_state){
@@ -233,8 +257,8 @@ class App extends React.Component{
           {this.state.mascot_card_state && <MascotCard mascot_type={this.state.mascot_type} mascot_text={this.state.mascot_text} changeContent={this.changeContent.bind(this)} mascot_next_content={this.state.mascot_next_content} mascot_choice_left_text={this.state.mascot_choice_left_text} mascot_choice_right_text={this.state.mascot_choice_right_text} mascot_choice_left_content={this.state.mascot_choice_left_content} mascot_choice_right_content={this.state.mascot_choice_right_content}/>}
           {this.state.mascot_help_state && <MascotHelp mascot_text={this.state.mascot_text} />}
 
-          {this.state.crack_state && <Crack data_JSON={this.state.data_JSON} data_geode={this.state.data_geode} settings_vibrations={this.state.settings_vibrations} changeContent={this.changeContent.bind(this)} updateMascotText={this.updateMascotText.bind(this)} crack_finish_content={this.state.crack_finish_content} />}
-          {this.state.polish_state && <Polish data_JSON={this.state.data_JSON} data_geode={this.state.data_geode} settings_vibrations={this.state.settings_vibrations} changeContent={this.changeContent.bind(this)} updateMascotText={this.updateMascotText.bind(this)} polish_finish_content={this.state.polish_finish_content} />}
+          {this.state.crack_state && <Crack data_JSON={this.state.data_JSON} data_geode={this.state.data_geode} settings_vibrations={this.state.settings_vibrations} changeContent={this.changeContent.bind(this)} updateMascotText={this.updateMascotText.bind(this)} crack_end_content={this.state.crack_end_content} />}
+          {this.state.polish_state && <Polish data_JSON={this.state.data_JSON} data_geode={this.state.data_geode} settings_vibrations={this.state.settings_vibrations} changeContent={this.changeContent.bind(this)} updateMascotText={this.updateMascotText.bind(this)} polish_end_content={this.state.polish_end_content} />}
           {this.state.collection_state && <Collection data_JSON={this.state.data_JSON} data_geode={this.state.data_geode} />}
         </article>
       </section>

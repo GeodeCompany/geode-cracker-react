@@ -19,24 +19,19 @@
     },
 
     "home" : {
-        "welcome" : {
-            "mascot" : "Hello! I am Ari the Canary. I am looking for geodes.",
-
-            "button_next_link" : "/start"
+        "default" : {
+            "mascot" : "Hello! I am Ari the Canary. I am looking for geodes."
         },
 
         "start" : {
-            "mascot" : "You want to help? Let's begin!",
-
-            "button_next_link" : "/search_begin"
+            "mascot" : "You want to help? Let's begin!"
         }
     },
 
     "search" : {
 
         "begin" : {
-            "mascot" : "We are going to look for a geode, let's go!",
-            "button_next_link" : "/search_choice"
+            "mascot" : "We are going to look for a geode, let's go!"
         },
 
         "choice" : {
@@ -59,9 +54,7 @@
         },
 
         "finish" : {
-            "mascot" : "?",
-
-            "button_next_link" : "/crack_begin"
+            "mascot" : "?"
         }
     },
 
@@ -79,8 +72,7 @@
 
         "finish" : {
             "title" : "Success!",
-            "mascot" : "You cracked the geode! Let's clean it up.",
-            "button_next_link" : "/clean_begin"
+            "mascot" : "You cracked the geode! Let's clean it up."
         }
     },
 

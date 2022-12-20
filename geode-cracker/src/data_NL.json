@@ -19,24 +19,19 @@
     },
 
     "home" : {
-        "welcome" : {
-            "mascot" : "Hallo! Ik ben Ari de Kanarie. Ik ben op zoek naar geoden.",
-
-            "button_next_link" : "/start"
+        "default" : {
+            "mascot" : "Hallo! Ik ben Ari de Kanarie. Ik ben op zoek naar geoden."
         },
 
         "start" : {
-            "mascot" : "Help je mee? Laten we beginnen!",
-
-            "button_next_link" : "/search_begin"
+            "mascot" : "Help je mee? Laten we beginnen!"
         }
     },
 
     "search" : {
 
         "begin" : {
-            "mascot" : "We gaan op zoek naar een geode, kom met me mee!",
-            "button_next_link" : "/search_choice"
+            "mascot" : "We gaan op zoek naar een geode, kom met me mee!"
         },
 
         "choice" : {
@@ -59,9 +54,7 @@
         },
 
         "finish" : {
-            "mascot" : "Je hebt de geode gevonden! Laten we hem open kraken.",
-
-            "button_next_link" : "/crack_begin"
+            "mascot" : "Je hebt de geode gevonden! Laten we hem open kraken."
         }
     },
 
@@ -79,8 +72,7 @@
 
         "finish" : {
             "title" : "Gelukt!",
-            "mascot" : "Je hebt de geode gekraakt! Laten we het schoonmaken.",
-            "button_next_link" : "/clean_begin"
+            "mascot" : "Je hebt de geode gekraakt! Laten we het schoonmaken."
         }
     },
 
