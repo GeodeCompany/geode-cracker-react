@@ -2,8 +2,18 @@ import React from 'react';
 import './Polish.scss';
 import MascotHelp from '../Mascot/MascotHelp';
 
-class Polish extends React.Component{
+const moveActiveObject = (event) => {
+  var x = event.touches[0].clientX;
+  var y = event.touches[0].clientY;
+  moveItem("cloth_img", x, y);
+};
 
+const moveItem = (item, x, y) => {
+  document.getElementById(item).style.top = y  - 80 + "px";
+  document.getElementById(item).style.left = x - 80 + "px";
+}
+
+class Polish extends React.Component{
     state = {
       startup_state: true,
       brush_text: "placeholder",
@@ -76,7 +86,6 @@ class Polish extends React.Component{
         case "wash":
           this.setState({mascot_help_state: "wash"});
           document.getElementById("action_text").innerHTML = this.state.wash_text;
-          document.getElementById("brush_img").style.visibility = "hidden";
           document.getElementById("bucket_img").style.visibility = "visible";
           break;
         case "polish":
@@ -95,10 +104,27 @@ class Polish extends React.Component{
     rockClick(rock_number){
       if(this.state.rocks_clicked[rock_number - 1] == false){
         this.state.rocks_clicked[rock_number - 1] = true;
+        this.animateBrush(rock_number, "brush" + rock_number + "_img");
+      }
+    }
+
+    animateBrush(rock_number, brush){
+      document.getElementById(brush).style.visibility = "visible";
+      this.moveBrush(0, rock_number, brush);
+      setTimeout(() => this.moveBrush(.5, rock_number, brush),150);
+      setTimeout(() => this.moveBrush(-1, rock_number, brush),300);
+      setTimeout(() => this.moveBrush(1, rock_number, brush),450);
+      setTimeout(() => this.moveBrush(-.5, rock_number, brush),600);
+      setTimeout(() => {
+        document.getElementById(brush).style.visibility = "hidden";
         this.moveRock(rock_number);
         this.state.rock_sound.play();
         this.checkBrushDone();
-      }
+      }, 1000);
+    }
+
+    moveBrush(amount, rock_number, brush){
+      document.getElementById(brush).style.left = this.state.start_positions[rock_number - 1][1] + amount + "rem"
     }
 
     moveRock(rock_number){
@@ -186,7 +212,7 @@ class Polish extends React.Component{
           {this.state.mascot_help_state === "brush" && <MascotHelp mascot_text={this.state.mascot_brush_text} />}
           {this.state.mascot_help_state === "wash" && <MascotHelp mascot_text={this.state.mascot_wash_text} />}
           {this.state.mascot_help_state === "polish" && <MascotHelp mascot_text={this.state.mascot_polish_text} />}
-          
+
           <article class="polish">
             <button class="polish__button" id="bucket_img" onClick={() => this.bucketClick()}>
               <img class="polish__button__img" src={this.state.bucket_normal_image_path}></img>
@@ -195,13 +221,13 @@ class Polish extends React.Component{
             <h1 class="polish__text" id="action_text">{this.state.brush_text}</h1>
 
             <section class="polish__section">
-                <figure class="polish__section__figure" onTouchMove={() => this.polishGeode()}>
-                    <img class="polish__section__figure__geode" src={this.state.geode_image_path}></img>
+                <figure class="polish__section__figure" onTouchStart={moveActiveObject} onTouchMove={moveActiveObject}>
+                    <img class="polish__section__figure__geode" src={this.state.geode_image_path} onTouchMove={() => this.polishGeode()}></img>
 
-                    <img class="polish__section__figure__rock polish__section__figure__rock--1" id="rock1_img" src={this.state.rock1_image_path} style={{top: this.state.start_positions[0][0] + 'rem', left: this.state.start_positions[0][1] + 'rem'}} onClick={() => this.rockClick(1)}></img>
-                    <img class="polish__section__figure__rock polish__section__figure__rock--2" id="rock2_img" src={this.state.rock2_image_path} style={{top: this.state.start_positions[1][0] + 'rem', left: this.state.start_positions[1][1] + 'rem'}} onClick={() => this.rockClick(2)}></img>
-                    <img class="polish__section__figure__rock polish__section__figure__rock--3" id="rock3_img" src={this.state.rock3_image_path} style={{top: this.state.start_positions[2][0] + 'rem', left: this.state.start_positions[2][1] + 'rem'}} onClick={() => this.rockClick(3)}></img>
-                    <img class="polish__section__figure__rock polish__section__figure__rock--4" id="rock4_img" src={this.state.rock4_image_path} style={{top: this.state.start_positions[3][0] + 'rem', left: this.state.start_positions[3][1] + 'rem'}} onClick={() => this.rockClick(4)}></img>
+                    <img class="polish__section__figure__rock polish__section__figure__rock--1" id="rock1_img" src={this.state.rock1_image_path} style={{top: this.state.start_positions[0][0] + 'rem', left: this.state.start_positions[0][1] + 'rem'}} onTouchStart={() => this.rockClick(1)}></img>
+                    <img class="polish__section__figure__rock polish__section__figure__rock--2" id="rock2_img" src={this.state.rock2_image_path} style={{top: this.state.start_positions[1][0] + 'rem', left: this.state.start_positions[1][1] + 'rem'}} onTouchStart={() => this.rockClick(2)}></img>
+                    <img class="polish__section__figure__rock polish__section__figure__rock--3" id="rock3_img" src={this.state.rock3_image_path} style={{top: this.state.start_positions[2][0] + 'rem', left: this.state.start_positions[2][1] + 'rem'}} onTouchStart={() => this.rockClick(3)}></img>
+                    <img class="polish__section__figure__rock polish__section__figure__rock--4" id="rock4_img" src={this.state.rock4_image_path} style={{top: this.state.start_positions[3][0] + 'rem', left: this.state.start_positions[3][1] + 'rem'}} onTouchStart={() => this.rockClick(4)}></img>
 
                     <img class="polish__section__figure__glimmer polish__section__figure__glimmer--1" id="shimmer1_img" src={this.state.glimmer1_image_path}></img>
                     <img class="polish__section__figure__glimmer polish__section__figure__glimmer--2" id="shimmer2_img" src={this.state.glimmer2_image_path}></img>
@@ -209,12 +235,21 @@ class Polish extends React.Component{
                 <h2 class="polish__section__percent" id="percent_text">0%</h2>
             </section>
 
-            <div class="polish__moveable polish__moveable--brush" id="brush_img">
-                <img class="polish__moveable __img" src={this.state.brush_image_path}></img>
+            <div class="polish__moveable polish__moveable--brush" id="brush1_img" style={{top: this.state.start_positions[0][0] + 17 + 'rem', left: this.state.start_positions[0][1] + 'rem'}}>
+                <img class="polish__moveable__img" src={this.state.brush_image_path}></img>
+            </div>
+            <div class="polish__moveable polish__moveable--brush" id="brush2_img" style={{top: this.state.start_positions[1][0] + 17 + 'rem', left: this.state.start_positions[1][1] + 'rem'}}>
+                <img class="polish__moveable__img" src={this.state.brush_image_path}></img>
+            </div>
+            <div class="polish__moveable polish__moveable--brush" id="brush3_img" style={{top: this.state.start_positions[2][0] + 17 + 'rem', left: this.state.start_positions[2][1] + 'rem'}}>
+                <img class="polish__moveable__img" src={this.state.brush_image_path}></img>
+            </div>
+            <div class="polish__moveable polish__moveable--brush" id="brush4_img" style={{top: this.state.start_positions[3][0] + 17 + 'rem', left: this.state.start_positions[3][1] + 'rem'}}>
+                <img class="polish__moveable__img" src={this.state.brush_image_path}></img>
             </div>
 
             <div class="polish__moveable polish__moveable--cloth" id="cloth_img">
-                <img class="polish__moveable __img" src={this.state.cloth_image_path}></img>
+                <img class="polish__moveable__img" src={this.state.cloth_image_path}></img>
             </div>
 
             <div class="polish__wash polish__wash--before" id="wash_animation">
