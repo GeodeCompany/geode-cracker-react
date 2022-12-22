@@ -224,29 +224,31 @@ class Polish extends React.Component{
                 <figure class="polish__section__figure" onTouchStart={moveActiveObject} onTouchMove={moveActiveObject}>
                     <img class="polish__section__figure__geode" src={this.state.geode_image_path} onTouchMove={() => this.polishGeode()}></img>
 
-                    <img class="polish__section__figure__rock polish__section__figure__rock--1" id="rock1_img" src={this.state.rock1_image_path} style={{top: this.state.start_positions[0][0] + 'rem', left: this.state.start_positions[0][1] + 'rem'}} onTouchStart={() => this.rockClick(1)}></img>
-                    <img class="polish__section__figure__rock polish__section__figure__rock--2" id="rock2_img" src={this.state.rock2_image_path} style={{top: this.state.start_positions[1][0] + 'rem', left: this.state.start_positions[1][1] + 'rem'}} onTouchStart={() => this.rockClick(2)}></img>
-                    <img class="polish__section__figure__rock polish__section__figure__rock--3" id="rock3_img" src={this.state.rock3_image_path} style={{top: this.state.start_positions[2][0] + 'rem', left: this.state.start_positions[2][1] + 'rem'}} onTouchStart={() => this.rockClick(3)}></img>
-                    <img class="polish__section__figure__rock polish__section__figure__rock--4" id="rock4_img" src={this.state.rock4_image_path} style={{top: this.state.start_positions[3][0] + 'rem', left: this.state.start_positions[3][1] + 'rem'}} onTouchStart={() => this.rockClick(4)}></img>
+                    <img class="polish__section__figure__rock polish__section__figure__rock--1" id="rock1_img" src={this.state.rock1_image_path} style={{top: this.state.start_positions[0][0] + 'rem', left: this.state.start_positions[0][1] + 'rem'}} onClick={() => this.rockClick(1)} onTouchStart={() => this.rockClick(1)}></img>
+                    <img class="polish__section__figure__rock polish__section__figure__rock--2" id="rock2_img" src={this.state.rock2_image_path} style={{top: this.state.start_positions[1][0] + 'rem', left: this.state.start_positions[1][1] + 'rem'}} onClick={() => this.rockClick(2)} onTouchStart={() => this.rockClick(2)}></img>
+                    <img class="polish__section__figure__rock polish__section__figure__rock--3" id="rock3_img" src={this.state.rock3_image_path} style={{top: this.state.start_positions[2][0] + 'rem', left: this.state.start_positions[2][1] + 'rem'}} onClick={() => this.rockClick(3)} onTouchStart={() => this.rockClick(3)}></img>
+                    <img class="polish__section__figure__rock polish__section__figure__rock--4" id="rock4_img" src={this.state.rock4_image_path} style={{top: this.state.start_positions[3][0] + 'rem', left: this.state.start_positions[3][1] + 'rem'}} onClick={() => this.rockClick(4)} onTouchStart={() => this.rockClick(4)}></img>
 
                     <img class="polish__section__figure__glimmer polish__section__figure__glimmer--1" id="shimmer1_img" src={this.state.glimmer1_image_path}></img>
                     <img class="polish__section__figure__glimmer polish__section__figure__glimmer--2" id="shimmer2_img" src={this.state.glimmer2_image_path}></img>
+
+                    <div class="polish__moveable polish__moveable--brush" id="brush1_img" style={{top: this.state.start_positions[0][0] + 'rem', left: this.state.start_positions[0][1] + 'rem'}}>
+                        <img class="polish__moveable__img" src={this.state.brush_image_path}></img>
+                    </div>
+                    <div class="polish__moveable polish__moveable--brush" id="brush2_img" style={{top: this.state.start_positions[1][0] + 'rem', left: this.state.start_positions[1][1] + 'rem'}}>
+                        <img class="polish__moveable__img" src={this.state.brush_image_path}></img>
+                    </div>
+                    <div class="polish__moveable polish__moveable--brush" id="brush3_img" style={{top: this.state.start_positions[2][0] + 'rem', left: this.state.start_positions[2][1] + 'rem'}}>
+                        <img class="polish__moveable__img" src={this.state.brush_image_path}></img>
+                    </div>
+                    <div class="polish__moveable polish__moveable--brush" id="brush4_img" style={{top: this.state.start_positions[3][0] + 'rem', left: this.state.start_positions[3][1] + 'rem'}}>
+                        <img class="polish__moveable__img" src={this.state.brush_image_path}></img>
+                    </div>
+
                 </figure>
                 <h2 class="polish__section__percent" id="percent_text">0%</h2>
             </section>
 
-            <div class="polish__moveable polish__moveable--brush" id="brush1_img" style={{top: this.state.start_positions[0][0] + 17 + 'rem', left: this.state.start_positions[0][1] + 'rem'}}>
-                <img class="polish__moveable__img" src={this.state.brush_image_path}></img>
-            </div>
-            <div class="polish__moveable polish__moveable--brush" id="brush2_img" style={{top: this.state.start_positions[1][0] + 17 + 'rem', left: this.state.start_positions[1][1] + 'rem'}}>
-                <img class="polish__moveable__img" src={this.state.brush_image_path}></img>
-            </div>
-            <div class="polish__moveable polish__moveable--brush" id="brush3_img" style={{top: this.state.start_positions[2][0] + 17 + 'rem', left: this.state.start_positions[2][1] + 'rem'}}>
-                <img class="polish__moveable__img" src={this.state.brush_image_path}></img>
-            </div>
-            <div class="polish__moveable polish__moveable--brush" id="brush4_img" style={{top: this.state.start_positions[3][0] + 17 + 'rem', left: this.state.start_positions[3][1] + 'rem'}}>
-                <img class="polish__moveable__img" src={this.state.brush_image_path}></img>
-            </div>
 
             <div class="polish__moveable polish__moveable--cloth" id="cloth_img">
                 <img class="polish__moveable__img" src={this.state.cloth_image_path}></img>
