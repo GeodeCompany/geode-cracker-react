@@ -47,6 +47,7 @@
         position: absolute;
       }
 
+
       &__glimmer{
         position: absolute;
 
@@ -79,11 +80,17 @@
   &__moveable{
     position: fixed;
 
-    bottom: 0rem;
-    right: 0;
+    top: 100%;
+    left: 50%;
 
     &--cloth{
       visibility: hidden;
+    }
+
+    &--brush{
+      position: absolute;
+      visibility: hidden;
+      transition: .1s;
     }
   }
 

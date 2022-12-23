@@ -78,9 +78,9 @@
     },
 
     "clean" : {
-            
+
             "brush" : {
-                "title" : "Brush the stones off",
+                "title" : "Tap the stones off",
                 "mascot" : "Brush the pieces of stone off."
             },
 
@@ -168,7 +168,7 @@
             "geode_english" : "Citrine",
             "information" : "Citrine is a quartz crystal. Quartz is very common in the Earth's crust. It is often trapped as small colourless or white grains in rocks or occurs in gravel and sand. Sometimes quartz grows into larger, transparent crystals in hollow spaces. If these crystals are coloured yellow to orange, they are citrine. Citrine is much rarer than the purple variety amethyst. When amethyst is heated in an oven, however, the yellow to orange colour of citrine is created. Almost all citrine used in jewellery is therefore obtained by heating amethyst.",
             "location" : "The main source is Brazil",
-            
+
             "geode_image_image_path" : "/img/geode_image_citrine.png",
             "geode_map_image_path" : "/img/geode_map_citrine.png",
 
@@ -188,7 +188,7 @@
             "geode_english" : "Pyrite",
             "information" : "Pyrite is also known as 'fool's gold': it was sometimes mistaken for gold by fortune seekers. Fortunately, pyrite is fairly easy to distinguish from real gold: pyrite is lighter but harder than gold and cannot be scratched with a pocket knife. Pyrite takes several forms, but the cubic form is the most common. The mineral is mainly mined to make sulphuric acid and iron sulphates (both important raw materials for industry).",
             "location" : "Occurs worldwide, very common mineral. Known locations: Rio Tinto in SP Spain and Sulitelma in Norway.",
-            
+
             "geode_image_image_path" : "/img/geode_image_pyrite.png",
             "geode_map_image_path" : "/img/geode_map_pyrite.png",
             
