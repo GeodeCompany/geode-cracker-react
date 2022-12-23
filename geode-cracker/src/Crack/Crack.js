@@ -19,9 +19,10 @@ class Crack extends React.Component{
         crack_geode_dirty_left_state: "",
         crack_geode_dirty_right_state: "",
 
-        crack_geode_base_image_path: "/img/geode_base.png",
-        crack_geode_cracked_image_path: "/img/geode_cracked.png",
-        crack_geode_dirty_image_path: "placeholder",
+        crack_geode_close_image_path: "placeholder",
+        crack_geode_crack_image_path: "placeholder",
+        crack_geode_dirty_left_image_path: "placeholder",
+        crack_geode_dirty_right_image_path: "placeholder",
         crack_geode_outline_image_path: "/img/geode_outline.png",
         crack_press_base_image_path: "/img/press_base.png",
         crack_press_top_image_path: "/img/press_top.png",
@@ -73,7 +74,10 @@ class Crack extends React.Component{
         this.state.mascot_help_text_lever_up = data_JSON.crack.lever.mascot_up;
         this.state.mascot_help_text_lever_down = data_JSON.crack.lever.mascot_down;
 
-        this.state.crack_geode_dirty_image_path = data_JSON.collection[geode].geode_dirty_image_path;
+        this.state.crack_geode_close_image_path = data_JSON.collection[geode].geode_close_image_path;
+        this.state.crack_geode_crack_image_path = data_JSON.collection[geode].geode_crack_image_path;
+        this.state.crack_geode_dirty_left_image_path = data_JSON.collection[geode].geode_dirty_image_path;
+        this.state.crack_geode_dirty_right_image_path = data_JSON.collection[geode].geode_close_image_path;
     }
 
     changeActionText(text){
@@ -92,10 +96,10 @@ class Crack extends React.Component{
                     {this.state.crack_action_state === "lever" && <h1 class="crack__action">{this.state.crack_action_text_lever}</h1>}
                     {this.state.crack_action_state === "finish" && <h1 class="crack__action">{this.state.crack_action_text_finish}</h1>}
                     <figure class="crack__figure">
-                        <img id="geode_base" class="crack__figure__image--geode" src={this.state.crack_geode_base_image_path}></img>
-                        <img id="geode_cracked" class="crack__figure__image--geode" src={this.state.crack_geode_cracked_image_path}></img>
-                        <img id="geode_dirty_left" class="crack__figure__image--geode" src={this.state.crack_geode_dirty_image_path}></img>
-                        <img id="geode_dirty_right" class="crack__figure__image--geode" src={this.state.crack_geode_dirty_image_path}></img>
+                        <img id="geode_base" class="crack__figure__image--geode" src={this.state.crack_geode_close_image_path}></img>
+                        <img id="geode_cracked" class="crack__figure__image--geode" src={this.state.crack_geode_crack_image_path}></img>
+                        <img id="geode_dirty_left" class="crack__figure__image--geode" src={this.state.crack_geode_dirty_left_image_path}></img>
+                        <img id="geode_dirty_right" class="crack__figure__image--geode" src={this.state.crack_geode_dirty_right_image_path}></img>
                         <img id="geode_outline" class="crack__figure__image--geode" src={this.state.crack_geode_outline_image_path}></img>
                         <img id="press_base" class="crack__figure__image--press--base" src={this.state.crack_press_base_image_path}></img>
                         <img id="press_lever" class={"crack__figure__image--press--lever crack__figure__image--press--lever--" + this.state.crack_lever_state} src={this.state.crack_press_lever_image_path}></img>

@@ -14,15 +14,18 @@
         &__image{
             &--geode{
                 position: absolute;
-                top: 32%;
+                top: 29%;
                 left: 0; 
-                right: 0; 
+                right: 0;
+
+                height: 14rem;
                 
                 margin-left: auto; 
                 margin-right: auto;
 
                 transition: all 1s;
                 &--dirty{
+                    transform: scaleX(-1); 
                     &--left{
                         transform: translateX(-2rem) rotate(-30deg);
                     }
@@ -68,7 +71,7 @@
                         left: 0%;
                         right: 0;
                         
-                        height: 10rem;
+                        height: 7.6rem;
                         margin-left: auto; 
                         margin-right: auto;
                     }

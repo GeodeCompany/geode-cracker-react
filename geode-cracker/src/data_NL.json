@@ -133,7 +133,11 @@
             "geode_image_image_path" : "/img/geode_image_amethyst.png",
             "geode_map_image_path" : "/img/geode_map_amethyst.png",
 
-            "geode_dirty_image_path" : "/img/geode_dirty.png",
+            "geode_open_image_path": "/img/amethyst_open.png",
+            "geode_close_image_path": "/img/amethyst_close.png",
+            "geode_crack_image_path": "/img/amethyst_crack.png",
+            "geode_dirty_image_path": "/img/amethyst_dirty.png",
+
             "geode_clean_image_path" : "/img/geode.png",
             "geode_clean_start_positions": [[1.5, 22],[2.5, 4.5],[26, 24],[26, 0]],
             "geode_clean_end_positions": [[27, 15],[28, 7],[23, 20],[21, 11]]
@@ -148,7 +152,11 @@
             "geode_image_image_path" : "/img/geode_image_quartz.png",
             "geode_map_image_path" : "/img/geode_map_quartz.png",
 
-            "geode_dirty_image_path" : "/img/geode_dirty.png",
+            "geode_open_image_path": "/img/quartz_open.png",
+            "geode_close_image_path": "/img/quartz_close.png",
+            "geode_crack_image_path": "/img/quartz_crack.png",
+            "geode_dirty_image_path": "/img/quartz_dirty.png",
+
             "geode_clean_image_path" : "/img/geode.png",
             "geode_clean_start_positions": [[1.5, 22],[2.5, 4.5],[26, 24],[26, 0]],
             "geode_clean_end_positions": [[27, 15],[28, 7],[23, 20],[21, 11]]
@@ -164,7 +172,11 @@
             "geode_image_image_path" : "/img/geode_image_citrine.png",
             "geode_map_image_path" : "/img/geode_map_citrine.png",
 
-            "geode_dirty_image_path" : "/img/geode_dirty.png",
+            "geode_open_image_path": "/img/citrine_open.png",
+            "geode_close_image_path": "/img/citrine_close.png",
+            "geode_crack_image_path": "/img/citrine_crack.png",
+            "geode_dirty_image_path": "/img/citrine_dirty.png",
+
             "geode_clean_image_path" : "/img/geode.png",
             "geode_clean_start_positions": [[1.5, 22],[2.5, 4.5],[26, 24],[26, 0]],
             "geode_clean_end_positions": [[27, 15],[28, 7],[23, 20],[21, 11]]
@@ -180,7 +192,12 @@
             "geode_image_image_path" : "/img/geode_image_pyrite.png",
             "geode_map_image_path" : "/img/geode_map_pyrite.png",
 
-            "geode_dirty_image_path" : "/img/geode_dirty.png",
+            "geode_open_image_path": "/img/pyrite_open.png",
+            "geode_close_image_path": "/img/pyrite_close.png",
+            "geode_crack_image_path": "/img/pyrite_crack.png",
+            "geode_dirty_image_path": "/img/pyrite_dirty.png",
+
+
             "geode_clean_image_path" : "/img/geode.png",
             "geode_clean_start_positions": [[1.5, 22],[2.5, 4.5],[26, 24],[26, 0]],
             "geode_clean_end_positions": [[27, 15],[28, 7],[23, 20],[21, 11]]
