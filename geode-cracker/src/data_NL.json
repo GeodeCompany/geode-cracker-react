@@ -78,9 +78,9 @@
     },
 
     "clean" : {
-            
+
             "brush" : {
-                "title" : "Borstel de stukken los",
+                "title" : "Tik de stukken los",
                 "mascot" : "Borstel de losse stukken steen eraf."
             },
 
@@ -144,7 +144,7 @@
             "geode_english" : "Quartz",
             "information" : "Kwarts komt heel veel voor in de aardkorts. Vaak zit het als kleine kleurloze of witte korrels opgesloten in gesteenten of komt het voor in grind en zand. Soms groeit kwarts in holle ruimten uit tot grotere kristallen. Deze kristallen zitten vaak vol met heel kleine druppeltjes vloeistof, waardoor ze wit (melkachtig) of grijs en doorschijnend tot ondoorzichtig zijn. Soms is de buitenkant roodbruin, een roestkleur door ijzeroxiden. Kwartszanden worden veel gebruikt bij het maken van glas en het produceren van vuurvaste materialen voor metaalgieterijen.",
             "location" : "Wereldwijd",
-            
+
             "geode_image_image_path" : "/img/geode_image_quartz.png",
             "geode_map_image_path" : "/img/geode_map_quartz.png",
 
@@ -160,7 +160,7 @@
             "geode_english" : "Citrine",
             "information" : "Citrien is een kwartskristal. Kwarts komt heel veel voor in de aardkorst. Vaak zit het als kleine kleurloze of witte korrels opgesloten in gesteenten of komt het voor in grind en zand. Soms groeit kwarts in holle ruimten uit tot grotere, doorzichtige kristallen. Zijn deze kristallen geel tot oranje gekleurd, dan is het citrien. Citrien is veel zeldzamer dan de paarse variant amethist. Als men amethist verhit in een oven, ontstaat echter de gele tot oranje kleur van citrien. Vrijwel alle citrien gebruikt in sieraden is dan ook door verhitting van amethist verkregen.",
             "location" : "De belangrijkste bron is Brazilië",
-            
+
             "geode_image_image_path" : "/img/geode_image_citrine.png",
             "geode_map_image_path" : "/img/geode_map_citrine.png",
 
@@ -176,7 +176,7 @@
             "geode_english" : "Pyrite",
             "information" : "Pyriet wordt ook wel 'fool's gold' ('gekkengoud') genoemd: het werd soms door gelukzoekers voor goud aangezien. Gelukkig is pyriet vrij gemakkelijk te onderscheiden van echt goud: pyriet is lichter maar harder dan goud en kan niet worden bekrast met een zakmes. Pyriet neemt verschillende vormen aan, maar de kubusvorm komt het meest voor. Het mineraal wordt voornamelijk gewonnen om er zwavelzuur en ijzersulfaten (beide belangrijke grondstoffen voor de industrie) van te maken.",
             "location" : "Komt wereldwijd voor, zeer algemeen mineraal. Bekende locaties: Rio Tinto in Spanje en Sulitelma in Noorwegen.",
-            
+
             "geode_image_image_path" : "/img/geode_image_pyrite.png",
             "geode_map_image_path" : "/img/geode_map_pyrite.png",
 
@@ -187,4 +187,3 @@
         }
     }
 }
-
