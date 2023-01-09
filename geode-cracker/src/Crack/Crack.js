@@ -28,11 +28,17 @@ class Crack extends React.Component{
         crack_press_top_image_path: "/img/press_top.png",
         crack_press_stamp_image_path: "/img/press_stamp.png",
         crack_press_lever_image_path: "/img/press_lever.png",
+
+        crack_audio_geode_place: new Audio("/sound/crack_audio_geode_place.wav"),
+        crack_audio_geode_crack: new Audio("/sound/crack_audio_geode_crack.wav"),
+        crack_audio_geode_open: new Audio("/sound/crack_audio_geode_open.wav"),
+        crack_audio_completion_sound: new Audio("http://codeskulptor-demos.commondatastorage.googleapis.com/descent/gotitem.mp3"),
     };
 
     changeContent(name){
         switch (name) {
             case "crack_placed":
+                this.state.crack_audio_geode_place.play();
                 this.setState({mascot_help_state: "lever_up"});
                 this.setState({crack_action_state: "lever"});
                 document.getElementById("geode_outline").style.display = "none";
@@ -46,16 +52,19 @@ class Crack extends React.Component{
                 document.getElementById("triggerbox_crack_lever_up").style.display = "none";
                 this.setState({crack_lever_state:"down"});
                 setTimeout(() => document.getElementById("geode_base").style.display = "none", 1000);
+                setTimeout(() => this.state.crack_audio_geode_crack.play(), 1000);
                 setTimeout(() => document.getElementById("geode_cracked").style.display = "block", 1000);
                 setTimeout(() => document.getElementById("triggerbox_crack_lever_down").style.display = "block", 1000);
                 break;
             case "crack_lever_down":
+                this.state.crack_audio_completion_sound.play();
                 this.setState({mascot_help_state: "none"})
                 this.setState({crack_action_state: "finish"});
                 document.getElementById("geode_cracked").style.display = "none";
                 document.getElementById("triggerbox_crack_lever_down").style.display = "none";
                 this.setState({crack_lever_state:"up"});
   
+                this.state.crack_audio_geode_open.play();
                 document.getElementById("geode_dirty_left").style.display = "block";
                 document.getElementById("geode_dirty_right").style.display = "block";
                 setTimeout(() => document.getElementById("geode_dirty_left").classList.add("crack__figure__image--geode--dirty--left"), 100);
