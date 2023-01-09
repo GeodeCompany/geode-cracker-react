@@ -12,12 +12,12 @@ class MascotCard extends React.Component{
 
     render(){
       if(this.props.mascot_type == "next"){
-        this.state.button = 
+        this.state.button =
         <button class="mascot__dialogue__button--next button" onClick={() => this.props.changeContent(this.props.mascot_next_content)}> {'>'} </button>
         ;
       };
       if(this.props.mascot_type == "choice"){
-        this.state.button = 
+        this.state.button =
         <Fragment>
           <button class="mascot__dialogue__button--choice mascot__dialogue__button--choice--left button" onClick={() => this.props.changeContent(this.props.mascot_choice_left_content)}> {this.props.mascot_choice_left_text} </button>
           <button class="mascot__dialogue__button--choice mascot__dialogue__button--choice--right button" onClick={() => this.props.changeContent(this.props.mascot_choice_right_content)}> {this.props.mascot_choice_right_text} </button>
@@ -31,10 +31,7 @@ class MascotCard extends React.Component{
           </figure>
 
           <section class="mascot__dialogue">
-            <section class="mascot__dialogue__arrowContainer">
-              <div class="mascot__dialogue__arrowContainer__arrow--up"></div>
-            </section>
-
+            <div class="mascot__dialogue__arrow--up"></div>
             <p class={"mascot__dialogue__text mascot__dialogue__text--" + this.props.mascot_type} >{this.props.mascot_text}</p>
             {this.state.button}
           </section>
