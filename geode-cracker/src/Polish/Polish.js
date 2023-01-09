@@ -50,9 +50,10 @@ class Polish extends React.Component{
       glimmer2_image_path: "/img/glimmers2.png",
       foam_image_path: "/img/foam.png",
 
-      rock_sound: new Audio("http://codeskulptor-demos.commondatastorage.googleapis.com/pang/pop.mp3"),
-      wash_sound: new Audio("http://codeskulptor-demos.commondatastorage.googleapis.com/descent/gotitem.mp3"),
-      polish_sound: new Audio("http://codeskulptor-demos.commondatastorage.googleapis.com/descent/Zombie.mp3")
+      polish_audio_brush: new Audio("/sound/polish_audio_brush.mp3"),
+      polish_audio_rock: new Audio("/sound/polish_audio_rock.mp3"),
+      polish_audio_wash: new Audio("/sound/polish_audio_wash.mp3"),
+      polish_audio_squeek: new Audio("/sound/polish_audio_squeek.wav")
     }
 
     updateData (data_JSON, geode) {
@@ -66,6 +67,10 @@ class Polish extends React.Component{
       this.state.mascot_polish_text = data_JSON.clean.wipe.mascot;
 
       this.state.geode_image_path = data_JSON.collection[geode].geode_clean_image_path;
+      this.state.rock1_image_path = data_JSON.collection[geode].geode_rock1_image_path;
+      this.state.rock2_image_path = data_JSON.collection[geode].geode_rock2_image_path;
+      this.state.rock3_image_path = data_JSON.collection[geode].geode_rock3_image_path;
+      this.state.rock4_image_path = data_JSON.collection[geode].geode_rock4_image_path;
       this.state.start_positions = data_JSON.collection[geode].geode_clean_start_positions;
       this.state.end_positions = data_JSON.collection[geode].geode_clean_end_positions;
     }
@@ -110,6 +115,7 @@ class Polish extends React.Component{
 
     animateBrush(rock_number, brush){
       document.getElementById(brush).style.visibility = "visible";
+      this.state.polish_audio_brush.play();
       this.moveBrush(0, rock_number, brush);
       setTimeout(() => this.moveBrush(.5, rock_number, brush),150);
       setTimeout(() => this.moveBrush(-1, rock_number, brush),300);
@@ -118,7 +124,7 @@ class Polish extends React.Component{
       setTimeout(() => {
         document.getElementById(brush).style.visibility = "hidden";
         this.moveRock(rock_number);
-        this.state.rock_sound.play();
+        this.state.polish_audio_rock.play();
         this.checkBrushDone();
       }, 1000);
     }
@@ -149,7 +155,7 @@ class Polish extends React.Component{
     bucketClick(){
       document.getElementById("wash_animation").classList.remove("polish__wash--before");
       document.getElementById("wash_animation").classList.add("polish__wash--after");
-      this.state.wash_sound.play();
+      this.state.polish_audio_wash.play();
       if ("vibrate" in navigator && this.props.settings_vibrations) {
         navigator.vibrate(1000);
       }
@@ -171,9 +177,9 @@ class Polish extends React.Component{
 
         if(this.state.can_make_polish_sound){
           this.setState({can_make_polish_sound: false});
-          this.state.polish_sound.play()
+          this.state.polish_audio_squeek.play()
         }
-        if(this.state.polish_sound.ended){
+        if(this.state.polish_audio_squeek.ended){
           this.setState({can_make_polish_sound: true});
         }
 
