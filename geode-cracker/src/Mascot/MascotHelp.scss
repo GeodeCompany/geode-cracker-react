@@ -15,7 +15,6 @@
       height: 9rem;
 
       &__image{
-          width: 100%;
           height: 100%;
       }
   }
@@ -23,8 +22,8 @@
   &__dialogue{
       position: relative;
       float: left;
-      flex-grow: 1; 
-      
+      flex-grow: 1;
+
       margin: 1rem 0 0 1rem;
       padding: 0.8rem;
 
@@ -33,7 +32,7 @@
 
       visibility: hidden;
       &__text{
-        font-size: 1.4rem;
+        font-size: 1.6rem;
         overflow-wrap: break-word;
       }
 
