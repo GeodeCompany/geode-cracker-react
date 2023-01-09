@@ -50,9 +50,10 @@ class Polish extends React.Component{
       glimmer2_image_path: "/img/glimmers2.png",
       foam_image_path: "/img/foam.png",
 
-      rock_sound: new Audio("http://codeskulptor-demos.commondatastorage.googleapis.com/pang/pop.mp3"),
-      wash_sound: new Audio("http://codeskulptor-demos.commondatastorage.googleapis.com/descent/gotitem.mp3"),
-      polish_sound: new Audio("http://codeskulptor-demos.commondatastorage.googleapis.com/descent/Zombie.mp3")
+      brush_sound: new Audio("/sound/brush.mp3"),
+      rock_sound: new Audio("/sound/rock_move.mp3"),
+      wash_sound: new Audio("/sound/splash.mp3"),
+      polish_sound: new Audio("/sound/squeek.mp3")
     }
 
     updateData (data_JSON, geode) {
@@ -114,6 +115,7 @@ class Polish extends React.Component{
 
     animateBrush(rock_number, brush){
       document.getElementById(brush).style.visibility = "visible";
+      this.state.brush_sound.play();
       this.moveBrush(0, rock_number, brush);
       setTimeout(() => this.moveBrush(.5, rock_number, brush),150);
       setTimeout(() => this.moveBrush(-1, rock_number, brush),300);
