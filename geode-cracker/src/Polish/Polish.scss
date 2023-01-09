@@ -2,6 +2,7 @@
   max-width: 40rem;
   margin: 0 auto;
 
+
   &__button{
     position: absolute;
     top: 3rem;
@@ -32,9 +33,10 @@
 
     &__figure{
       position: relative;
-
       height: 100%;
       margin-top: 2rem;
+
+
 
       &__geode{
         position: absolute;
@@ -91,6 +93,10 @@
       position: absolute;
       visibility: hidden;
       transition: .1s;
+    }
+
+    &__img{
+      width: 100px;
     }
   }
 
