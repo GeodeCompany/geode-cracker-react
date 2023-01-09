@@ -66,6 +66,10 @@ class Polish extends React.Component{
       this.state.mascot_polish_text = data_JSON.clean.wipe.mascot;
 
       this.state.geode_image_path = data_JSON.collection[geode].geode_clean_image_path;
+      this.state.rock1_image_path = data_JSON.collection[geode].geode_rock1_image_path;
+      this.state.rock2_image_path = data_JSON.collection[geode].geode_rock2_image_path;
+      this.state.rock3_image_path = data_JSON.collection[geode].geode_rock3_image_path;
+      this.state.rock4_image_path = data_JSON.collection[geode].geode_rock4_image_path;
       this.state.start_positions = data_JSON.collection[geode].geode_clean_start_positions;
       this.state.end_positions = data_JSON.collection[geode].geode_clean_end_positions;
     }

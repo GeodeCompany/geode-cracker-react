@@ -138,9 +138,13 @@
             "geode_crack_image_path": "/img/amethyst_crack.png",
             "geode_dirty_image_path": "/img/amethyst_dirty.png",
 
-            "geode_clean_image_path" : "/img/geode.png",
-            "geode_clean_start_positions": [[1.5, 22],[2.5, 4.5],[26, 24],[26, 0]],
-            "geode_clean_end_positions": [[27, 15],[28, 7],[23, 20],[21, 11]]
+            "geode_clean_image_path" : "/img/amethyst_open.png",
+            "geode_rock1_image_path" : "/img/amethyst_piece_1.png",
+            "geode_rock2_image_path" : "/img/amethyst_piece_2.png",
+            "geode_rock3_image_path" : "/img/amethyst_piece_3.png",
+            "geode_rock4_image_path" : "/img/amethyst_piece_4.png",
+            "geode_clean_start_positions": [[5, 20],[2, 5],[24, 22],[22, 3]],
+            "geode_clean_end_positions": [[18, 15],[13, 7],[16, 15],[15, 11]]
         },
         "quartz" : {
             "title" : "Quartz",
@@ -148,7 +152,7 @@
             "geode_english" : "Quartz",
             "information" : "Quartz is very common in the earth's crusts. It is often trapped as small colourless or white grains in rocks or occurs in gravel and sand. Sometimes quartz grows into larger crystals in hollow spaces. These crystals are often full of very small droplets of liquid, making them white (milky) or grey and translucent to opaque. Sometimes the outside is reddish-brown, a rust colour due to iron oxides. Quartz sands are widely used in making glass and producing refractory materials for metal foundries.",
             "location" : "Globally",
-            
+
             "geode_image_image_path" : "/img/geode_image_quartz.png",
             "geode_map_image_path" : "/img/geode_map_quartz.png",
 
@@ -157,9 +161,13 @@
             "geode_crack_image_path": "/img/quartz_crack.png",
             "geode_dirty_image_path": "/img/quartz_dirty.png",
 
-            "geode_clean_image_path" : "/img/geode.png",
-            "geode_clean_start_positions": [[1.5, 22],[2.5, 4.5],[26, 24],[26, 0]],
-            "geode_clean_end_positions": [[27, 15],[28, 7],[23, 20],[21, 11]]
+            "geode_clean_image_path" : "/img/quartz_open.png",
+            "geode_rock1_image_path" : "/img/quartz_piece_1.png",
+            "geode_rock2_image_path" : "/img/quartz_piece_2.png",
+            "geode_rock3_image_path" : "/img/quartz_piece_3.png",
+            "geode_rock4_image_path" : "/img/quartz_piece_4.png",
+            "geode_clean_start_positions": [[5, 15],[2, 5],[24, 16],[22, 6]],
+            "geode_clean_end_positions": [[15, 10],[10, 7],[15, 15],[15, 11]]
         },
 
         "citrine" : {
@@ -177,9 +185,13 @@
             "geode_crack_image_path": "/img/citrine_crack.png",
             "geode_dirty_image_path": "/img/citrine_dirty.png",
 
-            "geode_clean_image_path" : "/img/geode.png",
-            "geode_clean_start_positions": [[1.5, 22],[2.5, 4.5],[26, 24],[26, 0]],
-            "geode_clean_end_positions": [[27, 15],[28, 7],[23, 20],[21, 11]]
+            "geode_clean_image_path" : "/img/citrine_open.png",
+            "geode_rock1_image_path" : "/img/citrine_piece_1.png",
+            "geode_rock2_image_path" : "/img/citrine_piece_2.png",
+            "geode_rock3_image_path" : "/img/citrine_piece_3.png",
+            "geode_rock4_image_path" : "/img/citrine_piece_4.png",
+            "geode_clean_start_positions": [[5, 20],[0, 0],[24, 22],[18, 0]],
+            "geode_clean_end_positions": [[17, 15],[18, 7],[15, 15],[16, 11]]
         },
 
         "pyrite" : {
@@ -191,15 +203,19 @@
 
             "geode_image_image_path" : "/img/geode_image_pyrite.png",
             "geode_map_image_path" : "/img/geode_map_pyrite.png",
-            
+
             "geode_open_image_path": "/img/pyrite_open.png",
             "geode_close_image_path": "/img/pyrite_close.png",
             "geode_crack_image_path": "/img/pyrite_crack.png",
             "geode_dirty_image_path": "/img/pyrite_dirty.png",
 
-            "geode_clean_image_path" : "/img/geode.png",
-            "geode_clean_start_positions": [[1.5, 22],[2.5, 4.5],[26, 24],[26, 0]],
-            "geode_clean_end_positions": [[27, 15],[28, 7],[23, 20],[21, 11]]
+            "geode_clean_image_path" : "/img/pyrite_open.png",
+            "geode_rock1_image_path" : "/img/pyrite_piece_1.png",
+            "geode_rock2_image_path" : "/img/pyrite_piece_2.png",
+            "geode_rock3_image_path" : "/img/pyrite_piece_3.png",
+            "geode_rock4_image_path" : "/img/pyrite_piece_4.png",
+            "geode_clean_start_positions": [[2, 21],[0, 0],[24, 22],[22, 0]],
+            "geode_clean_end_positions": [[16, 15],[15, 7],[14, 15],[13, 11]]
         }
     }
 }
