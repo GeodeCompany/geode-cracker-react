@@ -90,12 +90,10 @@ class Polish extends React.Component{
       switch (this.state.interaction_state) {
         case "wash":
           this.setState({mascot_help_state: "wash"});
-          document.getElementById("action_text").innerHTML = this.state.wash_text;
           document.getElementById("bucket_img").style.visibility = "visible";
           break;
         case "polish":
           this.setState({mascot_help_state: "polish"});
-          document.getElementById("action_text").innerHTML = this.state.polish_text;
           document.getElementById("bucket_img").style.visibility = "hidden";
           for(var i = 0; i < document.getElementsByClassName("polish__section__figure__rock").length; i++) {
             document.getElementsByClassName("polish__section__figure__rock")[i].style.visibility = "hidden";
@@ -224,7 +222,9 @@ class Polish extends React.Component{
               <img class="polish__button__img" src={this.state.bucket_normal_image_path}></img>
             </button>
 
-            <h1 class="polish__text" id="action_text">{this.state.brush_text}</h1>
+            {this.state.mascot_help_state === "brush" && <h1 class="polish__text" id="action_text">{this.state.brush_text}</h1>}
+            {this.state.mascot_help_state === "wash" && <h1 class="polish__text" id="action_text">{this.state.wash_text}</h1>}
+            {this.state.mascot_help_state === "polish" && <h1 class="polish__text" id="action_text">{this.state.polish_text}</h1>}
 
             <section class="polish__section">
                 <figure class="polish__section__figure" onTouchStart={moveActiveObject} onTouchMove={moveActiveObject}>

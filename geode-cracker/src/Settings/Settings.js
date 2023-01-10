@@ -37,7 +37,7 @@ class Settings extends React.Component{
                     </figure>
                 </button>
                 {(this.state.confirmation_modal_state || this.state.settings_modal_state) && <div class="settings__modal">
-                {this.state.confirmation_modal_state && <SettingsConfirmation settingsRestart={this.settingsRestart.bind(this)} toggleComponent={this.toggleComponent.bind(this)} />}
+                {this.state.confirmation_modal_state && <SettingsConfirmation data_language={this.props.data_language} settingsRestart={this.settingsRestart.bind(this)} toggleComponent={this.toggleComponent.bind(this)} />}
                 {this.state.settings_modal_state && <SettingsMenu data_language={this.props.data_language} settings_vibrations={this.props.settings_vibrations} updateLanguage={this.props.updateLanguage} toggleComponent={this.toggleComponent.bind(this)} updateSettings={this.props.updateSettings} />}   
                 </div>}
 
