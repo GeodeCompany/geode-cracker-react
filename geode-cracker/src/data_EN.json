@@ -12,49 +12,15 @@
         "dutch" : "--inactive",
         "english" : "",
         "vibration" : "Vibration",
-        "sound" : "Sound",
         "reset" : "Start over",
 
         "icon_refresh_image_path" : "/img/icon_refresh.png"
     },
 
     "home" : {
-        "default" : {
-            "mascot" : "Hello! I am Ari the Canary. I am looking for geodes."
-        },
 
         "start" : {
-            "mascot" : "You want to help? Let's begin!"
-        }
-    },
-
-    "search" : {
-
-        "begin" : {
-            "mascot" : "We are going to look for a geode, let's go!"
-        },
-
-        "choice" : {
-            "mascot" : "?",
-            "left_button_text" : "Feel",
-            "right_button_text" : "Sight",
-
-            "left_button_link" : "/feel",
-            "right_button_link" : "/sight"
-        },
-
-        "feel" : {
-            "title" : "Find the geode",
-            "mascot" : "?"
-        },
-
-        "sight" : {
-            "title" : "Find the geode",
-            "mascot" : "?"
-        },
-
-        "finish" : {
-            "mascot" : "?"
+            "mascot" : "You have found a geode. Let's crack it!"
         }
     },
 
@@ -62,13 +28,13 @@
 
         "place" : {
             "title" : "Place the geode",
-            "mascot" : "Place the geode on the right spot."
+            "mascot" : "Click on the marked area."
         },
 
         "lever" : {
             "title" : "Crack the geode",
-            "mascot_up" : "Pull the lever down.",
-            "mascot_down" : "It cracked! Pull the lever back up."
+            "mascot_up" : "Click on the lever.",
+            "mascot_down" : "It cracked! Click on the lever again."
         },
 
         "finish" : {
@@ -81,7 +47,7 @@
 
             "brush" : {
                 "title" : "Tap the stones off",
-                "mascot" : "Brush the pieces of stone off."
+                "mascot" : "Click on the pieces to remove them."
             },
 
             "water" : {
@@ -91,7 +57,7 @@
 
             "wipe" : {
                 "title" : "Polish the geode",
-                "mascot" : "Wipe with the cloth the geode clean."
+                "mascot" : "Wipe horizontally with the cloth to clean the geode."
             },
 
             "clean" : {
@@ -106,15 +72,6 @@
 
     },
 
-    "finish" : {
-        "text" : "Thank you for your help with cracking the geode!",
-        "left_button_text" : "Crack another geode!",
-        "right_button_text" : "Quit",
-
-        "left_button_link" : "/home",
-        "right_button_link" : "/shutdown"
-    },
-
     "collection" : {
 
         "general" : {
@@ -127,7 +84,7 @@
             "title" : "Amethyst",
             "geode_dutch" : "Amethist",
             "geode_english" : "Amethyst",
-            "information" : "Quartz is one of the most common minerals in the Earth's crust. It is often trapped as small colourless or white grains in rocks or occurs in gravel and sand. Sometimes quartz grows into larger transparent crystals in hollow spaces. If these crystals are coloured purple, they are called amethysts. From amethyst crystals, people cut stones that are used in jewellery. Because amethyst is found quite frequently, it is not as expensive as, say, diamonds or rubies.",
+            "information" : "Quartz is one of the most common minerals in the Earth's crust. It is often trapped as small colourless or white grains in rocks or occurs in gravel and sand. Sometimes quartz grows into larger transparent crystals in hollow spaces. If these crystals are coloured purple, they are called amethysts. From amethyst crystals, people cut stones that are used in jewellery. Because amethyst is found quite frequently, it is not as expensive as for example diamonds or rubies.",
             "location" : "Brazil, Uruguay, Mexico, Namibia, Zambia, North America, Europe, Australia and Japan",
 
             "geode_image_image_path" : "/img/geode_image_amethyst.png",
@@ -138,7 +95,6 @@
             "geode_crack_image_path": "/img/amethyst_crack.png",
             "geode_dirty_image_path": "/img/amethyst_dirty.png",
 
-            "geode_clean_image_path" : "/img/amethyst_open.png",
             "geode_rock1_image_path" : "/img/amethyst_piece_1.png",
             "geode_rock2_image_path" : "/img/amethyst_piece_2.png",
             "geode_rock3_image_path" : "/img/amethyst_piece_3.png",
@@ -150,7 +106,7 @@
             "title" : "Quartz",
             "geode_dutch" : "Kwarts",
             "geode_english" : "Quartz",
-            "information" : "Quartz is very common in the earth's crusts. It is often trapped as small colourless or white grains in rocks or occurs in gravel and sand. Sometimes quartz grows into larger crystals in hollow spaces. These crystals are often full of very small droplets of liquid, making them white (milky) or grey and translucent to opaque. Sometimes the outside is reddish-brown, a rust colour due to iron oxides. Quartz sands are widely used in making glass and producing refractory materials for metal foundries.",
+            "information" : "Quartz is very common in the Earth's crust. It is often trapped as small colourless or white grains in rocks or occurs in gravel and sand. Sometimes quartz grows into larger crystals in hollow spaces. These crystals are often full of very small droplets of liquid, making them white (milky) or grey and translucent to opaque. Sometimes the outside is reddish-brown, a rust colour due to iron oxides. Quartz sands are widely used in making glass and producing refractory materials for metal foundries.",
             "location" : "Globally",
 
             "geode_image_image_path" : "/img/geode_image_quartz.png",
@@ -161,7 +117,6 @@
             "geode_crack_image_path": "/img/quartz_crack.png",
             "geode_dirty_image_path": "/img/quartz_dirty.png",
 
-            "geode_clean_image_path" : "/img/quartz_open.png",
             "geode_rock1_image_path" : "/img/quartz_piece_1.png",
             "geode_rock2_image_path" : "/img/quartz_piece_2.png",
             "geode_rock3_image_path" : "/img/quartz_piece_3.png",
@@ -174,7 +129,7 @@
             "title" : "Citrine",
             "geode_dutch" : "Citrien",
             "geode_english" : "Citrine",
-            "information" : "Citrine is a quartz crystal. Quartz is very common in the Earth's crust. It is often trapped as small colourless or white grains in rocks or occurs in gravel and sand. Sometimes quartz grows into larger, transparent crystals in hollow spaces. If these crystals are coloured yellow to orange, they are citrine. Citrine is much rarer than the purple variety amethyst. When amethyst is heated in an oven, however, the yellow to orange colour of citrine is created. Almost all citrine used in jewellery is therefore obtained by heating amethyst.",
+            "information" : "Citrine is a quartz crystal. Quartz is very common in the Earth's crust. It is often trapped as small colourless or white grains in rocks or occurs in gravel and sand. Sometimes quartz grows into larger, transparent crystals in hollow spaces. If these crystals are coloured yellow to orange, they are called citrine. Citrine is much rarer than the purple variety amethyst. When amethyst is heated in an oven, however, the yellow to orange colour of citrine is created. Almost all citrine used in jewellery is therefore obtained by heating amethyst.",
             "location" : "The main source is Brazil",
 
             "geode_image_image_path" : "/img/geode_image_citrine.png",
@@ -185,7 +140,6 @@
             "geode_crack_image_path": "/img/citrine_crack.png",
             "geode_dirty_image_path": "/img/citrine_dirty.png",
 
-            "geode_clean_image_path" : "/img/citrine_open.png",
             "geode_rock1_image_path" : "/img/citrine_piece_1.png",
             "geode_rock2_image_path" : "/img/citrine_piece_2.png",
             "geode_rock3_image_path" : "/img/citrine_piece_3.png",
@@ -209,7 +163,6 @@
             "geode_crack_image_path": "/img/pyrite_crack.png",
             "geode_dirty_image_path": "/img/pyrite_dirty.png",
 
-            "geode_clean_image_path" : "/img/pyrite_open.png",
             "geode_rock1_image_path" : "/img/pyrite_piece_1.png",
             "geode_rock2_image_path" : "/img/pyrite_piece_2.png",
             "geode_rock3_image_path" : "/img/pyrite_piece_3.png",

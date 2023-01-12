@@ -12,49 +12,15 @@
         "dutch" : "--inactive",
         "english" : "",
         "vibration" : "Vibratie",
-        "sound" : "Geluid",
         "reset" : "Opnieuw beginnen",
 
         "icon_refresh_image_path" : "/img/icon_refresh.png"
     },
 
     "home" : {
-        "default" : {
-            "mascot" : "Hallo! Ik ben Ari de Kanarie. Ik ben op zoek naar geoden."
-        },
 
         "start" : {
-            "mascot" : "Help je mee? Laten we beginnen!"
-        }
-    },
-
-    "search" : {
-
-        "begin" : {
-            "mascot" : "We gaan op zoek naar een geode, kom met me mee!"
-        },
-
-        "choice" : {
-            "mascot" : "?",
-            "left_button_text" : "Feel",
-            "right_button_text" : "Sight",
-
-            "left_button_link" : "/feel",
-            "right_button_link" : "/sight"
-        },
-
-        "feel" : {
-            "title" : "Vind de geode",
-            "mascot" : "Kantel de telefoon om de geode te zoeken."
-        },
-
-        "sight" : {
-            "title" : "Vind de geode",
-            "mascot" : "Veeg om de geode te zoeken."
-        },
-
-        "finish" : {
-            "mascot" : "Je hebt de geode gevonden! Laten we hem open kraken."
+            "mascot" : "Je hebt een geode gevonden. Laten we hem kraken!"
         }
     },
 
@@ -62,13 +28,13 @@
 
         "place" : {
             "title" : "Plaats de geode",
-            "mascot" : "Plaats de geode op de goed plek."
+            "mascot" : "Klik op het gemarkeerde vlak."
         },
 
         "lever" : {
             "title" : "Kraak de geode",
-            "mascot_up" : "Pak de hendel en doe hem omlaag.",
-            "mascot_down" : "Hij kraakt! Pak de hendel en doe hem omhoog."
+            "mascot_up" : "Klik op de hendel.",
+            "mascot_down" : "Hij kraakt! Klik weer op de hendel."
         },
 
         "finish" : {
@@ -81,7 +47,7 @@
 
             "brush" : {
                 "title" : "Tik de stukken los",
-                "mascot" : "Borstel de losse stukken steen eraf."
+                "mascot" : "Tik op de stukken om deze los te maken."
             },
 
             "water" : {
@@ -91,7 +57,7 @@
 
             "wipe" : {
                 "title" : "Poets de geode",
-                "mascot" : "Veeg met het doekje over de geode heen."
+                "mascot" : "Veeg horizontaal met het doekje over de geode heen."
             },
 
             "clean" : {
@@ -99,20 +65,11 @@
             },
 
             "finish" : {
-                "mascot" : "Het is tijd om te geode te gaan bewonderen!",
+                "mascot" : "Het is tijd om de geode te gaan bewonderen!",
 
                 "button_next_link" : "https://daniel.droffelaar.nl/3DModelViewer.html?geode=amethyst"
             }
 
-    },
-
-    "finish" : {
-        "text" : "Dankjewel voor de hulp bij het breken van de geode!",
-        "left_button_text" : "Andere geode kraken!",
-        "right_button_text" : "Afsluiten",
-
-        "left_button_link" : "/home",
-        "right_button_link" : "/shutdown"
     },
 
     "collection" : {
@@ -138,7 +95,6 @@
             "geode_crack_image_path": "/img/amethyst_crack.png",
             "geode_dirty_image_path": "/img/amethyst_dirty.png",
 
-            "geode_clean_image_path" : "/img/amethyst_open.png",
             "geode_rock1_image_path" : "/img/amethyst_piece_1.png",
             "geode_rock2_image_path" : "/img/amethyst_piece_2.png",
             "geode_rock3_image_path" : "/img/amethyst_piece_3.png",
@@ -161,7 +117,6 @@
             "geode_crack_image_path": "/img/quartz_crack.png",
             "geode_dirty_image_path": "/img/quartz_dirty.png",
 
-            "geode_clean_image_path" : "/img/quartz_open.png",
             "geode_rock1_image_path" : "/img/quartz_piece_1.png",
             "geode_rock2_image_path" : "/img/quartz_piece_2.png",
             "geode_rock3_image_path" : "/img/quartz_piece_3.png",
@@ -185,7 +140,6 @@
             "geode_crack_image_path": "/img/citrine_crack.png",
             "geode_dirty_image_path": "/img/citrine_dirty.png",
 
-            "geode_clean_image_path" : "/img/citrine_open.png",
             "geode_rock1_image_path" : "/img/citrine_piece_1.png",
             "geode_rock2_image_path" : "/img/citrine_piece_2.png",
             "geode_rock3_image_path" : "/img/citrine_piece_3.png",
@@ -209,8 +163,6 @@
             "geode_crack_image_path": "/img/pyrite_crack.png",
             "geode_dirty_image_path": "/img/pyrite_dirty.png",
 
-
-            "geode_clean_image_path" : "/img/pyrite_open.png",
             "geode_rock1_image_path" : "/img/pyrite_piece_1.png",
             "geode_rock2_image_path" : "/img/pyrite_piece_2.png",
             "geode_rock3_image_path" : "/img/pyrite_piece_3.png",
