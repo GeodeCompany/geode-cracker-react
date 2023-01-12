@@ -66,7 +66,7 @@ class Polish extends React.Component{
       this.state.mascot_wash_text = data_JSON.clean.water.mascot;
       this.state.mascot_polish_text = data_JSON.clean.wipe.mascot;
 
-      this.state.geode_image_path = data_JSON.collection[geode].geode_clean_image_path;
+      this.state.geode_image_path = data_JSON.collection[geode].geode_open_image_path;
       this.state.rock1_image_path = data_JSON.collection[geode].geode_rock1_image_path;
       this.state.rock2_image_path = data_JSON.collection[geode].geode_rock2_image_path;
       this.state.rock3_image_path = data_JSON.collection[geode].geode_rock3_image_path;
