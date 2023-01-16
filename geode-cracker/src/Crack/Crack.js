@@ -55,6 +55,7 @@ class Crack extends React.Component{
                 setTimeout(() => this.state.crack_audio_geode_crack.play(), 1000);
                 setTimeout(() => document.getElementById("geode_cracked").style.display = "block", 1000);
                 setTimeout(() => document.getElementById("triggerbox_crack_lever_down").style.display = "block", 1000);
+                setTimeout(() => this.changeContent("crack_lever_down"), 1100);
                 break;
             case "crack_lever_down":
                 this.state.crack_audio_completion_sound.play();
@@ -69,7 +70,7 @@ class Crack extends React.Component{
                 document.getElementById("geode_dirty_right").style.display = "block";
                 setTimeout(() => document.getElementById("geode_dirty_left").classList.add("crack__figure__image--geode--dirty--left"), 100);
                 setTimeout(() => document.getElementById("geode_dirty_right").classList.add("crack__figure__image--geode--dirty--right"), 100);
-                setTimeout(() => this.props.changeContent("crack_finish"), 5000);
+                setTimeout(() => this.props.changeContent("crack_finish"), 2000);
                 break;
         }
     }
@@ -114,8 +115,12 @@ class Crack extends React.Component{
                         <img id="press_lever" class={"crack__figure__image--press--lever crack__figure__image--press--lever--" + this.state.crack_lever_state} src={this.state.crack_press_lever_image_path}></img>
                         <img id="press_stamp" class={"crack__figure__image--press--stamp crack__figure__image--press--stamp--" + this.state.crack_lever_state} src={this.state.crack_press_stamp_image_path}></img>
                         <img id="press_top" class="crack__figure__image--press--top" src={this.state.crack_press_top_image_path}></img>
-                        <button id="triggerbox_crack_placed" class="crack__figure__button crack__figure__button--placed button--triggerbox" onClick={() => this.changeContent("crack_placed")}>LEVER</button>
-                        <button id="triggerbox_crack_lever_up" class="crack__figure__button crack__figure__button--lever--up button--triggerbox" onClick={() => this.changeContent("crack_lever_up")}>LEVER</button>
+                        <button id="triggerbox_crack_placed" class="crack__figure__button crack__figure__button--placed button--triggerbox" onClick={() => this.changeContent("crack_placed")} onTouchMove={() => this.changeContent("crack_placed")}>LEVER
+                            <div class="animation--tapping animation--tapping__crack--place"></div>
+                        </button>
+                        <button id="triggerbox_crack_lever_up" class="crack__figure__button crack__figure__button--lever--up button--triggerbox" onClick={() => this.changeContent("crack_lever_up")} onTouchMove={() => this.changeContent("crack_lever_up")}>LEVER
+                            <div class="animation--tapping animation--tapping__crack--lever"></div>
+                        </button>
                         <button id="triggerbox_crack_lever_down" class="crack__figure__button crack__figure__button--lever--down button--triggerbox" onClick={() => this.changeContent("crack_lever_down")}>LEVER</button>
                     </figure>
                 </section>

@@ -15,8 +15,7 @@
 
 * {
   font-size: 62.5%;
-  font-family: 'Akkurat';
-  /*src: local('Akkurat'), url(fonts/Akkurat.ttf), format('truetype');*/
+  font-family: 'Akkurat', 'Roboto';
   color:var(--white-color);
 }
 
@@ -115,4 +114,49 @@ h1, h2, h3{
 
 .button--triggerbox:hover{
   cursor: pointer;
+}
+
+.animation--tapping{
+  position: relative;
+  z-index: 10;
+
+  width: 3rem;
+  height: 3rem;
+
+  opacity: 1;
+  background-color: var(--white-color);
+  border-radius: 50%;
+
+  -webkit-transform: scale(0);
+  -webkit-animation: tapping 2000ms;
+
+  transform: scale(0);
+  animation: tapping 2000ms infinite;
+
+  &__crack--place{
+    left: 22%;
+    top: -10%;
+
+    width: 6rem;
+    height: 6rem;
+  }
+
+  &__crack--lever{
+    left: 34%;
+    top: -34%;
+
+    width: 4rem;
+    height: 4rem;
+  }
+}
+
+@-webkit-keyframes tapping {
+  100% { -webkit-transform: scale(2);
+  opacity: 0
+  }
+}
+
+@keyframes tapping {
+100% { transform: scale(2); 
+opacity: 0;}
 }
