@@ -13,6 +13,12 @@ const moveItem = (item, x, y) => {
   document.getElementById(item).style.left = x - 80 + "px";
 }
 
+const stopPolish = () => {
+  if(document.getElementById("cloth_img").style.display == "block"){
+    document.getElementById("cloth_img").style.display = "none";
+  }
+}
+
 class Polish extends React.Component{
     state = {
       startup_state: true,
@@ -98,7 +104,7 @@ class Polish extends React.Component{
           for(var i = 0; i < document.getElementsByClassName("polish__section__figure__rock").length; i++) {
             document.getElementsByClassName("polish__section__figure__rock")[i].style.visibility = "hidden";
           }
-          document.getElementById("cloth_img").style.visibility = "visible";
+          document.getElementById("cloth_img").style.display = "none";
           document.getElementById("percent_text").style.visibility = "visible";
           break;
       }
@@ -165,6 +171,10 @@ class Polish extends React.Component{
 
     polishGeode(){
       if(this.state.interaction_state == "polish"){
+        if(document.getElementById("cloth_img").style.display == "none"){
+          document.getElementById("cloth_img").style.display = "block"
+        }
+
         this.state.move_count++;
 
         document.getElementById("percent_text").innerHTML = Math.round(this.state.move_count / this.state.max_move_count * 100) + "%";
@@ -227,7 +237,7 @@ class Polish extends React.Component{
             {this.state.mascot_help_state === "polish" && <h1 class="polish__text" id="action_text">{this.state.polish_text}</h1>}
 
             <section class="polish__section">
-                <figure class="polish__section__figure" onTouchStart={moveActiveObject} onTouchMove={moveActiveObject}>
+                <figure class="polish__section__figure" onTouchStart={moveActiveObject} onTouchMove={moveActiveObject} onTouchEnd={stopPolish}>
                     <img class="polish__section__figure__geode" src={this.state.geode_image_path} onTouchMove={() => this.polishGeode()}></img>
 
                     <img class="polish__section__figure__rock polish__section__figure__rock--1" id="rock1_img" src={this.state.rock1_image_path} style={{top: this.state.start_positions[0][0] + 'rem', left: this.state.start_positions[0][1] + 'rem'}} onClick={() => this.rockClick(1)} onTouchStart={() => this.rockClick(1)}></img>
