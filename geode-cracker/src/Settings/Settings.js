@@ -1,5 +1,4 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
 import './Settings.scss';
 import SettingsMenu from './Components/SettingsMenu';
 import SettingsConfirmation from './Components/SettingsConfirmation';
@@ -7,6 +6,7 @@ import SettingsConfirmation from './Components/SettingsConfirmation';
 class Settings extends React.Component{
     state = {
         icon_cogwheel_image_path: "/img/icon_cogwheel.png",
+        icon_close_image_path: "/img/icon_close.png",
         settings_modal_state: false,
         confirmation_modal_state: false
     };
@@ -33,7 +33,8 @@ class Settings extends React.Component{
             <section class="settings">
                 <button class="settings__button button--image" onClick={() => this.toggleComponent("settings_modal")}>
                     <figure>
-                        <img class="settings__button__image" src={this.state.icon_cogwheel_image_path}></img>
+                        {this.state.settings_modal_state && <img class="settings__button__image" src={this.state.icon_close_image_path}></img>}
+                        {!this.state.settings_modal_state && <img class="settings__button__image" src={this.state.icon_cogwheel_image_path}></img>}
                     </figure>
                 </button>
                 {(this.state.confirmation_modal_state || this.state.settings_modal_state) && <div class="settings__modal">
