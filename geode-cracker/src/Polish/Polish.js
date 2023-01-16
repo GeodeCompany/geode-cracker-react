@@ -100,10 +100,8 @@ class Polish extends React.Component{
           break;
         case "polish":
           this.setState({mascot_help_state: "polish"});
-          document.getElementById("bucket_img").style.visibility = "hidden";
-          for(var i = 0; i < document.getElementsByClassName("polish__section__figure__rock").length; i++) {
-            document.getElementsByClassName("polish__section__figure__rock")[i].style.visibility = "hidden";
-          }
+          document.getElementById("bucket_img").style.display = "none";
+
           document.getElementById("cloth_img").style.display = "none";
           document.getElementById("percent_text").style.visibility = "visible";
           break;
@@ -142,10 +140,17 @@ class Polish extends React.Component{
       var positions = this.state.end_positions[rock_number - 1];
       document.getElementById(rockString).style.top = positions[0] + "rem";
       document.getElementById(rockString).style.left = positions[1] + "rem";
+      document.getElementById(rockString).style.opacity = 0;
 
       if ("vibrate" in navigator && this.props.settings_vibrations) {
         navigator.vibrate(400);
       }
+
+      setTimeout(() => {
+        document.getElementById(rockString).style.display = "none";
+      }, 700);
+
+
     }
 
     checkBrushDone(){
