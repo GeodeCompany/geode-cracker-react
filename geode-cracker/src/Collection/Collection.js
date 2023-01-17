@@ -32,12 +32,18 @@ class Collection extends React.Component{
         this.state.geode_map_image_path = data_JSON.collection[geode].geode_map_image_path;
     }
 
+    redirect(){
+        var url = "https://geode-cracker.web.app/?geode=" + this.props.data_geode;
+        window.location.replace(url);
+    }
+
 
     render(){
         this.updateData(this.props.data_JSON, this.props.data_geode);
         
         return(
           <article class="collection">
+            <button class="collection__back" onClick={() => this.redirect()}>{'<'}</button>
             <section class="collection__information">
                 <figure class="collection__information__figure">
                     <img class="collection__information__figure__image" src={this.state.geode_image_image_path}></img>

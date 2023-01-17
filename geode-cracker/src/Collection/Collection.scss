@@ -5,6 +5,23 @@
     margin: 0 auto;
     padding: 0 2rem;
 
+    &__back{
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 100;
+        
+        min-width: 5rem;
+        min-height: 5rem;
+        margin: 2rem;
+
+        font-size: 7rem;
+        line-height: 3rem;
+        background: none;
+        border: none;
+
+    }
+
     &__information{
         width: 100%;
         
