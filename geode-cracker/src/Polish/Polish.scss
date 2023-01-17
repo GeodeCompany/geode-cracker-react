@@ -32,6 +32,7 @@
     margin: 0 auto;
 
     &__figure{
+
       position: relative;
       height: 100%;
       margin-top: 2rem;
@@ -46,6 +47,8 @@
       }
 
       &__rock{
+        transition: 1s;
+
         position: absolute;
         max-width: 15rem;
       }
@@ -74,7 +77,7 @@
       margin-top: .5rem;
 
       text-align: center;
-      font-size: 2rem;
+      font-size: 3.6rem;
 
       visibility: hidden;
     }
@@ -87,7 +90,7 @@
     left: 50%;
 
     &--cloth{
-      visibility: hidden;
+      display: none
     }
 
     &--brush{
